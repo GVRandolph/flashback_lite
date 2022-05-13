@@ -20,22 +20,53 @@
   <link rel="stylesheet" href="css/main.css">
 
   <meta name="theme-color" content="#fafafa">
+
+  <style>
+    .left-menu{
+      position: fixed;
+      left:0;
+      top:0;
+      background: red;
+    }
+
+    .left-menu .menu-item{
+      width: 150px;
+      height: 50px;
+      border: 1px dashed silver;
+      margin: 20px;
+    }
+
+    .left-menu .menu-item img{
+      border: 5px solid black;
+      border-radius: 3px;
+    }
+  </style>
 </head>
 
 <body>
 
-  <!-- Add your site or application content here -->
-  <p>Hello world! This is HTML5 Boilerplate.</p>
+  <div class="left-menu" id="left-menu">
+    <div class="menu-item">
+      <img src="img/game/p-01color.jpg" alt="First card">
+    </div>
+    <div class="menu-item"></div>
+    <div class="menu-item"></div>
+    <div class="menu-item"></div>
+    <div class="menu-item"></div>
+    <div class="menu-item"></div>
+    <div class="menu-item"></div>
+    <div class="menu-item"></div>
+    <div class="menu-item"></div>
+
+  </div>
+
+
+
   <script src="js/vendor/modernizr-3.11.2.min.js"></script>
   <script src="js/plugins.js"></script>
   <script src="js/main.js"></script>
 
-  <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
-  <script>
-    window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
-    ga('create', 'UA-XXXXX-Y', 'auto'); ga('set', 'anonymizeIp', true); ga('set', 'transport', 'beacon'); ga('send', 'pageview')
-  </script>
-  <script src="https://www.google-analytics.com/analytics.js" async></script>
+
 </body>
 
 </html>
