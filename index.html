@@ -26,19 +26,102 @@
       position: fixed;
       left:0;
       top:0;
-      background: red;
+      background: #f1f1f1;
     }
 
     .left-menu .menu-item{
-      width: 150px;
-      height: 50px;
       border: 1px dashed silver;
       margin: 20px;
+      display: block;
+    }
+
+    .left-menu .menu-item.selected {
+      border: 2px solid orange;
     }
 
     .left-menu .menu-item img{
       border: 5px solid black;
       border-radius: 3px;
+      width: 100px;
+      opacity: 0;
+    }
+
+    .left-menu .menu-item.active img{
+      opacity: 1
+    }
+
+    #canvas{
+      overflow: hidden;
+      width: 800px;
+      height: 540px;
+
+      margin-top: 30px;
+      margin-left: 250px;
+
+      border-radius: 10px;
+      border: 30px solid #000000;
+
+      cursor: grab;
+      position: relative;
+    }
+
+    #canvas img{
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      z-index: 0;
+      width: 800px;
+    }
+
+    #canvas img.selected{
+      opacity: 1;
+      z-index: 1;
+    }
+
+    .zoom-level-1{
+      transform: scale(0.1);
+      transform-origin: 0% 0% 0px;
+      transition: transform 0.2s;
+    }
+    .zoom-level-2{
+      transform: scale(0.25);
+      transform-origin: 0% 0% 0px;
+      transition: transform 0.2s;
+    }
+    .zoom-level-3{
+      transform: scale(0.5);
+      transform-origin: 0% 0% 0px;
+      transition: transform 0.2s;
+    }
+    .zoom-level-4{
+      transform: scale(0.75);
+      transform-origin: 0% 0% 0px;
+      transition: transform 0.2s;
+    }
+    .zoom-level-5{
+      transform: scale(1);
+      transform-origin: 0% 0% 0px;
+      transition: transform 0.2s;
+    }
+    .zoom-level-6{
+      transform: scale(1.25);
+      transform-origin: 0% 0% 0px;
+      transition: transform 0.2s;
+    }
+    .zoom-level-7{
+      transform: scale(1.5);
+      transform-origin: 0% 0% 0px;
+      transition: transform 0.2s;
+    }
+    .zoom-level-8{
+      transform: scale(1.75);
+      transform-origin: 0% 0% 0px;
+      transition: transform 0.2s;
+    }
+    .zoom-level-9{
+      transform: scale(2);
+      transform-origin: 0% 0% 0px;
     }
   </style>
 </head>
@@ -46,27 +129,207 @@
 <body>
 
   <div class="left-menu" id="left-menu">
-    <div class="menu-item">
-      <img src="img/game/p-01color.jpg" alt="First card">
+    <div class="menu-item active selected" id="menu1" data-target="card1">
+      <img src="img/game/p-01color.jpg" alt="First card" >
     </div>
-    <div class="menu-item"></div>
-    <div class="menu-item"></div>
-    <div class="menu-item"></div>
-    <div class="menu-item"></div>
-    <div class="menu-item"></div>
-    <div class="menu-item"></div>
-    <div class="menu-item"></div>
-    <div class="menu-item"></div>
-
+    <div class="menu-item" id="menu2" data-target="card2" >
+      <img src="img/game/p-02color.jpg" alt="First card">
+    </div>
+    <div class="menu-item" id="menu3" data-target="card3">
+      <img src="img/game/p-03color.jpg" alt="First card">
+    </div>
+    <div class="menu-item"  id="menu4" data-target="card4">
+      <img src="img/game/p-04color.jpg" alt="First card">
+    </div>
+    <div class="menu-item" id="menu5" data-target="card5">
+      <img src="img/game/p-05color.jpg" alt="First card">
+    </div>
+    <div class="menu-item" id="menu6" data-target="card6">
+      <img src="img/game/p-06color.jpg" alt="First card">
+    </div>
+    <div class="menu-item" id="menu7" data-target="card7">
+      <img src="img/game/p-07color.jpg" alt="First card">
+    </div>
   </div>
 
+  <div id="canvas">
+    <img src="img/game/p-01color.jpg" id="card1" usemap="#card1map" class="image puzzle selected" data-scale="1" data-targeter="menu1"/>
+    <img src="img/game/p-02color.jpg" id="card2" usemap="#card2map" class="image puzzle"        data-scale="1" data-targeter="menu2"/>
+    <img src="img/game/p-03color.jpg" id="card3" usemap="#card3map" class="image puzzle"        data-scale="1" data-targeter="menu3"/>
+    <img src="img/game/p-04color.jpg" id="card4" usemap="#card4map" class="image puzzle"        data-scale="1" data-targeter="menu4"/>
+    <img src="img/game/p-05color.jpg" id="card5" usemap="#card5map" class="image puzzle"        data-scale="1" data-targeter="menu5"/>
+    <img src="img/game/p-06color.jpg" id="card6" usemap="#card6map" class="image puzzle"        data-scale="1" data-targeter="menu6"/>
+    <img src="img/game/p-07color.jpg" id="card7" usemap=""          class="image puzzle"        data-scale="1" data-targeter="menu7"/>
+  </div>
 
+  <!-- mappings -->
+  <map name="card1map">
+    <area shape="rect" coords="140,170,190,220" alt="" href="#menu2">
+    <area shape="poly" coords="300,85,390,30,430,75,325,130" alt="" href="#menu3">
+  </map>
+  <map name="card2map">
+    <area shape="rect" coords="75,110,100,150" alt="" href="#menu4">
+  </map>
+  <map name="card3map">
+    <area shape="rect" coords="150,130,195,160" alt="" href="#menu5">
+  </map>
 
+  <map name="card5map">
+    <area shape="rect" coords="100,100,140,150" alt="" href="#menu6">
+  </map>
+  <map name="card6map">
+    <area shape="rect" coords="160,210,210,230" alt="" href="#menu7">
+  </map>
+  <!-- -->
   <script src="js/vendor/modernizr-3.11.2.min.js"></script>
   <script src="js/plugins.js"></script>
-  <script src="js/main.js"></script>
+  <script src="js/vendor/hammer.min.js"></script>
+
+  <script>
+      /* ------------------------------------------------------Utilities */
+      function $(id){ return document.getElementById(id);}
+      function $_(q){ return document.querySelector(q);}
+      function $_s(q){ return document.querySelectorAll(q);}
+
+      /* --------------------------------------------------- Variables */
+      var lastPosX = 0; // for image dragging
+      var lastPosY = 0; // for image dragging
+      var isDragging = false; // for image dragging
+
+      /* ----------------------------------------------------- Dom elements */
+      var $puzzlepieces;
+      var $menupieces;
+      var $canvas;
+
+      /* ----------------------------------------------------- DOM load */
+      document.addEventListener("DOMContentLoaded", function() {
+
+        // initiate dom elements
+        $menupieces = $_s('#left-menu .menu-item');
+        $puzzlepieces = $_s('#canvas .puzzle');
+        $canvas = $('canvas');
+
+        // Hammer js
+        for(let i = 0; i<$puzzlepieces.length; i++){
+          var mc = new Hammer($puzzlepieces[i]);
+
+          // drag
+          mc.get('pan').set({ direction: Hammer.DIRECTION_ALL });
+          mc.on("pan",touchDrag);
+
+          // pinch zoom images
+          mc.add( new Hammer.Pinch());
+          mc.on("pinch", pinchZoom);
+          mc.on("pinchend", pinchZoomEnd);
+        }
 
 
+        // click radios
+        for(let i = 0; i<$menupieces.length; i++){
+          $menupieces[i].addEventListener('click',function(e){
+            if(this.classList.contains('active')){
+              screenShow($(this.getAttribute('data-target')));
+            }
+          });
+        }
+
+        // click area
+        let a = document.getElementsByTagName('area');
+        for(let i = 0;i < a.length; i++)
+        {
+          a[i].addEventListener('click', function(e){
+            let elt = $_(this.getAttribute('href'));
+            activate(elt);
+          });
+        }
+
+      });
+
+      /* ---------------------------------------------- canvas level zoom */
+      /* ZOOM */
+      function zoom(e){
+        if( e.deltaY > 0){ return zoomout(e);}
+        else{ return zoomin(e);}
+      }
+      function zoomout(e){
+        if(zoomLevel==1)return;
+        zoomLevel--;
+        $('canvas').className='zoom-level-'+zoomLevel;
+      }
+      function zoomin(e) {
+        if (zoomLevel >= 9) return;
+        zoomLevel++;
+        $('canvas').className = 'zoom-level-' + zoomLevel;
+      }
+
+      /* ---------------------------------------------- ZOOM functions for cards */
+      function pinchZoom(e){
+        let lastScale = e.target.getAttribute('data-scale');
+        newScale = lastScale * e.scale;
+        e.target.style.transform="scale("+newScale+")"; // this is not optimum reset the scale every pinch
+      }
+
+      function pinchZoomEnd(e){
+        e.target.setAttribute('data-scale', newScale);
+      }
+
+      /* ------------------------------------------------ DRAG */
+
+      function touchDrag(ev) {
+        // for convience, let's get a reference to our object
+        var elem = ev.target;
+
+        // drag start
+        if ( ! isDragging ) {
+          isDragging = true;
+          elem.className+=' shadow-up';
+          lastPosX = elem.offsetLeft;
+          lastPosY = elem.offsetTop;
+        }
+
+
+        // we simply need to determine where the x,y of this
+        // object is relative to where it's "last" known position is
+        // NOTE:
+        //    deltaX and deltaY are cumulative
+        // Thus we need to always calculate 'real x and y' relative
+        // to the "lastPosX/Y"
+
+        // adjust with the zoom level of the canvas
+        var scaleX = $canvas.getBoundingClientRect().width / $canvas.offsetWidth;
+        var posX = ev.deltaX*(1/scaleX) + lastPosX;
+        var posY = ev.deltaY*(1/scaleX) + lastPosY;
+
+        // move our element to that position
+        elem.style.left = posX + "px";
+        elem.style.top = posY + "px";
+
+        // DRAG ENDED
+        // this is where we simply forget we are dragging
+        if (ev.isFinal) {
+          isDragging = false;
+          elem.classList.remove('shadow-up');
+        }
+      }
+
+      function screenShow(elt){
+        for(let i = 0; i<$puzzlepieces.length; i++){
+          $puzzlepieces[i].classList.remove('selected');
+        }
+        elt.classList.add('selected');
+
+        for(let i = 0; i<$menupieces.length; i++){
+          $menupieces[i].classList.remove('selected');
+        }
+        $(elt.getAttribute('data-targeter')).classList.add('selected');
+
+      }
+
+      function activate(menuelt){
+        menuelt.classList.add('active');
+        screenShow($(menuelt.getAttribute('data-target')));
+      }
+  </script>
 </body>
 
 </html>
