@@ -65,7 +65,7 @@
       position: relative;
     }
 
-    #canvas img{
+    #canvas .layer{
       position: absolute;
       top: 0;
       left: 0;
@@ -155,6 +155,9 @@
     <div class="menu-item" id="menu7" data-target="card7">
       <img src="img/game/p-07color.jpg" alt="First card">
     </div>
+    <div class="menu-item" id="menu8" data-target="question1">
+      ? ? ?
+    </div>
   </div>
 
   <div id="canvas">
@@ -165,7 +168,11 @@
     <img src="img/game/p-05color.jpg" id="card5" usemap="#card5map" class="image puzzle"        data-scale="0" data-targeter="menu5"/>
     <img src="img/game/p-06color.jpg" id="card6" usemap="#card6map" class="image puzzle"        data-scale="0" data-targeter="menu6"/>
     <img src="img/game/p-07color.jpg" id="card7" usemap=""          class="image puzzle"        data-scale="0" data-targeter="menu7"/>
+    <div id="question1" class="puzzle">
+      what questions
+    </div>
   </div>
+
 
   <!-- mappings -->
   <map name="card1map">
@@ -258,6 +265,7 @@
       function zoom(e){
         if( e.deltaY > 0){
           zoomout(e);
+
         }
         else{ zoomin(e);}
       }
@@ -270,6 +278,7 @@
         zoomLevel--;
         elt.classList.add('zoom-level-'+zoomLevel);
         elt.setAttribute('data-scale', zoomLevel);
+        resetPos(elt);
       }
       function zoomin(e) {
         let elt = e.target;
@@ -322,9 +331,7 @@
         // this is where we simply forget we are dragging
         if (ev.isFinal) {
           resetPos(elem);
-
           isDragging = false;
-
         }
       }
 
@@ -345,7 +352,6 @@
         menuelt.classList.add('active');
         screenShow($(menuelt.getAttribute('data-target')));
       }
-
 
       // recenter element when out of view
       function resetPos(elem){
@@ -371,7 +377,6 @@
           elem.style.left = shift+"px";
         }
       }
-
 
   </script>
 </body>
