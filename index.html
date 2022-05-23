@@ -22,26 +22,57 @@
   <meta name="theme-color" content="#fafafa">
 
   <style>
+    .splash{
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      text-align: center;
+      background: #f1f1f1;
+      z-index: 10;
+      opacity: 1;
+      visibility: visible;
+      transition: opacity 500ms linear;
+    }
+
+    .splash.fadded{
+      opacity: 0;
+      visibility: hidden;
+      transition: visibility 0s 500ms, opacity 500ms linear;
+    }
+
+    #container{
+      margin:auto;
+      width: 1200px;
+      position:relative;
+    }
     .left-menu{
-      position: fixed;
+      position: absolute;
       left:0;
       top:0;
       background: #f1f1f1;
     }
 
     .left-menu .menu-item{
-      border: 1px dashed silver;
+      border: 2px dashed silver;
+      border-radius: 20px;
       margin: 20px;
       display: block;
+      overflow: hidden;
+      width:100px;
+      height:60px;
+      text-align: center;
     }
 
-    .left-menu .menu-item.selected {
+    .left-menu .menu-item.active.selected {
       border: 2px solid orange;
+    }
+    .left-menu .menu-item.active{
+      border: 2px solid black;
     }
 
     .left-menu .menu-item img{
-      border: 5px solid black;
-      border-radius: 3px;
       width: 100px;
       opacity: 0;
     }
@@ -58,27 +89,45 @@
       margin-top: 30px;
       margin-left: 250px;
 
-      border-radius: 10px;
-      border: 30px solid #000000;
+      border-radius: 100px;
+      border: none;
 
-      cursor: grab;
       position: relative;
     }
 
-    #canvas .layer{
+    #canvas .puzzle{
       position: absolute;
       top: 0;
       left: 0;
       opacity: 0;
       z-index: 0;
       width: 800px;
+
     }
 
-    #canvas img.selected{
+    #canvas img.puzzle{
+      cursor: grab;
+    }
+
+    #canvas .puzzle.selected{
       opacity: 1;
       z-index: 1;
     }
 
+    #canvas #question-list{
+      width:100%;
+      height: 100%;
+      background: #b3d4fc;
+    }
+
+    #canvas #question-list .question{
+
+      margin-left: 40px;
+      border: 5px solid grey;
+      width: 220px;
+      height: 120px;
+      margin: 30px;
+    }
     .zoom-level-0{
       transform: scale(1);
       transform-origin: 50% 50% 0px;
@@ -132,6 +181,22 @@
 </head>
 
 <body>
+<div id="splash-1" class="splash">
+  <p>
+    <i>Welcome Flavor text 1 </i>
+  </p>
+  <button onclick="$('splash-1').classList.add('fadded');">
+    Commencer
+  </button>
+</div>
+<div id="splash-2" class="splash fadded">
+  <p>
+    <i>Well done flavor text2 </i>
+  </p>
+
+</div>
+
+<div id="container">
 
   <div class="left-menu" id="left-menu">
     <div class="menu-item active selected" id="menu1" data-target="card1">
@@ -155,7 +220,7 @@
     <div class="menu-item" id="menu7" data-target="card7">
       <img src="img/game/p-07color.jpg" alt="First card">
     </div>
-    <div class="menu-item" id="menu8" data-target="question1">
+    <div class="menu-item active" id="menu8" data-target="question-list">
       ? ? ?
     </div>
   </div>
@@ -168,10 +233,16 @@
     <img src="img/game/p-05color.jpg" id="card5" usemap="#card5map" class="image puzzle"        data-scale="0" data-targeter="menu5"/>
     <img src="img/game/p-06color.jpg" id="card6" usemap="#card6map" class="image puzzle"        data-scale="0" data-targeter="menu6"/>
     <img src="img/game/p-07color.jpg" id="card7" usemap=""          class="image puzzle"        data-scale="0" data-targeter="menu7"/>
-    <div id="question1" class="puzzle">
-      what questions
+    <div id="question-list" class="puzzle" data-targeter="menu8">
+      <div class="question" id="question1"></div>
+      <div class="question" id="question1"></div>
+      <div class="question" id="question1"></div>
+      <button onclick="$('splash-2').classList.remove('fadded');">
+        well done !
+      </button>
     </div>
   </div>
+</div>
 
 
   <!-- mappings -->
@@ -263,6 +334,7 @@
       /* ---------------------------------------------- canvas level zoom */
       /* ZOOM */
       function zoom(e){
+        e.preventDefault();
         if( e.deltaY > 0){
           zoomout(e);
 
