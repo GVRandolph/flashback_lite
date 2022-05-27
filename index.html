@@ -86,8 +86,8 @@
       width: 800px;
       height: 540px;
 
-      margin-top: 30px;
-      margin-left: 250px;
+      top: 60px;
+      left: 250px;
 
       border-radius: 100px;
       border: none;
@@ -118,16 +118,23 @@
       width:100%;
       height: 100%;
       background: #b3d4fc;
+      text-align: center;
     }
 
     #canvas #question-list .question{
 
       margin-left: 40px;
       border: 5px solid grey;
-      width: 220px;
+      border-radius: 20px;
+      width: 200px;
       height: 120px;
       margin: 30px;
     }
+
+    #canvas #question-list #question1{ margin-left: 100px; }
+    #canvas #question-list #question2{ margin-left: 250px; }
+    #canvas #question-list #question3{ margin-left: 400px; }
+
     .zoom-level-0{
       transform: scale(1);
       transform-origin: 50% 50% 0px;
@@ -181,7 +188,7 @@
 </head>
 
 <body>
-<div id="splash-1" class="splash">
+<!--div id="splash-1" class="splash">
   <p>
     <i>Welcome Flavor text 1 </i>
   </p>
@@ -193,8 +200,7 @@
   <p>
     <i>Well done flavor text2 </i>
   </p>
-
-</div>
+</div-->
 
 <div id="container">
 
@@ -235,15 +241,17 @@
     <img src="img/game/p-07color.jpg" id="card7" usemap=""          class="image puzzle"        data-scale="0" data-targeter="menu7"/>
     <div id="question-list" class="puzzle" data-targeter="menu8">
       <div class="question" id="question1"></div>
-      <div class="question" id="question1"></div>
-      <div class="question" id="question1"></div>
+      <div class="question" id="question2"></div>
+      <div class="question" id="question3"></div>
       <button onclick="$('splash-2').classList.remove('fadded');">
         well done !
       </button>
     </div>
   </div>
 </div>
-
+<!--div id="debug" style="position: fixed; top:0; left:0; width: 160px; height: 900px; background: violet; overflow: scroll">
+  info
+</div-->
 
   <!-- mappings -->
   <map name="card1map">
@@ -278,6 +286,7 @@
       var lastPosX = 0; // for image dragging
       var lastPosY = 0; // for image dragging
       var isDragging = false; // for image dragging
+      var isPinching = false; // for image dragging
 
       /* ----------------------------------------------------- Dom elements */
       var $puzzlepieces;
@@ -302,13 +311,18 @@
 
           // pinch zoom images
           mc.add( new Hammer.Pinch());
-          mc.on("pinch", pinchZoom);
-          mc.on("pinchend", pinchZoomEnd);
+          //mc.on("pinch", pinchZoom);
+          mc.on("pinchin", pinchZoomOut);
+          mc.on("pinchout", pinchZoomIn);
 
           //wheel zoom
           $puzzlepieces[i].addEventListener('wheel',zoom);
-        }
 
+          // resset pos after zoom animation
+          $puzzlepieces[i].addEventListener('transitionend',function(){resetPos(this);});
+          $puzzlepieces[i].addEventListener('webkitTransitionend',function(){resetPos(this);});
+          $puzzlepieces[i].addEventListener('otransitionend',function(){resetPos(this);});
+        }
 
         // click radios
         for(let i = 0; i<$menupieces.length; i++){
@@ -328,7 +342,6 @@
             activate(elt);
           });
         }
-
       });
 
       /* ---------------------------------------------- canvas level zoom */
@@ -336,48 +349,50 @@
       function zoom(e){
         e.preventDefault();
         if( e.deltaY > 0){
-          zoomout(e);
-
+          zoomoffset(e.target,-1);
         }
-        else{ zoomin(e);}
+        else{
+          zoomoffset(e.target,1);
+        }
       }
-
-      function zoomout(e){
-        let elt = e.target;
+      function zoomoffset(elt,offset){
         let zoomLevel = elt.getAttribute('data-scale');
-        if(zoomLevel==0)return;
+        let newZoomLevel = parseInt(zoomLevel) + parseInt(offset);
+        console.log(newZoomLevel);
+        if(newZoomLevel>=9)return;
+        if(newZoomLevel<0)return;
         elt.classList.remove('zoom-level-'+zoomLevel);
-        zoomLevel--;
-        elt.classList.add('zoom-level-'+zoomLevel);
-        elt.setAttribute('data-scale', zoomLevel);
-        resetPos(elt);
-      }
-      function zoomin(e) {
-        let elt = e.target;
-        let zoomLevel = elt.getAttribute('data-scale');
-        if(zoomLevel>=9)return;
-        elt.classList.remove('zoom-level-'+zoomLevel);
-        zoomLevel++;
-        elt.classList.add('zoom-level-'+zoomLevel);
-        elt.setAttribute('data-scale', zoomLevel);
+        elt.classList.add('zoom-level-'+newZoomLevel);
+        elt.setAttribute('data-scale', newZoomLevel);
       }
 
       /* ---------------------------------------------- ZOOM functions for cards */
-      function pinchZoom(e){
-        let lastScale = e.target.getAttribute('data-scale');
-        newScale = lastScale * e.scale;
-        e.target.style.transform="scale("+newScale+")"; // this is not optimum reset the scale every pinch
+      function pinchZoomOut(ev){
+        let elem = ev.target;
+
+        // drag start
+        if ( ! isPinching ) {
+          isPinching = true;
+          lastScale = elem.getAttribute('data-scale');;
+        }
+let newScale = lastScale ;
+        newScale += Math.round(ev.scale);
+        zoomto(elem, newScale);
+
+        $('debug').innerHTML += '<br>'+Math.round(e.scale);
       }
 
-      function pinchZoomEnd(e){
-        e.target.setAttribute('data-scale', newScale);
+      function pinchZoomIn(e){
+        $('debug').innerHTML += '<br>'+Math.round(e.scale);
       }
+
+
 
       /* ------------------------------------------------ DRAG */
 
       function touchDrag(ev) {
         // for convience, let's get a reference to our object
-        var elem = ev.target;
+        let elem = ev.target;
 
         // drag start
         if ( ! isDragging ) {
