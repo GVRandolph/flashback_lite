@@ -66,10 +66,10 @@
     }
 
     .left-menu .menu-item.active.selected {
-      border: 2px solid orange;
+      border: 5px solid white;
     }
     .left-menu .menu-item.active{
-      border: 2px solid black;
+      border: 5px solid black;
     }
 
     .left-menu .menu-item img{
@@ -129,11 +129,23 @@
       width: 200px;
       height: 120px;
       margin: 30px;
+      overflow: hidden;
     }
 
     #canvas #question-list #question1{ margin-left: 100px; }
     #canvas #question-list #question2{ margin-left: 250px; }
     #canvas #question-list #question3{ margin-left: 400px; }
+
+    #canvas #question-list .question .card{
+      opacity: 0;
+      background: white;
+      width: 200px;
+      height: 150px;
+    }
+    #canvas #question-list .question.active .card{
+      opacity: 1;
+      transition: opacity 1s ease-out;
+    }
 
     .zoom-level-0{
       transform: scale(1);
@@ -238,11 +250,17 @@
     <img src="img/game/p-04color.jpg" id="card4" usemap="#card4map" class="image puzzle"        data-scale="0" data-targeter="menu4"/>
     <img src="img/game/p-05color.jpg" id="card5" usemap="#card5map" class="image puzzle"        data-scale="0" data-targeter="menu5"/>
     <img src="img/game/p-06color.jpg" id="card6" usemap="#card6map" class="image puzzle"        data-scale="0" data-targeter="menu6"/>
-    <img src="img/game/p-07color.jpg" id="card7" usemap=""          class="image puzzle"        data-scale="0" data-targeter="menu7"/>
+    <img src="img/game/p-07color.jpg" id="card7" usemap="#card7map" class="image puzzle"        data-scale="0" data-targeter="menu7"/>
     <div id="question-list" class="puzzle" data-targeter="menu8">
-      <div class="question" id="question1"></div>
-      <div class="question" id="question2"></div>
-      <div class="question" id="question3"></div>
+      <div class="question" id="question1">
+        <div class="card">Question 1 ?</div>
+      </div>
+      <div class="question" id="question2">
+        <div class="card">Question 2 ?</div>
+      </div>
+      <div class="question" id="question3">
+        <div class="card">Question 3 ?</div>
+      </div>
       <button onclick="$('splash-2').classList.remove('fadded');">
         well done !
       </button>
@@ -260,7 +278,7 @@
   </map>
   <map name="card2map">
     <area shape="rect" coords="170,240,270,360" alt="" href="#menu4">
-    <area shape="rect" coords="630,440,760,510" alt="" href="#menu8">
+    <area shape="rect" coords="630,440,760,510" alt="" href="#menu8" data-question="question1">
 
   </map>
   <map name="card3map">
@@ -269,14 +287,14 @@
 
   <map name="card5map">
     <area shape="rect" coords="240,260,300,310" alt="" href="#menu6">
-    <area shape="rect" coords="630,440,760,510" alt="" href="#menu8">
+    <area shape="rect" coords="630,440,760,510" alt="" href="#menu8" data-question="question2">
 
   </map>
   <map name="card6map">
     <area shape="rect" coords="360,470,480,520" alt="" href="#menu7">
   </map>
-<map name="card6map">
-    <area shape="rect" coords="630,440,760,510" alt="" href="#menu8">
+  <map name="card7map">
+    <area shape="rect" coords="630,440,760,510" alt="" href="#menu8" data-question="question3">
   </map>
   <!-- -->
   <script src="js/vendor/modernizr-3.11.2.min.js"></script>
@@ -345,6 +363,10 @@
           a[i].addEventListener('click', function(e){
             let elt = $_(this.getAttribute('href'));
             activate(elt);
+            let q = this.getAttribute('data-question');
+            if(q!=''){
+              $(q).classList.add('active');
+            }
           });
         }
       });
