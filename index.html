@@ -311,9 +311,7 @@
 
           // pinch zoom images
           mc.add( new Hammer.Pinch());
-          //mc.on("pinch", pinchZoom);
-          mc.on("pinchin", pinchZoomOut);
-          mc.on("pinchout", pinchZoomIn);
+          mc.on("pinch", pinchZoom);
 
           //wheel zoom
           $puzzlepieces[i].addEventListener('wheel',zoom);
@@ -367,29 +365,31 @@
       }
 
       /* ---------------------------------------------- ZOOM functions for cards */
-      function pinchZoomOut(ev){
-        let elem = ev.target;
+      function pinchZoom(ev){
+         // $('debug').innerHTML += '<br>'+ ev.scale;
+        let elt = ev.target;
 
-        // drag start
-        if ( ! isPinching ) {
+        // pinch start
+        if ( !isPinching ) {
           isPinching = true;
-          lastScale = elem.getAttribute('data-scale');;
+          lastScale = elt.getAttribute('data-scale');;
         }
-let newScale = lastScale ;
-        newScale += Math.round(ev.scale);
-        zoomto(elem, newScale);
+        let newScale = lastScale ;
+        if(ev.scale >=1){
+          newScale += Math.round(ev.scale);
+        }else{
+          newScale -= Math.round(1/ev.scale);
+        }
+        zoomoffset(elt, newScale);
 
-        $('debug').innerHTML += '<br>'+Math.round(e.scale);
+        // pinch ENDED
+        if (ev.isFinal) {
+          isPinching = false;
+        }
+
       }
-
-      function pinchZoomIn(e){
-        $('debug').innerHTML += '<br>'+Math.round(e.scale);
-      }
-
-
 
       /* ------------------------------------------------ DRAG */
-
       function touchDrag(ev) {
         // for convience, let's get a reference to our object
         let elem = ev.target;
