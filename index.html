@@ -43,37 +43,51 @@
     }
 
     #container{
-      margin:auto;
-      width: 1200px;
-      position:relative;
+      margin: 0 ;
+      padding: 10px;
+      width: 100%;
+      position: relative;
+      box-sizing: border-box;
     }
+
     .left-menu{
       position: absolute;
       left:0;
       top:0;
-      background: #f1f1f1;
+      background: black;
+      width: 100%;
+
+      box-sizing: border-box;
+
+      white-space: nowrap;
+      text-align: center;
+      z-index: 10;
+      opacity: 0.8;
     }
 
     .left-menu .menu-item{
       border: 2px dashed silver;
       border-radius: 20px;
       margin: 20px;
-      display: block;
+      display: inline-block;
       overflow: hidden;
-      width:100px;
-      height:60px;
       text-align: center;
+      width: 60px;
+      height: 40px;
+
+      pointer-events: none;
     }
 
     .left-menu .menu-item.active.selected {
-      border: 5px solid white;
+      border: 5px solid #fdf610;
     }
     .left-menu .menu-item.active{
       border: 5px solid black;
+      pointer-events: all;
     }
 
     .left-menu .menu-item img{
-      width: 100px;
+      height: 50px;
       opacity: 0;
     }
 
@@ -83,37 +97,76 @@
 
     #canvas{
       overflow: hidden;
-      width: 800px;
-      height: 540px;
+      width: 100%;
+      max-width: 1500px;
+      margin: 0;
 
-      top: 60px;
-      left: 250px;
 
-      border-radius: 100px;
-      border: none;
+      top: 0px;
+      left: 0;
 
+      border-radius: 10px;
+      border: 5px solid #a4e0a4;
+      box-sizing: border-box;
       position: relative;
+      margin: auto;
     }
 
-    #canvas .puzzle{
+    #canvas .background-img{
+      position: relative;
+      top:0;
+      left: 0;
+      opacity: 0;
+      z-index: 0;
+      width: 100%;
+    }
+
+    #canvas .puzzlepiece{
       position: absolute;
       top: 0;
       left: 0;
       opacity: 0;
       z-index: 0;
-      width: 800px;
-
+      width: 100%;
+      height: 100%;
+      background: #b3d4fc;
     }
 
-    #canvas img.puzzle{
-      cursor: grab;
+    #canvas .puzzlepiece .image{
+      width: 100%;
     }
 
-    #canvas .puzzle.selected{
+
+    #canvas .puzzlepiece:target,
+    #canvas .puzzlepiece.first-selected
+    {
       opacity: 1;
       z-index: 1;
     }
 
+    #canvas .puzzlepiece .hiddenbutton{
+      cursor: default;
+    }
+
+    #card1-doghead{
+      background: chocolate;
+      opacity: 0;
+
+      animation-name: hint;
+      animation-duration: 500ms ;
+      animation-delay: 15s;
+    }
+
+    @keyframes hint {
+      0%{ opacity:1; transform: rotate(10deg);}
+      33%{ transform: rotate(-10deg);}
+      50%{ transform: rotate(10deg);}
+      75%{ transform: rotate(-10deg);}
+      100%{
+        transform: rotate(0deg);
+      }
+
+    }
     #canvas #question-list{
       width:100%;
       height: 100%;
@@ -146,6 +199,31 @@
       opacity: 1;
       transition: opacity 1s ease-out;
     }
+
+    #canvas .commands{ display: none;
+      position: absolute;
+      top: 60px;
+      left: 10px;
+      opacity: 0.7;
+      z-index: 50;
+    }
+
+    #canvas .commands .control{
+      border-radius: 5px;
+      background: #222222;
+      color: white;
+      font-weight: bold;
+      font-size: 2em;
+      text-decoration: none;
+      opacity: 0.7;
+      width: 42px;
+      height: 42px;
+      line-height: 38px;
+      display: block;
+      text-align: center;
+      margin: 7px;
+    }
+
 
     .zoom-level-0{
       transform: scale(1);
@@ -200,7 +278,7 @@
 </head>
 
 <body>
-<div id="splash-1" class="splash">
+<div id="splash-1" class="splash fadded">
   <p>
     <i>Welcome Flavor text 1 </i>
   </p>
@@ -217,41 +295,65 @@
 <div id="container">
 
   <div class="left-menu" id="left-menu">
-    <div class="menu-item active selected" id="menu1" data-target="card1">
+    <a class="menu-item active selected" id="menu1" href="#card1">
       <img src="img/game/p-01color.jpg" alt="First card" >
-    </div>
-    <div class="menu-item" id="menu2" data-target="card2" >
-      <img src="img/game/p-02color.jpg" alt="First card">
-    </div>
-    <div class="menu-item" id="menu3" data-target="card3">
-      <img src="img/game/p-03color.jpg" alt="First card">
-    </div>
-    <div class="menu-item"  id="menu4" data-target="card4">
-      <img src="img/game/p-04color.jpg" alt="First card">
-    </div>
-    <div class="menu-item" id="menu5" data-target="card5">
-      <img src="img/game/p-05color.jpg" alt="First card">
-    </div>
-    <div class="menu-item" id="menu6" data-target="card6">
-      <img src="img/game/p-06color.jpg" alt="First card">
-    </div>
-    <div class="menu-item" id="menu7" data-target="card7">
-      <img src="img/game/p-07color.jpg" alt="First card">
-    </div>
-    <div class="menu-item active" id="menu8" data-target="question-list">
+    </a>
+    <a class="menu-item" id="menu-card2" href="#card2" >
+      <img src="img/game/p-02color.jpg" alt="Secund card">
+    </a>
+    <a class="menu-item" id="menu3" href="#card3">
+      <img src="img/game/p-03color.jpg" alt="Third card">
+    </a>
+    <a class="menu-item"  id="menu4" href="#card4">
+      <img src="img/game/p-04color.jpg" alt="Fourth card">
+    </a>
+    <a class="menu-item" id="menu5" href="#card5">
+      <img src="img/game/p-05color.jpg" alt="Fifth card">
+    </a>
+    <a class="menu-item" id="menu6" href="#card6">
+      <img src="img/game/p-06color.jpg" alt="Sixth card">
+    </a>
+    <a class="menu-item" id="menu7" href="#card7">
+      <img src="img/game/p-07color.jpg" alt="Seventh card">
+    </a>
+    <a class="menu-item" id="menu8" href="#question-list">
       ? ? ?
-    </div>
+    </a>
   </div>
 
   <div id="canvas">
-    <img src="img/game/p-01color.jpg" id="card1" usemap="#card1map" class="image puzzle selected" data-scale="0" data-targeter="menu1"/>
-    <img src="img/game/p-02color.jpg" id="card2" usemap="#card2map" class="image puzzle"        data-scale="0" data-targeter="menu2"/>
-    <img src="img/game/p-03color.jpg" id="card3" usemap="#card3map" class="image puzzle"        data-scale="0" data-targeter="menu3"/>
-    <img src="img/game/p-04color.jpg" id="card4" usemap="#card4map" class="image puzzle"        data-scale="0" data-targeter="menu4"/>
-    <img src="img/game/p-05color.jpg" id="card5" usemap="#card5map" class="image puzzle"        data-scale="0" data-targeter="menu5"/>
-    <img src="img/game/p-06color.jpg" id="card6" usemap="#card6map" class="image puzzle"        data-scale="0" data-targeter="menu6"/>
-    <img src="img/game/p-07color.jpg" id="card7" usemap="#card7map" class="image puzzle"        data-scale="0" data-targeter="menu7"/>
-    <div id="question-list" class="puzzle" data-targeter="menu8">
+
+    <img src="img/game/p-01color.jpg" id="background-img"  class="image background-img" />
+
+    <div class="puzzlepiece first-selected" id="card1" data-scale="0" >
+      <img src="img/game/p-01color.jpg" class="image" />
+      <a id="card1-doghead" class="hiddenbutton" href="#card2" style="position: absolute; left:32%; top:57%; width:7%;height:10%; "> </a>
+      <a id="card1-retro" class="hiddenbutton" href="#card3" style="position: absolute; left: 65%; top: 12%; width: 31%; height:24%;  transform: rotate(-30deg)"> </a>
+    </div>
+    <div class="puzzlepiece " id="card2" data-scale="0" >
+      <img src="img/game/p-02color.jpg" class="image" />
+      <a id="card2-zombie" class="hiddenbutton" href="#card4" style="position: absolute; left: 21%; top:50%; width:5%;height:11%; "> </a>
+    </div>
+    <div class="puzzlepiece " id="card3" data-scale="0" >
+      <img src="img/game/p-03color.jpg"  class="image" />
+      <a id="card3-visiere" class="hiddenbutton" href="#card5" style="position: absolute; left: 44%; top: 58%; width: 12%; height:5%; "> </a>
+    </div>
+    <div class="puzzlepiece " id="card4" data-scale="0" >
+      <img src="img/game/p-04color.jpg" class="image" />
+    </div>
+    <div class="puzzlepiece " id="card5" data-scale="0" >
+      <img src="img/game/p-05color.jpg" class="image" />
+      <a id="card5-head" class="hiddenbutton" href="#card6" style="position: absolute; left: 32%; top: 50%; width:5%; height:7%; "> </a>
+    </div>
+    <div class="puzzlepiece " id="card6" data-scale="0" >
+      <img src="img/game/p-06color.jpg" class="image" />
+      <a id="card6-clown" class="hiddenbutton" href="#card7" style="position: absolute; left: 45%; top: 87%; width: 16%; height: 10%; "> </a>
+    </div>
+    <div class="puzzlepiece " id="card7" data-scale="0" >
+      <img src="img/game/p-07color.jpg" class="image" />
+      <a id="card7-doghead" class="hiddenbutton" href="#question-list" style="position: absolute; left:0; top:0; width:20%;height:20%; "> </a>
+    </div>
+    <div id="question-list" class="puzzlepiece" data-targeter="menu8">
       <div class="question" id="question1">
         <div class="card">Question 1 ?</div>
       </div>
@@ -266,37 +368,11 @@
       </button>
     </div>
   </div>
+
 </div>
 
-  <!-- mappings -->
-  <map name="card1map">
-    <area shape="rect" coords="260,310,310,350" alt="" href="#menu2">
-    <area shape="poly" coords="510,140,720,20,770,120,570,230" alt="" href="#menu3">
-  </map>
-  <map name="card2map">
-    <area shape="rect" coords="170,240,270,360" alt="" href="#menu4">
-    <area shape="rect" coords="630,440,760,510" alt="" href="#menu8" data-question="question1">
-
-  </map>
-  <map name="card3map">
-    <area shape="rect" coords="360,310,430,340" alt="" href="#menu5">
-  </map>
-
-  <map name="card5map">
-    <area shape="rect" coords="240,260,300,310" alt="" href="#menu6">
-    <area shape="rect" coords="630,440,760,510" alt="" href="#menu8" data-question="question2">
-
-  </map>
-  <map name="card6map">
-    <area shape="rect" coords="360,470,480,520" alt="" href="#menu7">
-  </map>
-  <map name="card7map">
-    <area shape="rect" coords="630,440,760,510" alt="" href="#menu8" data-question="question3">
-  </map>
-  <!-- -->
   <script src="js/vendor/modernizr-3.11.2.min.js"></script>
   <script src="js/plugins.js"></script>
-  <script src="js/vendor/hammer.min.js"></script>
 
   <script>
       /* ------------------------------------------------------Utilities */
@@ -312,6 +388,7 @@
 
       /* ----------------------------------------------------- Dom elements */
       var $puzzlepieces;
+      var $hiddenbuttons;
       var $menupieces;
       var $canvas;
 
@@ -320,176 +397,47 @@
 
         // initiate dom elements
         $menupieces = $_s('#left-menu .menu-item');
-        $puzzlepieces = $_s('#canvas .puzzle');
+        $puzzlepieces = $_s('#canvas .puzzlepiece');
+        $hiddenbuttons = $_s('#canvas .puzzlepiece .hiddenbutton');
         $canvas = $('canvas');
 
-        // Hammer js
-        for(let i = 0; i<$puzzlepieces.length; i++){
-          var mc = new Hammer($puzzlepieces[i]);
-
-          // drag
-          mc.get('pan').set({ direction: Hammer.DIRECTION_ALL });
-          mc.on("pan",touchDrag);
-
-          // pinch zoom images
-          mc.add( new Hammer.Pinch());
-          mc.on("pinch", pinchZoom);
-
-          //wheel zoom
-          $puzzlepieces[i].addEventListener('wheel',zoom);
-
-          // resset pos after zoom animation
-          $puzzlepieces[i].addEventListener('transitionend',function(){resetPos(this);});
-          $puzzlepieces[i].addEventListener('webkitTransitionend',function(){resetPos(this);});
-          $puzzlepieces[i].addEventListener('otransitionend',function(){resetPos(this);});
+        // redirect to card 1 if current #card is not active
+        let hash = window.location.hash;
+        if(hash){
+          if ( ! $_(hash).classList.contains('active')){
+            window.location = window.location.href.replace(window.location.hash,"");
+          }
         }
 
-        // click radios
-        for(let i = 0; i<$menupieces.length; i++){
+        // menu selection
+        for( let i=0 ; i< $menupieces.length; i++){
           $menupieces[i].addEventListener('click',function(e){
-            if(this.classList.contains('active')){
-              screenShow($(this.getAttribute('data-target')));
+            for( let i=0 ; i< $menupieces.length; i++){
+              $menupieces[i].classList.remove('selected');
+            }
+            this.classList.add('selected');
+          });
+        }
+
+        // menu activation
+        for( let i=0 ; i< $hiddenbuttons.length; i++){
+          $hiddenbuttons[i].addEventListener('click',function(e){
+            for(let i=0; i< $menupieces.length;i++){
+              if(this.getAttribute('href') == $menupieces[i].getAttribute('href')){
+                $menupieces[i].classList.add('active');
+                for( let i=0 ; i< $menupieces.length; i++){
+                  $menupieces[i].classList.remove('selected');
+                }
+                $menupieces[i].classList.add('selected');
+              }
             }
           });
         }
 
-        // click area
-        let a = document.getElementsByTagName('area');
-        for(let i = 0;i < a.length; i++)
-        {
-          a[i].addEventListener('click', function(e){
-            let elt = $_(this.getAttribute('href'));
-            activate(elt);
-            let q = this.getAttribute('data-question');
-            if(q!=''){
-              $(q).classList.add('active');
-            }
-          });
-        }
+
       });
 
-      /* ---------------------------------------------- canvas level zoom */
-      /* ZOOM */
-      function zoom(e){
-        e.preventDefault();
-        if( e.deltaY > 0){
-          zoomoffset(e.target,-1);
-        }
-        else{
-          zoomoffset(e.target,1);
-        }
-      }
-      function zoomoffset(elt,offset){
-        let zoomLevel = elt.getAttribute('data-scale');
-        let newZoomLevel = parseInt(zoomLevel) + parseInt(offset);
-        console.log(newZoomLevel);
-        if(newZoomLevel>=9)return;
-        if(newZoomLevel<0)return;
-        elt.classList.remove('zoom-level-'+zoomLevel);
-        elt.classList.add('zoom-level-'+newZoomLevel);
-        elt.setAttribute('data-scale', newZoomLevel);
-      }
 
-      /* ---------------------------------------------- ZOOM functions for cards */
-      function pinchZoom(ev){
-         // $('debug').innerHTML += '<br>'+ ev.scale;
-        let elt = ev.target;
-
-        // pinch start
-        if ( !isPinching ) {
-          isPinching = true;
-          lastScale = elt.getAttribute('data-scale');;
-        }
-        let newScale = lastScale ;
-        if(ev.scale >=1){
-          newScale += Math.round(ev.scale);
-        }else{
-          newScale -= Math.round(1/ev.scale);
-        }
-        zoomoffset(elt, newScale);
-
-        // pinch ENDED
-        if (ev.isFinal) {
-          isPinching = false;
-        }
-
-      }
-
-      /* ------------------------------------------------ DRAG */
-      function touchDrag(ev) {
-        // for convience, let's get a reference to our object
-        let elem = ev.target;
-
-        // drag start
-        if ( ! isDragging ) {
-          isDragging = true;
-          lastPosX = elem.offsetLeft;
-          lastPosY = elem.offsetTop;
-        }
-
-        // we simply need to determine where the x,y of this
-        // object is relative to where it's "last" known position is
-        // NOTE:
-        //    deltaX and deltaY are cumulative
-        // Thus we need to always calculate 'real x and y' relative
-        // to the "lastPosX/Y"
-        var posX = ev.deltaX + lastPosX;
-        var posY = ev.deltaY + lastPosY;
-
-        // move our element to that position
-        elem.style.left = posX + "px";
-        elem.style.top = posY + "px";
-
-        // DRAG ENDED
-        // this is where we simply forget we are dragging
-        if (ev.isFinal) {
-          resetPos(elem);
-          isDragging = false;
-        }
-      }
-
-      function screenShow(elt){
-        for(let i = 0; i<$puzzlepieces.length; i++){
-          $puzzlepieces[i].classList.remove('selected');
-        }
-        elt.classList.add('selected');
-
-        for(let i = 0; i<$menupieces.length; i++){
-          $menupieces[i].classList.remove('selected');
-        }
-        $(elt.getAttribute('data-targeter')).classList.add('selected');
-
-      }
-
-      function activate(menuelt){
-        menuelt.classList.add('active');
-        screenShow($(menuelt.getAttribute('data-target')));
-      }
-
-      // recenter element when out of view
-      function resetPos(elem){
-        let eltBounds = elem.getBoundingClientRect();
-        let eltScale = elem.getAttribute('data-scale');
-        let canvasBounds = $canvas.getBoundingClientRect();
-
-        let shifty  = Math.round( eltScale*0.25*270 ) ;
-        let shiftx  = Math.round( eltScale*0.25*400 ) ;
-
-        if( eltBounds.y > canvasBounds.y ){
-          elem.style.top = shifty+"px";
-        }
-        if( eltBounds.x > canvasBounds.x ){
-          elem.style.left = shiftx+"px";
-        }
-        if( eltBounds.y - canvasBounds.y + eltBounds.height < 540 ){
-          let shift = 540 - eltBounds.height + shifty ;
-          elem.style.top = shift+"px";
-        }
-        if( eltBounds.x - canvasBounds.x + eltBounds.width < 800 ){
-          let shift = 800 - eltBounds.width + shiftx ;
-          elem.style.left = shift+"px";
-        }
-      }
 
   </script>
 </body>
