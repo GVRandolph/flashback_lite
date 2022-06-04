@@ -56,22 +56,24 @@
       top:0;
       background: rgba( 0,0,0,0.4);
 
-      width: 100%;
+      height: 100%;
+      width: 100px;
 
       box-sizing: border-box;
 
-      white-space: nowrap;
       text-align: center;
       z-index: 10;
 
-      overflow-y: scroll;
+      overflow-x: scroll;
+      text-align: left;
     }
 
     .left-menu .menu-item{
       border: 2px dashed silver;
       border-radius: 20px;
       margin: 10px 20px;
-      display: inline-block;
+      display: block;
+      float: left;
       overflow: hidden;
       text-align: center;
       width: 60px;
@@ -102,7 +104,6 @@
       width: 100%;
       max-width: 1500px;
 
-
       top: 0px;
       left: 0;
 
@@ -110,7 +111,7 @@
       border: 5px solid #a4e0a4;
       box-sizing: border-box;
       position: relative;
-      margin: 100px auto;
+      margin: 10px auto;
     }
 
     #canvas .background-img{
