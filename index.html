@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <title></title>
   <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <meta property="og:title" content="">
   <meta property="og:type" content="">
@@ -54,7 +54,7 @@
       position: fixed;
       left:0;
       top:0;
-      background: rgba( 0,0,0,0.4);
+      background: rgba( 0,0,0,0.6);
 
       width: 100%;
 
@@ -62,7 +62,7 @@
 
       white-space: nowrap;
       text-align: center;
-      z-index: 10;
+      z-index: 5;
 
       overflow-y: scroll;
     }
@@ -70,7 +70,7 @@
     .left-menu .menu-item{
       border: 2px dashed silver;
       border-radius: 20px;
-      margin: 10px 20px;
+      margin: 10px 10px;
       display: inline-block;
       overflow: hidden;
       text-align: center;
@@ -81,10 +81,10 @@
     }
 
     .left-menu .menu-item.active.selected {
-      border: 5px solid #fdf610;
+      border: 2px solid #fdf610;
     }
     .left-menu .menu-item.active{
-      border: 5px solid black;
+      border: 2px solid black;
       pointer-events: all;
     }
 
@@ -111,6 +111,7 @@
       box-sizing: border-box;
       position: relative;
       margin: 100px auto;
+      z-index:1;
     }
 
     #canvas .background-img{
@@ -163,7 +164,7 @@
 
       animation-name: hint;
       animation-duration: 1400ms ;
-      animation-delay: 15s;
+      animation-delay: 20s;
       animation-iteration-count: infinite;
       animation-timing-function: ease-out;
 
@@ -173,28 +174,28 @@
     @keyframes hint {
       0%{
         opacity:1;
-        margin-top:-30px;
-        margin-left: 20px;
+        margin-top:-3.5%;
+        margin-left: 3.5%;
       }
       25%{
         opacity:1;
-        margin-top: 30px;
-        margin-left: -20px;
+        margin-top: 0;
+        margin-left: 0;
       }
       50%{
         opacity:1;
-        margin-top:-30px;
-        margin-left: 20px;
+        margin-top:-3.5%;
+        margin-left: 3.5%;
       }
       75%{
         opacity:1;
-        margin-top: 30px;
-        margin-left: -20px;
+        margin-top: 0;
+        margin-left: 0;
       }
       100%{
         opacity:1;
-        margin-top:-30px;
-        margin-left: 20px;
+        margin-top:-3.5%;
+        margin-left: 3.5%;
       }
     }
 
@@ -307,7 +308,7 @@
 </head>
 
 <body>
-<div id="splash-1" class="splash fadded">
+<div id="splash-1" class="splash">
   <p>
     <i>Welcome Flavor text 1 </i>
   </p>
@@ -356,8 +357,8 @@
 
     <div class="puzzlepiece first-selected" id="card1" data-scale="0" >
       <img src="img/game/p-01color.jpg" class="image" />
-      <a id="card1-doghead" class="hiddenbutton" href="#card2" style="position: absolute; left:32%; top:57%; width:7%;height:10%; "> </a>
-      <div id="hint-doghead" class="hint" style="position: absolute; left:33%; top:40%; width:15%;height:17%; "> </div>
+      <a id="card1-doghead" class="hiddenbutton" href="#card2" style="position: absolute; left:30%; top:57%; width:7%;height:10%; "> </a>
+      <div id="hint-doghead" class="hint" style="position: absolute; left:32%; top:43%; width:15%;height:17%; "> </div>
       <a id="card1-retro" class="hiddenbutton" href="#card3" style=" position: absolute; left: 65%; top: 12%; width: 31%; height:24%;  transform: rotate(-30deg)"> </a>
     </div>
     <div class="puzzlepiece " id="card2" data-scale="0" >
