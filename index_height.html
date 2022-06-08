@@ -1,0 +1,81 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:title" content="">
+  <meta property="og:type" content="">
+  <meta property="og:url" content="">
+  <meta property="og:image" content="">
+
+  <link rel="manifest" href="site.webmanifest">
+  <link rel="apple-touch-icon" href="icon.png">
+  <!-- Place favicon.ico in the root directory -->
+
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/main.css">
+
+  <meta name="theme-color" content="#fafafa">
+
+  <style>
+    #container{
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
+      position: absolute;
+      background: violet;
+      padding: 120px 20px 20px 20px;
+      box-sizing: border-box;
+
+    }
+    #canvas{
+      position: relative;
+      height: 100%;
+      background: red;
+      text-align: center;
+      border: 20px solid yellow;
+      box-sizing: border-box;
+    }
+
+    .puzzlepiece{
+      position: relative;
+      height: 100%;
+      max-width: 100%;
+      margin: auto;
+      display: inline-block;
+      border:2px solid greenyellow;
+    }
+    img{
+      position: relative;
+      top:0;
+      left:0;
+      width: 100%;
+      max-height: 100%;
+    }
+  </style>
+</head>
+
+<body>
+
+<div id="container">
+
+  <div id="canvas">
+    <div class="puzzlepiece first-selected" id="card1" data-scale="0" >
+      <img src="img/game/p-01color.jpg" class="image" />
+      <a id="card1-doghead" class="hiddenbutton" href="#card2" style="position: absolute; left:30%; top:57%; width:7%;height:10%; "> </a>
+      <div id="hint-doghead" class="hint" style="position: absolute; left:32%; top:43%; width:15%;height:17%; "> </div>
+      <a id="card1-retro" class="hiddenbutton" href="#card3" style=" position: absolute; left: 65%; top: 12%; width: 31%; height:24%;  transform: rotate(-30deg)"> </a>
+    </div>
+
+  </div>
+
+</div>
+
+
+</body>
+
+</html>
