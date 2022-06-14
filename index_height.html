@@ -34,28 +34,49 @@
     }
     #canvas{
       position: relative;
-      height: 100%;
+
       background: red;
       text-align: center;
-      border: 20px solid yellow;
       box-sizing: border-box;
+    }
+    @media (max-aspect-ratio: 1/1) {
+      #canvas{
+        width: 100%;
+        height: auto;
+        border: 20px solid yellow;
+
+      }
+      img{
+        top:0;
+        left:0;
+        width: 100%;
+
+        display: inline;
+      }
+    }
+    @media (min-aspect-ratio: 1/1) {
+      #canvas{
+        height: 100%;
+        width: auto;
+        border: 20px solid darkolivegreen;
+
+      }
+      img{
+        top:0;
+        left:0;
+        height: 100%;
+        width: auto;
+      }
     }
 
     .puzzlepiece{
-      position: relative;
-      height: 100%;
-      max-width: 100%;
-      margin: auto;
-      display: inline-block;
+      position: absolute;
       border:2px solid greenyellow;
+
+      height: 100%;
+      width: auto;
     }
-    img{
-      position: relative;
-      top:0;
-      left:0;
-      width: 100%;
-      max-height: 100%;
-    }
+a{background: #b3d4fc}
   </style>
 </head>
 
@@ -65,10 +86,11 @@
 
   <div id="canvas">
     <div class="puzzlepiece first-selected" id="card1" data-scale="0" >
-      <img src="img/game/p-01color.jpg" class="image" />
-      <a id="card1-doghead" class="hiddenbutton" href="#card2" style="position: absolute; left:30%; top:57%; width:7%;height:10%; "> </a>
-      <div id="hint-doghead" class="hint" style="position: absolute; left:32%; top:43%; width:15%;height:17%; "> </div>
-      <a id="card1-retro" class="hiddenbutton" href="#card3" style=" position: absolute; left: 65%; top: 12%; width: 31%; height:24%;  transform: rotate(-30deg)"> </a>
+        <img src="img/game/p-01color.jpg" class="image" />
+        <a id="card1-doghead" class="hiddenbutton" href="#card2" style="position: absolute; left:30%; top:57%; width:7%;height:10%; "> </a>
+        <div id="hint-doghead" class="hint" style="position: absolute; left:32%; top:43%; width:15%;height:17%; "> </div>
+        <a id="card1-retro" class="hiddenbutton" href="#card3" style=" position: absolute; left: 65%; top: 12%; width: 31%; height:24%;  transform: rotate(-30deg)"> </a>
+
     </div>
 
   </div>
