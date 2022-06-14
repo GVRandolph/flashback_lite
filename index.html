@@ -43,17 +43,15 @@
     }
 
     #container{
-      margin: 0 ;
-      padding: 10px;
+      height: 100%;
       width: 100%;
-      position: relative;
+      position: absolute;
+      padding: 0;
       box-sizing: border-box;
+
     }
 
-    .left-menu{
-      position: fixed;
-      left:0;
-      top:0;
+    .card-menu{
       background: rgba( 0,0,0,0.6);
 
       width: 100%;
@@ -67,9 +65,9 @@
       overflow-y: scroll;
     }
 
-    .left-menu .menu-item{
+    .card-menu .menu-item{
       border: 2px dashed silver;
-      border-radius: 20px;
+      border-radius: 7px;
       margin: 10px 10px;
       display: inline-block;
       overflow: hidden;
@@ -80,124 +78,85 @@
       pointer-events: none;
     }
 
-    .left-menu .menu-item.active.selected {
+    .card-menu .menu-item.active.selected {
       border: 2px solid #fdf610;
     }
-    .left-menu .menu-item.active{
+    .card-menu .menu-item.active{
       border: 2px solid black;
       pointer-events: all;
     }
 
-    .left-menu .menu-item img{
+    .card-menu .menu-item img{
       height: 50px;
       opacity: 0;
     }
 
-    .left-menu .menu-item.active img{
+    .card-menu .menu-item.active img{
       opacity: 1
     }
 
     #canvas{
-      overflow: hidden;
-      width: 100%;
-      max-width: 1500px;
 
-
-      top: 0px;
-      left: 0;
-
-      border-radius: 10px;
-      border: 5px solid #a4e0a4;
+      text-align: center;
       box-sizing: border-box;
-      position: relative;
-      margin: 100px auto;
-      z-index:1;
-    }
+      border-radius: 20px;
+      margin: 20px auto;
 
-    #canvas .background-img{
+    }
+    #canvas .puzzlepiece{
+      height: 100%;
+      width: auto;
+      margin: auto;
+      border: 10px solid #b655a0;
+      border-radius: 15px;
+      display: inline-block;
+
       position: relative;
       top:0;
-      left: 0;
-      opacity: 0;
-      z-index: 0;
-      width: 100%;
+      left:0;
+
+    }
+
+    @media (max-aspect-ratio: 4/3) {
+      #canvas{
+        width: 85%;
+        height: auto;
+
+      }
+      #canvas .puzzlepiece .image{
+        top:0;
+        left:0;
+        width: 100%;
+        display: inline-block;
+      }
+    }
+    @media (min-aspect-ratio: 4/3) {
+      #canvas{
+        height: 85%;
+        width: auto;
+      }
+      #canvas .puzzlepiece .image{
+        height: 100%;
+        width: auto;
+      }
     }
 
     #canvas .puzzlepiece{
-      position: absolute;
-      top: 0;
-      left: 0;
-      opacity: 0;
-      z-index: 0;
-      width: 100%;
-      height: 100%;
-      background: #b3d4fc;
+      display: none;
     }
-
-    #canvas .puzzlepiece .image{
-      width: 100%;
-    }
-
-
     #canvas .puzzlepiece:target,
     #canvas .puzzlepiece.first-selected
     {
       opacity: 1;
       z-index: 1;
+      display: inline-block;
     }
 
     #canvas .puzzlepiece .hiddenbutton{
       cursor: default;
+      background: red;
     }
 
-    #card1-doghead{
-      background: chocolate;
-      opacity: 0;
-
-
-    }
-
-    #hint-doghead.hint{
-
-      background: url("img/game/hand.png");
-      background-size: cover;
-
-      animation-name: hint;
-      animation-duration: 1400ms ;
-      animation-delay: 20s;
-      animation-iteration-count: infinite;
-      animation-timing-function: ease-out;
-
-      opacity: 0;
-    }
-
-    @keyframes hint {
-      0%{
-        opacity:1;
-        margin-top:-3.5%;
-        margin-left: 3.5%;
-      }
-      25%{
-        opacity:1;
-        margin-top: 0;
-        margin-left: 0;
-      }
-      50%{
-        opacity:1;
-        margin-top:-3.5%;
-        margin-left: 3.5%;
-      }
-      75%{
-        opacity:1;
-        margin-top: 0;
-        margin-left: 0;
-      }
-      100%{
-        opacity:1;
-        margin-top:-3.5%;
-        margin-left: 3.5%;
-      }
-    }
 
     #canvas #question-list{
       width:100%;
@@ -230,84 +189,11 @@
       transition: opacity 1s ease-out;
     }
 
-    #canvas .commands{ display: none;
-      position: absolute;
-      top: 60px;
-      left: 10px;
-      opacity: 0.7;
-      z-index: 50;
-    }
-
-    #canvas .commands .control{
-      border-radius: 5px;
-      background: #222222;
-      color: white;
-      font-weight: bold;
-      font-size: 2em;
-      text-decoration: none;
-      opacity: 0.7;
-      width: 42px;
-      height: 42px;
-      line-height: 38px;
-      display: block;
-      text-align: center;
-      margin: 7px;
-    }
-
-
-    .zoom-level-0{
-      transform: scale(1);
-      transform-origin: 50% 50% 0px;
-      transition: transform 0.2s;
-    }
-    .zoom-level-1{
-      transform: scale(1.25);
-      transform-origin: 50% 50% 0px;
-      transition: transform 0.2s;
-    }
-    .zoom-level-2{
-      transform: scale(1.5);
-      transform-origin: 50% 50% 0px;
-      transition: transform 0.2s;
-    }
-    .zoom-level-3{
-      transform: scale(1.75);
-      transform-origin: 50% 50% 0px;
-      transition: transform 0.2s;
-    }
-    .zoom-level-4{
-      transform: scale(2);
-      transform-origin: 50% 50% 0px;
-      transition: transform 0.2s;
-    }
-    .zoom-level-5{
-      transform: scale(2.25);
-      transform-origin: 50% 50% 0px;
-      transition: transform 0.2s;
-    }
-    .zoom-level-6{
-      transform: scale(2.5);
-      transform-origin: 50% 50% 0px;
-      transition: transform 0.2s;
-    }
-    .zoom-level-7{
-      transform: scale(2.75);
-      transform-origin: 50% 50% 0px;
-      transition: transform 0.2s;
-    }
-    .zoom-level-8{
-      transform: scale(3);
-      transform-origin: 50% 50% 0px;
-      transition: transform 0.2s;
-    }
-    .zoom-level-9{
-      transform: scale(3.25);
-      transform-origin: 50% 50% 0px;
-    }
   </style>
 </head>
 
 <body>
+<!--
 <div id="splash-1" class="splash">
   <p>
     <i>Welcome Flavor text 1 </i>
@@ -321,10 +207,10 @@
     <i>Well done flavor text2 </i>
   </p>
 </div>
-
+-->
 <div id="container">
 
-  <div class="left-menu" id="left-menu">
+  <div class="card-menu" id="left-menu">
     <a class="menu-item active selected" id="menu1" href="#card1">
       <img src="img/game/p-01color.jpg" alt="First card" >
     </a>
@@ -353,13 +239,11 @@
 
   <div id="canvas">
 
-    <img src="img/game/p-01color.jpg" id="background-img"  class="image background-img" />
-
     <div class="puzzlepiece first-selected" id="card1" data-scale="0" >
-      <img src="img/game/p-01color.jpg" class="image" />
-      <a id="card1-doghead" class="hiddenbutton" href="#card2" style="position: absolute; left:30%; top:57%; width:7%;height:10%; "> </a>
-      <div id="hint-doghead" class="hint" style="position: absolute; left:32%; top:43%; width:15%;height:17%; "> </div>
-      <a id="card1-retro" class="hiddenbutton" href="#card3" style=" position: absolute; left: 65%; top: 12%; width: 31%; height:24%;  transform: rotate(-30deg)"> </a>
+        <img src="img/game/p-01color.jpg" class="image" />
+        <a id="card1-doghead" class="hiddenbutton" href="#card2" style="position: absolute; left:30%; top:57%; width:7%;height:10%; "> </a>
+        <div id="hint-doghead" class="hint" style="position: absolute; left:32%; top:43%; width:15%;height:17%; "> </div>
+        <a id="card1-retro" class="hiddenbutton" href="#card3" style=" position: absolute; left: 65%; top: 12%; width: 31%; height:24%;  transform: rotate(-30deg)"> </a>
     </div>
     <div class="puzzlepiece " id="card2" data-scale="0" >
       <img src="img/game/p-02color.jpg" class="image" />
@@ -430,6 +314,7 @@
         // initiate dom elements
         $menupieces = $_s('#left-menu .menu-item');
         $puzzlepieces = $_s('#canvas .puzzlepiece');
+        $firstpuzzlepiece = $_('#canvas .puzzlepiece.first-selected');
         $hiddenbuttons = $_s('#canvas .puzzlepiece .hiddenbutton');
         $canvas = $('canvas');
 
@@ -455,6 +340,7 @@
         for( let i=0 ; i< $hiddenbuttons.length; i++){
           $hiddenbuttons[i].addEventListener('click',function(e){
             $('hint-doghead').classList.remove('hint');// desactivate hint after click
+            $firstpuzzlepiece.classList.remove('first-selected'); //remove first selected
             for(let i=0; i< $menupieces.length;i++){
               if(this.getAttribute('href') == $menupieces[i].getAttribute('href')){
                 $menupieces[i].classList.add('active');
