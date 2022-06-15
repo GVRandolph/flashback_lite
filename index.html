@@ -22,6 +22,9 @@
   <meta name="theme-color" content="#fafafa">
 
   <style>
+    body{
+      height:100%;
+    }
     .splash{
       width: 100%;
       height: 100%;
@@ -48,12 +51,11 @@
       position: absolute;
       padding: 0;
       box-sizing: border-box;
-
     }
 
     .card-menu{
       background: rgba( 0,0,0,0.6);
-
+      line-height: 15px;
       width: 100%;
 
       box-sizing: border-box;
@@ -70,7 +72,7 @@
       background: #3e2564;
       border: 2px solid #3e2564;
       border-radius: 7px;
-      margin: 10px 10px;
+      margin: 7px 10px;
       display: inline-block;
       overflow: hidden;
       text-align: center;
@@ -89,7 +91,7 @@
     }
 
     .card-menu .menu-item img{
-      height: 50px;
+      height: 40px;
       opacity: 0;
     }
 
@@ -134,12 +136,16 @@
     }
     @media (min-aspect-ratio: 4/3) {
       #canvas{
-        height: 85%;
+        height: 80%;
         width: auto;
+        margin-top: 7px;
       }
       #canvas .puzzlepiece .image{
         height: 100%;
         width: auto;
+      }
+      .card-menu .menu-item{
+        margin: 2px 20px;
       }
     }
 
@@ -156,7 +162,7 @@
 
     #canvas .puzzlepiece .hiddenbutton{
       cursor: default;
-      background: red;
+      -background: red;
       opacity: 0.3;
     }
 
@@ -191,6 +197,27 @@
       opacity: 1;
       transition: opacity 1s ease-out;
     }
+
+    /* Style for tuto */
+    #hint-doghead{
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top:0;
+      left:0;
+      border: 1px solid rgba(0,0,0,.5);
+      z-index:11;
+box-sizing: border-box;
+    }
+
+    #hint-doghead .magnifier{
+      position: relative;
+      top:-100px;
+      left:-100px;
+      width: 200%;
+    }
+
+
 
   </style>
 </head>
@@ -244,8 +271,7 @@
 
     <div class="puzzlepiece first-selected" id="card1" data-scale="0" >
         <img src="img/game/p-01color.jpg" class="image" />
-        <a id="card1-doghead" class="hiddenbutton" href="#card2" style="position: absolute; left:32%; top:57%; width:7%;height:10%; "> </a>
-        <div id="hint-doghead" class="hint" style="position: absolute; left:32%; top:43%; width:15%;height:17%; "> </div>
+        <a id="card1-doghead" class="hiddenbutton" href="#card2" style="position: absolute; left:28%; top:51%; width:15%;height:18%;"> </a>
         <a id="card1-retro" class="hiddenbutton" href="#card3" style=" position: absolute; left: 65%; top: 12%; width: 31%; height:24%;  transform: rotate(-30deg)"> </a>
     </div>
     <div class="puzzlepiece " id="card2" data-scale="0" >
@@ -289,6 +315,9 @@
   </div>
 
 </div>
+<div id="hint-doghead" class="hint">
+
+</div>
 
   <script src="js/vendor/modernizr-3.11.2.min.js"></script>
   <script src="js/plugins.js"></script>
@@ -310,6 +339,7 @@
       var $hiddenbuttons;
       var $menupieces;
       var $canvas;
+      var $tutohintDoghead;
 
       /* ----------------------------------------------------- DOM load */
       document.addEventListener("DOMContentLoaded", function() {
@@ -320,6 +350,7 @@
         $firstpuzzlepiece = $_('#canvas .puzzlepiece.first-selected');
         $hiddenbuttons = $_s('#canvas .puzzlepiece .hiddenbutton');
         $canvas = $('canvas');
+        $tutohintDoghead = $('hint-doghead');
 
         // redirect to card 1 if current #card is not active
         let hash = window.location.hash;
@@ -356,6 +387,16 @@
           });
         }
 
+        // tuto positionning
+        let linkpos = $('card1-doghead').getBoundingClientRect();
+        console.log(linkpos);
+        $tutohintDoghead.style.borderTopWidth = linkpos.top+'px';
+        $tutohintDoghead.style.borderLeftWidth = linkpos.left+'px';        ;
+        $tutohintDoghead.style.borderBottomWidth = (window.innerHeight - linkpos.top - linkpos.height) +'px';
+        $tutohintDoghead.style.borderRightWidth = (window.innerWidth - linkpos.left - linkpos.width) +'px';
+
+        $tutohintDoghead.style.width = window.innerWidth+'px';
+        $tutohintDoghead.style.height = window.innerHeight+'px';
 
       });
 
