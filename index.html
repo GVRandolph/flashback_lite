@@ -199,23 +199,21 @@
     }
 
     /* Style for tuto */
-    #hint-doghead{
+    #hint-magnifier{
       position: fixed;
       width: 100%;
       height: 100%;
       top:0;
       left:0;
       border: 1px solid rgba(0,0,0,.5);
+      b-ackground-image: url("img/game/loupe_op.png");
+      background-repeat: no-repeat;
+      background-size: cover;
       z-index:11;
-box-sizing: border-box;
+      box-sizing: border-box;
+      overflow: hidden;
     }
 
-    #hint-doghead .magnifier{
-      position: relative;
-      top:-100px;
-      left:-100px;
-      width: 200%;
-    }
 
 
 
@@ -272,6 +270,8 @@ box-sizing: border-box;
     <div class="puzzlepiece first-selected" id="card1" data-scale="0" >
         <img src="img/game/p-01color.jpg" class="image" />
         <a id="card1-doghead" class="hiddenbutton" href="#card2" style="position: absolute; left:28%; top:51%; width:15%;height:18%;"> </a>
+        <a id="hint-doghead-anchor" class="hiddenanchor" style=" position: absolute; left:0%; top:43%; width:50%;height:70%;"> </a>
+
         <a id="card1-retro" class="hiddenbutton" href="#card3" style=" position: absolute; left: 65%; top: 12%; width: 31%; height:24%;  transform: rotate(-30deg)"> </a>
     </div>
     <div class="puzzlepiece " id="card2" data-scale="0" >
@@ -315,7 +315,10 @@ box-sizing: border-box;
   </div>
 
 </div>
-<div id="hint-doghead" class="hint">
+<div id="hint-magnifier" class="hint">
+    <div style="background-image: url('img/game/loupe_topright.png?p'); background-size: cover; width: 100%; height: 100%; position:absolute; right: 0px;top:0px;" >
+      <div class="text">Tutoriel step 1</div>
+    </div>
 
 </div>
 
@@ -339,7 +342,7 @@ box-sizing: border-box;
       var $hiddenbuttons;
       var $menupieces;
       var $canvas;
-      var $tutohintDoghead;
+      var $tutohintMagnifier;
 
       /* ----------------------------------------------------- DOM load */
       document.addEventListener("DOMContentLoaded", function() {
@@ -350,7 +353,7 @@ box-sizing: border-box;
         $firstpuzzlepiece = $_('#canvas .puzzlepiece.first-selected');
         $hiddenbuttons = $_s('#canvas .puzzlepiece .hiddenbutton');
         $canvas = $('canvas');
-        $tutohintDoghead = $('hint-doghead');
+        $tutohintMagnifier = $('hint-magnifier');
 
         // redirect to card 1 if current #card is not active
         let hash = window.location.hash;
@@ -388,19 +391,22 @@ box-sizing: border-box;
         }
 
         // tuto positionning
-        let linkpos = $('card1-doghead').getBoundingClientRect();
-        console.log(linkpos);
-        $tutohintDoghead.style.borderTopWidth = linkpos.top+'px';
-        $tutohintDoghead.style.borderLeftWidth = linkpos.left+'px';        ;
-        $tutohintDoghead.style.borderBottomWidth = (window.innerHeight - linkpos.top - linkpos.height) +'px';
-        $tutohintDoghead.style.borderRightWidth = (window.innerWidth - linkpos.left - linkpos.width) +'px';
+        magnify(  $('hint-doghead-anchor') );
 
-        $tutohintDoghead.style.width = window.innerWidth+'px';
-        $tutohintDoghead.style.height = window.innerHeight+'px';
 
       });
 
+function magnify( hintTarget ){
+  let linkpos = hintTarget.getBoundingClientRect();
 
+  $tutohintMagnifier.style.borderTopWidth = Math.ceil(linkpos.top )+'px';
+  $tutohintMagnifier.style.borderLeftWidth = Math.ceil(linkpos.left )+'px';
+  $tutohintMagnifier.style.borderBottomWidth = Math.ceil(window.innerHeight - linkpos.top - linkpos.height ) +'px';
+  $tutohintMagnifier.style.borderRightWidth = Math.ceil(window.innerWidth - linkpos.left - linkpos.width ) +'px';
+
+ $tutohintMagnifier.style.width = window.innerWidth+'px';
+  $tutohintMagnifier.style.height = window.innerHeight+'px';
+}
 
   </script>
 </body>
