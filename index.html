@@ -234,7 +234,14 @@
       font-size: 150%;
       border-radius: 7px;
     }
-
+    #hint-magnifier .hiddenbutton{
+      width: 43%;
+      height: 45%;
+      left: 53%;
+      top: 4%;
+      position: absolute;
+      opacity:0.7;
+    }
 
 
 
@@ -266,6 +273,7 @@
     <a class="menu-item" id="menu-card2" href="#card2" >
       <img src="img/game/p-02color.jpg" alt="Secund card">
     </a>
+
     <a class="menu-item" id="menu3" href="#card3">
       <img src="img/game/p-03color.jpg" alt="Third card">
     </a>
@@ -337,8 +345,9 @@
 
 </div>
 <div id="hint-magnifier" class="hint">
-    <div class="magnifier" style="" >
-      <div class="text">Tutoriel step 1</div>
+    <div class="magnifier">
+      <div class="text">Clique sur un personnage pour voir ce qu'il voit</div>
+      <a id="hint-doghead-clickable" class="hiddenbutton" href="#card2"></a>
     </div>
 
 </div>
@@ -372,22 +381,22 @@
         $menupieces = $_s('#left-menu .menu-item');
         $puzzlepieces = $_s('#canvas .puzzlepiece');
         $firstpuzzlepiece = $_('#canvas .puzzlepiece.first-selected');
-        $hiddenbuttons = $_s('#canvas .puzzlepiece .hiddenbutton');
+        $hiddenbuttons = $_s('.hiddenbutton');
         $canvas = $('canvas');
         $tutohintMagnifier = $('hint-magnifier');
 
         // redirect to card 1 if current #card is not active
         let hash = window.location.hash;
-        if(hash){
-          if ( ! $_(hash).classList.contains('active')){
-            window.location = window.location.href.replace(window.location.hash,"");
+        if (hash) {
+          if (!$_(hash).classList.contains('active')) {
+            window.location = window.location.href.replace(window.location.hash, "");
           }
         }
 
         // menu selection
-        for( let i=0 ; i< $menupieces.length; i++){
-          $menupieces[i].addEventListener('click',function(e){
-            for( let i=0 ; i< $menupieces.length; i++){
+        for (let i = 0; i < $menupieces.length; i++) {
+          $menupieces[i].addEventListener('click', function (e) {
+            for (let i = 0; i < $menupieces.length; i++) {
               $menupieces[i].classList.remove('selected');
             }
             this.classList.add('selected');
@@ -395,15 +404,14 @@
         }
 
         // menu activation
-        for( let i=0 ; i< $hiddenbuttons.length; i++){
-          $hiddenbuttons[i].addEventListener('click',function(e){
-            $('hint-doghead').classList.remove('hint');// desactivate hint after click
+        for (let i = 0; i < $hiddenbuttons.length; i++) {
+          $hiddenbuttons[i].addEventListener('click', function (e) {
             $firstpuzzlepiece.classList.remove('first-selected'); //remove first selected
-            for(let i=0; i< $menupieces.length;i++){
-              if(this.getAttribute('href') == $menupieces[i].getAttribute('href')){
+            for (let i = 0; i < $menupieces.length; i++) {
+              if (this.getAttribute('href') == $menupieces[i].getAttribute('href')) {
                 $menupieces[i].classList.add('active');
-                for( let i=0 ; i< $menupieces.length; i++){
-                  $menupieces[i].classList.remove('selected');
+                for (let j = 0; j < $menupieces.length; j++) {
+                  $menupieces[j].classList.remove('selected');
                 }
                 $menupieces[i].classList.add('selected');
               }
@@ -412,22 +420,27 @@
         }
 
         // tuto positionning
-        magnify(  $('hint-doghead-anchor') );
-
+        magnify($('hint-doghead-anchor'));
+        $('hint-doghead-clickable').addEventListener('click',function (e){
+          magnify($('menu-card2'));
+        });
 
       });
 
-function magnify( hintTarget ){
-  let linkpos = hintTarget.getBoundingClientRect();
 
-  $tutohintMagnifier.style.borderTopWidth = Math.ceil(linkpos.top )+'px';
-  $tutohintMagnifier.style.borderLeftWidth = Math.ceil(linkpos.left )+'px';
-  $tutohintMagnifier.style.borderBottomWidth = Math.ceil(window.innerHeight - linkpos.top - linkpos.height ) +'px';
-  $tutohintMagnifier.style.borderRightWidth = Math.ceil(window.innerWidth - linkpos.left - linkpos.width ) +'px';
+        function magnify(hintTarget) {
+          let linkpos = hintTarget.getBoundingClientRect();
 
- $tutohintMagnifier.style.width = window.innerWidth+'px';
-  $tutohintMagnifier.style.height = window.innerHeight+'px';
-}
+          $tutohintMagnifier.style.borderTopWidth = Math.ceil(linkpos.top) + 'px';
+          $tutohintMagnifier.style.borderLeftWidth = Math.ceil(linkpos.left) + 'px';
+          $tutohintMagnifier.style.borderBottomWidth = Math.ceil(window.innerHeight - linkpos.top - linkpos.height) + 'px';
+          $tutohintMagnifier.style.borderRightWidth = Math.ceil(window.innerWidth - linkpos.left - linkpos.width) + 'px';
+
+          $tutohintMagnifier.style.width = window.innerWidth + 'px';
+          $tutohintMagnifier.style.height = window.innerHeight + 'px';
+        }
+
+
 
   </script>
 </body>
