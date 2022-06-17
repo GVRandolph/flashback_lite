@@ -166,32 +166,17 @@
       opacity: 0.3;
     }
 
-
-    #canvas #question-list{
-      width:100%;
-      height: 100%;
-      background: #b855a0;
-      text-align: center;
-    }
-
     #canvas #question-list .question{
       border: 5px solid grey;
       border-radius: 20px;
       width: 25%;
       height: 20%;
-      overflow: hidden;
-      margin-top: 5%;
     }
 
-    #canvas #question-list #question1{ margin-left: 5%; }
-    #canvas #question-list #question2{ margin-left: 40%; }
-    #canvas #question-list #question3{ margin-left: 70%; }
-
     #canvas #question-list .question .card{
-      opacity: 0;
+      opacity: 1;
       background: white;
-      width: 200px;
-      height: 150px;
+      width: 100%;
     }
     #canvas #question-list .question.active .card{
       opacity: 1;
@@ -201,48 +186,50 @@
     /* Style for tuto */
     #hint-magnifier{
       position: fixed;
-      width: 100%;
-      height: 100%;
-      top:0;
-      left:0;
       border: 1px solid rgba(0,0,0,.5);
-      b-ackground-image: url("img/game/loupe_op.png");
-      background-repeat: no-repeat;
-      background-size: cover;
+      border-radius: 50%;
       z-index:11;
-      box-sizing: border-box;
-      overflow: hidden;
+      overflow: visible;
+
+      width: 500px; /* set in js */
+      height: 500px; /* set in js */
+      top:-70%; /* set in js */
+      left:-70%; /* set in js */
+
+      transition-property: width, height, top, left;
+      transition-duration: 500ms;
+      transition-timing-function: linear;
+
     }
-    #hint-magnifier .magnifier{
-      background-image: url('img/game/loupe_topright.png?p');
-      background-size: cover;
-      width: 100%;
-      height: 100%;
+
+
+    #hint-magnifier .magnifying-glass{
+      width: 110%;
       position:absolute;
-      right: 0px;
-      top:0px;
+      left: -5%;
+      top: -5%;
     }
+
     #hint-magnifier .text{
       color: #3f007f;
       background: #ffdb55;
       position: absolute;
-      top:45%;
-      right: 50%;
-      width:40%;
-      height:30%;
+      top: 100%;
+      right: 115%;
       text-align: center;
-      font-size: 150%;
       border-radius: 7px;
-    }
-    #hint-magnifier .hiddenbutton{
-      width: 43%;
-      height: 45%;
-      left: 53%;
-      top: 4%;
-      position: absolute;
-      opacity:0.7;
+      padding: 10px;
+
     }
 
+    #hint-magnifier .hiddenbutton{
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+      position: absolute;
+    }
+/**/
 
 
   </style>
@@ -297,16 +284,16 @@
   <div id="canvas">
 
     <div class="puzzlepiece first-selected" id="card1" data-scale="0" >
-        <img src="img/game/p-01color.jpg" class="image" />
-        <a id="card1-doghead" class="hiddenbutton" href="#card2" style="position: absolute; left:28%; top:51%; width:15%;height:18%;"> </a>
-        <a id="hint-doghead-anchor" class="hiddenanchor" style=" position: absolute; left:0%; top:43%; width:50%;height:70%;"> </a>
-
-        <a id="card1-retro" class="hiddenbutton" href="#card3" style=" position: absolute; left: 65%; top: 12%; width: 31%; height:24%;  transform: rotate(-30deg)"> </a>
+      <img src="img/game/p-01color.jpg" class="image" />
+      <a id="hint-doghead-anchor" class="hiddenanchor" style=" position: absolute; left:28%; top:48%; width:18%;height:18%;"> </a>
+      <a id="card1-doghead" class="hiddenbutton" href="#card2" style="position: absolute; left:28%; top:51%; width:15%;height:18%;"> </a>
+      <a id="card1-retro" class="hiddenbutton" href="#card3" style=" position: absolute; left: 65%; top: 12%; width: 31%; height:24%;  transform: rotate(-30deg)"> </a>
     </div>
     <div class="puzzlepiece " id="card2" data-scale="0" >
       <img src="img/game/p-02color.jpg" class="image" />
+      <a id="hint-question-anchor" class="hiddenbutton" style="position: absolute; left: 14%; top: 25%; width: 15%; height:12%; "></a>
       <a id="card2-zombie" class="hiddenbutton" href="#card4" style="position: absolute; left: 21%; top:50%; width:5%;height:11%; "> </a>
-      <a id="card2-question1" class="hiddenbutton" href="#question-list" style="position: absolute; left: 78%; top:80%; width: 17%;height:15%; "> </a>
+      <a id="card2-question1" class="hiddenbutton" href="#question-list" style="position: absolute; left: 15%; top: 30%; width: 11%; height:12%; "> </a>
     </div>
     <div class="puzzlepiece " id="card3" data-scale="0" >
       <img src="img/game/p-03color.jpg"  class="image" />
@@ -328,16 +315,18 @@
       <a id="card7-doghead" class="hiddenbutton" href="#question-list" style="position: absolute; left:0; top:0; width:20%;height:20%; "> </a>
     </div>
     <div id="question-list" class="puzzlepiece" data-targeter="menu8">
-      <div class="question" id="question1">
+      <img src="img/game/empty_blue.jpg" class="image" />
+
+      <div class="question" id="question1" style="position: absolute; left: 5%; top: 5%; width: 25%; height: 25%; ">&nbsp;
         <div class="card">Question 1 ?</div>
       </div>
-      <div class="question" id="question2">
+      <div class="question" id="question2" style="position: absolute; left: 35%; top: 40%; width: 25%; height: 25%; ">
         <div class="card">Question 2 ?</div>
       </div>
-      <div class="question" id="question3">
+      <div class="question" id="question3" style="position: absolute; left: 70%; top: 70%; width: 25%; height: 25%; ">
         <div class="card">Question 3 ?</div>
       </div>
-      <button onclick="$('splash-2').classList.remove('fadded');">
+      <button onclick="$('splash-2').classList.remove('fadded');" style="position: absolute; left: 45%; top: 87%; width: 16%; height: 10%; ">
         Fin du jeu!
       </button>
     </div>
@@ -345,10 +334,16 @@
 
 </div>
 <div id="hint-magnifier" class="hint">
-    <div class="magnifier">
+
+  <img class="magnifying-glass" src="img/game/loupe.png" />
       <div class="text">Clique sur un personnage pour voir ce qu'il voit</div>
-      <a id="hint-doghead-clickable" class="hiddenbutton" href="#card2"></a>
-    </div>
+      <a id="hint-last" class="hiddenbutton" href="#question1" ></a>
+  <a id="hint-question-clickable" class="hiddenbutton" href="#question-list" ></a>
+
+  <a id="hint-cardmenu-clickable" class="hiddenbutton" href="#card2" ></a>
+      <a id="hint-doghead-clickable" class="hiddenbutton" href="#card2" ></a>
+
+
 
 </div>
 
@@ -423,21 +418,38 @@
         magnify($('hint-doghead-anchor'));
         $('hint-doghead-clickable').addEventListener('click',function (e){
           magnify($('menu-card2'));
+          this.remove();
         });
+        $('hint-cardmenu-clickable').addEventListener('click',function (e){
+          magnify($('hint-question-anchor'));
+          this.remove();
+        });
+        $('hint-question-clickable').addEventListener('click',function (e){
+          console.log($('question1'));
+          magnify($('question1'));
+          this.remove();
+        });
+        $('hint-last').addEventListener('click',function (e){
+          $('hint-magnifier').remove();
+        });
+
 
       });
 
 
         function magnify(hintTarget) {
           let linkpos = hintTarget.getBoundingClientRect();
+console.log(linkpos);
+          let radius = Math.max( window.innerWidth,window.innerHeight);
+          radius += 1000; // to be sure to be out of the window
+          $tutohintMagnifier.style.borderWidth = radius+'px';
 
-          $tutohintMagnifier.style.borderTopWidth = Math.ceil(linkpos.top) + 'px';
-          $tutohintMagnifier.style.borderLeftWidth = Math.ceil(linkpos.left) + 'px';
-          $tutohintMagnifier.style.borderBottomWidth = Math.ceil(window.innerHeight - linkpos.top - linkpos.height) + 'px';
-          $tutohintMagnifier.style.borderRightWidth = Math.ceil(window.innerWidth - linkpos.left - linkpos.width) + 'px';
-
-          $tutohintMagnifier.style.width = window.innerWidth + 'px';
-          $tutohintMagnifier.style.height = window.innerHeight + 'px';
+          let topPos = Math.ceil( radius - linkpos.top ) ;
+          let leftPos = Math.ceil( radius - linkpos.left ) ;
+          $tutohintMagnifier.style.top = '-'+topPos+'px';
+          $tutohintMagnifier.style.left = '-'+leftPos+'px';
+          $tutohintMagnifier.style.width = linkpos.width + 'px';
+          $tutohintMagnifier.style.height = linkpos.width + 'px'; // square to get a circle
         }
 
 
