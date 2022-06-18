@@ -162,7 +162,7 @@
 
     #canvas .puzzlepiece .hiddenbutton{
       cursor: default;
-      -background: red;
+      background: red;
       opacity: 0.3;
     }
 
@@ -337,7 +337,7 @@
 
   <img class="magnifying-glass" src="img/game/loupe.png" />
       <div class="text">Clique sur un personnage pour voir ce qu'il voit</div>
-      <a id="hint-last" class="hiddenbutton" href="#question1" ></a>
+      <a id="hint-last" class="hiddenbutton" href="#question-list" ></a>
   <a id="hint-question-clickable" class="hiddenbutton" href="#question-list" ></a>
 
   <a id="hint-cardmenu-clickable" class="hiddenbutton" href="#card2" ></a>
@@ -417,16 +417,15 @@
         // tuto positionning
         magnify($('hint-doghead-anchor'));
         $('hint-doghead-clickable').addEventListener('click',function (e){
-          magnify($('menu-card2'));
+          magnify($('menu-card2'),0);
           this.remove();
         });
         $('hint-cardmenu-clickable').addEventListener('click',function (e){
-          magnify($('hint-question-anchor'));
+          magnify($('hint-question-anchor'),0);
           this.remove();
         });
         $('hint-question-clickable').addEventListener('click',function (e){
-          console.log($('question1'));
-          magnify($('question1'));
+          magnify($('question1'),0);
           this.remove();
         });
         $('hint-last').addEventListener('click',function (e){
@@ -437,9 +436,16 @@
       });
 
 
-        function magnify(hintTarget) {
+        function magnify(hintTarget, attempt) {
+          console.log(hintTarget);
+          console.log(attempt);
+
           let linkpos = hintTarget.getBoundingClientRect();
-console.log(linkpos);
+          if(linkpos.height==0 && attempt < 10 ){
+            attempt++;
+            setTimeout( magnify , 100, hintTarget, attempt);
+            return;
+          }
           let radius = Math.max( window.innerWidth,window.innerHeight);
           radius += 1000; // to be sure to be out of the window
           $tutohintMagnifier.style.borderWidth = radius+'px';
