@@ -162,7 +162,7 @@
 
     #canvas .puzzlepiece .hiddenbutton{
       cursor: default;
-      background: red;
+      b-ackground: red;
       opacity: 0.3;
     }
 
@@ -287,32 +287,34 @@
       <img src="img/game/p-01color.jpg" class="image" />
       <a id="hint-doghead-anchor" class="hiddenanchor" style=" position: absolute; left:28%; top:48%; width:18%;height:18%;"> </a>
       <a id="card1-doghead" class="hiddenbutton" href="#card2" style="position: absolute; left:28%; top:51%; width:15%;height:18%;"> </a>
-      <a id="card1-retro" class="hiddenbutton" href="#card3" style=" position: absolute; left: 65%; top: 12%; width: 31%; height:24%;  transform: rotate(-30deg)"> </a>
+      <a id="card1-retro" class="hiddenbutton" href="#card3" style=" position: absolute; left: 68%; top: 9%; width: 31%; height:24%;  transform: rotate(-30deg)"> </a>
+      <a id="card1-question" class="hiddenbutton" href="#question-list" style=" position: absolute; left: 70%; top: 66%; width: 12%; height:12%;"> </a>
     </div>
     <div class="puzzlepiece " id="card2" data-scale="0" >
       <img src="img/game/p-02color.jpg" class="image" />
-      <a id="hint-question-anchor" class="hiddenbutton" style="position: absolute; left: 14%; top: 25%; width: 15%; height:12%; "></a>
-      <a id="card2-zombie" class="hiddenbutton" href="#card4" style="position: absolute; left: 21%; top:50%; width:5%;height:11%; "> </a>
+      <a id="card2-boy" class="hiddenbutton" href="#card1" style="position: absolute; left: 49%; top: 3%; width: 13%; height: 20%; "> </a>
+      <a id="card2-zombie" class="hiddenbutton" href="#card4" style="position: absolute; left: 19%; top:50%; width: 11%;height:11%; "> </a>
       <a id="card2-question1" class="hiddenbutton" href="#question-list" style="position: absolute; left: 15%; top: 30%; width: 11%; height:12%; "> </a>
     </div>
     <div class="puzzlepiece " id="card3" data-scale="0" >
       <img src="img/game/p-03color.jpg"  class="image" />
-      <a id="card3-visiere" class="hiddenbutton" href="#card5" style="position: absolute; left: 44%; top: 58%; width: 12%; height:5%; "> </a>
+      <a id="card3-visiere" class="hiddenbutton" href="#card5" style="position: absolute; left: 41%; top: 58%; width: 15%; height: 9%; "> </a>
     </div>
     <div class="puzzlepiece " id="card4" data-scale="0" >
       <img src="img/game/p-04color.jpg" class="image" />
+      <a id="card4-dog" class="hiddenbutton" href="#card2" style="position: absolute; left: 63%; top: 11%; width: 9%; height: 12%; "> </a>
     </div>
     <div class="puzzlepiece " id="card5" data-scale="0" >
       <img src="img/game/p-05color.jpg" class="image" />
-      <a id="card5-head" class="hiddenbutton" href="#card6" style="position: absolute; left: 32%; top: 50%; width:5%; height:7%; "> </a>
+      <a id="card5-head" class="hiddenbutton" href="#card6" style="position: absolute; left: 31%; top: 43%; width: 10%; height: 15%; "> </a>
     </div>
     <div class="puzzlepiece " id="card6" data-scale="0" >
       <img src="img/game/p-06color.jpg" class="image" />
-      <a id="card6-clown" class="hiddenbutton" href="#card7" style="position: absolute; left: 45%; top: 87%; width: 16%; height: 10%; "> </a>
+      <a id="card6-clown" class="hiddenbutton" href="#card7" style="position: absolute; left: 45%; top: 87%; width: 16%; height: 13%; "> </a>
+      <a id="card6-question3" class="hiddenbutton" href="#question-list" style="position: absolute; left: 74%; top: 30%; width: 11%; height:11%; "> </a>
     </div>
     <div class="puzzlepiece " id="card7" data-scale="0" >
       <img src="img/game/p-07color.jpg" class="image" />
-      <a id="card7-doghead" class="hiddenbutton" href="#question-list" style="position: absolute; left:0; top:0; width:20%;height:20%; "> </a>
     </div>
     <div id="question-list" class="puzzlepiece" data-targeter="menu8">
       <img src="img/game/empty_blue.jpg" class="image" />
@@ -333,20 +335,16 @@
   </div>
 
 </div>
+<!-- Magnifier utorial --
 <div id="hint-magnifier" class="hint">
-
   <img class="magnifying-glass" src="img/game/loupe.png" />
-      <div class="text">Clique sur un personnage pour voir ce qu'il voit</div>
-      <a id="hint-last" class="hiddenbutton" href="#question-list" ></a>
+  <div class="text">Clique sur un personnage pour voir ce qu'il voit</div>
+  <a id="hint-last" class="hiddenbutton" href="#question-list" ></a>
   <a id="hint-question-clickable" class="hiddenbutton" href="#question-list" ></a>
-
   <a id="hint-cardmenu-clickable" class="hiddenbutton" href="#card2" ></a>
-      <a id="hint-doghead-clickable" class="hiddenbutton" href="#card2" ></a>
-
-
-
+  <a id="hint-doghead-clickable" class="hiddenbutton" href="#card2" ></a>
 </div>
-
+<!-- -->
   <script src="js/vendor/modernizr-3.11.2.min.js"></script>
   <script src="js/plugins.js"></script>
 
