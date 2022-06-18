@@ -80,33 +80,58 @@
       height: 40px;
 
       pointer-events: none;
+      perspective: 1000px;
+    }
+    .card-menu .menu-item.selected{
+      border-color: #ffdb55;
+    }
+    .card-menu .menu-item .flip-card-inner {     /* This container is needed to position the front and back side */
+      position: relative;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      transition: transform 0.8s;
+      transform-style: preserve-3d;
     }
 
-    .card-menu .menu-item.active.selected {
-      border: 2px solid #ffdb55;
-    }
-    .card-menu .menu-item.active{
-      border: 2px solid #3e2564;
+    .card-menu .menu-item.active .flip-card-inner{
+      transform: rotateY(180deg);
       pointer-events: all;
+    }
+
+    .card-menu .menu-item .flip-card-front,
+    .card-menu .menu-item .flip-card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      -webkit-backface-visibility: hidden; /* Safari */
+      backface-visibility: hidden;
+    }
+
+    /* Style the front side (fallback if image is missing) */
+    .card-menu .menu-item .flip-card-back {
+      background-color: #bbb;
+      color: black;
+    }
+
+    /* Style the back side */
+    .card-menu .menu-item .flip-card-front{
+      background-color: dodgerblue;
+      color: white;
+      transform: rotateY(180deg);
     }
 
     .card-menu .menu-item img{
       height: 40px;
-      opacity: 0;
-    }
-
-    .card-menu .menu-item.active img{
-      opacity: 1
     }
 
     #canvas{
-
       text-align: center;
       box-sizing: border-box;
       border-radius: 20px;
       margin: 20px auto;
-
     }
+
     #canvas .puzzlepiece{
       height: 100%;
       width: auto;
@@ -167,20 +192,14 @@
     }
 
     #canvas #question-list .question{
-      border: 5px solid grey;
-      border-radius: 20px;
-      width: 25%;
-      height: 20%;
+
     }
 
     #canvas #question-list .question .card{
-      opacity: 1;
-      background: white;
-      width: 100%;
+
     }
     #canvas #question-list .question.active .card{
-      opacity: 1;
-      transition: opacity 1s ease-out;
+
     }
 
     /* Style for tuto */
@@ -255,29 +274,83 @@
 
   <div class="card-menu" id="left-menu">
     <a class="menu-item active selected" id="menu1" href="#card1">
-      <img src="img/game/p-01color.jpg" alt="First card" >
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <img src="img/game/p-01color.jpg" alt="First card" >
+        </div>
+        <div class="flip-card-back">
+          <img src="img/game/card-background-1.jpg" alt="First card" >
+        </div>
+      </div>
     </a>
     <a class="menu-item" id="menu-card2" href="#card2" >
-      <img src="img/game/p-02color.jpg" alt="Secund card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <img src="img/game/p-02color.jpg" alt="2nd card" >
+        </div>
+        <div class="flip-card-back">
+          <img src="img/game/card-background-2.jpg" alt="2nd card" >
+        </div>
+      </div>
     </a>
-
     <a class="menu-item" id="menu3" href="#card3">
-      <img src="img/game/p-03color.jpg" alt="Third card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <img src="img/game/p-03color.jpg" alt="3rd card" >
+        </div>
+        <div class="flip-card-back">
+          <img src="img/game/card-background-3.jpg" alt="3rd card" >
+        </div>
+      </div>
     </a>
     <a class="menu-item"  id="menu4" href="#card4">
-      <img src="img/game/p-04color.jpg" alt="Fourth card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <img src="img/game/p-04color.jpg" alt="4th card" >
+        </div>
+        <div class="flip-card-back">
+          <img src="img/game/card-background-4.jpg" alt="4th card" >
+        </div>
+      </div>
     </a>
     <a class="menu-item" id="menu5" href="#card5">
-      <img src="img/game/p-05color.jpg" alt="Fifth card">
-    </a>
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <img src="img/game/p-05color.jpg" alt="5th card" >
+        </div>
+        <div class="flip-card-back">
+          <img src="img/game/card-background-5.jpg" alt="5th card" >
+        </div>
+      </div>    </a>
     <a class="menu-item" id="menu6" href="#card6">
-      <img src="img/game/p-06color.jpg" alt="Sixth card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <img src="img/game/p-06color.jpg" alt="6th card" >
+        </div>
+        <div class="flip-card-back">
+          <img src="img/game/card-background-6.jpg" alt="6th card" >
+        </div>
+      </div>
     </a>
     <a class="menu-item" id="menu7" href="#card7">
-      <img src="img/game/p-07color.jpg" alt="Seventh card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <img src="img/game/p-07color.jpg" alt="7th card" >
+        </div>
+        <div class="flip-card-back">
+          <img src="img/game/card-background-7.jpg" alt="7th card" >
+        </div>
+      </div>
     </a>
     <a class="menu-item" id="menu8" href="#question-list">
-      ? ? ?
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <img src="img/game/questions.jpg" alt="7th card" >
+        </div>
+        <div class="flip-card-back">
+          <img src="img/game/card-background.jpg" alt="7th card" >
+        </div>
+      </div>
     </a>
   </div>
 
@@ -317,10 +390,17 @@
       <img src="img/game/p-07color.jpg" class="image" />
     </div>
     <div id="question-list" class="puzzlepiece" data-targeter="menu8">
-      <img src="img/game/empty_blue.jpg" class="image" />
-
       <div class="question" id="question1" style="position: absolute; left: 5%; top: 5%; width: 25%; height: 25%; ">&nbsp;
-        <div class="card">Question 1 ?</div>
+        <div class="card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <img src="img/game/question1.jpg" alt="7th card" >
+            </div>
+            <div class="flip-card-back">
+              <img src="img/game/card-background.jpg" alt="7th card" >
+            </div>
+          </div>
+        </div>
       </div>
       <div class="question" id="question2" style="position: absolute; left: 35%; top: 40%; width: 25%; height: 25%; ">
         <div class="card">Question 2 ?</div>
