@@ -191,16 +191,46 @@
       opacity: 0.3;
     }
 
+    /* questions */
     #canvas #question-list .question{
-
+      perspective: 1000px;
+    }
+    #canvas #question-list .question img{
+      width: 100%;
+    }
+    #canvas #question-list .question .flip-card-inner {     /* This container is needed to position the front and back side */
+      position: relative;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      transition: transform 0.8s;
+      transform-style: preserve-3d;
     }
 
-    #canvas #question-list .question .card{
-
+    #canvas #question-list .question.active .flip-card-inner{
+      transform: rotateY(180deg);
     }
-    #canvas #question-list .question.active .card{
-
+    #canvas #question-list .question .flip-card-front,
+    #canvas #question-list .question .flip-card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      -webkit-backface-visibility: hidden; /* Safari */
+      backface-visibility: hidden;
     }
+
+    /* Style the front side (fallback if image is missing) */
+    #canvas #question-list .question .flip-card-back {
+      background-color: #bbb;
+      color: black;
+    }
+
+    /* Style the back side */
+    #canvas #question-list .flip-card-front{
+      color: white;
+      transform: rotateY(180deg);
+    }
+
 
     /* Style for tuto */
     #hint-magnifier{
@@ -361,13 +391,13 @@
       <a id="hint-doghead-anchor" class="hiddenanchor" style=" position: absolute; left:28%; top:48%; width:18%;height:18%;"> </a>
       <a id="card1-doghead" class="hiddenbutton" href="#card2" style="position: absolute; left:28%; top:51%; width:15%;height:18%;"> </a>
       <a id="card1-retro" class="hiddenbutton" href="#card3" style=" position: absolute; left: 68%; top: 9%; width: 31%; height:24%;  transform: rotate(-30deg)"> </a>
-      <a id="card1-question" class="hiddenbutton" href="#question-list" style=" position: absolute; left: 70%; top: 66%; width: 12%; height:12%;"> </a>
+      <a id="card1-question1" class="hiddenbutton" href="#question-list" style=" position: absolute; left: 70%; top: 66%; width: 12%; height:12%;"> </a>
     </div>
     <div class="puzzlepiece " id="card2" data-scale="0" >
       <img src="img/game/p-02color.jpg" class="image" />
       <a id="card2-boy" class="hiddenbutton" href="#card1" style="position: absolute; left: 49%; top: 3%; width: 13%; height: 20%; "> </a>
       <a id="card2-zombie" class="hiddenbutton" href="#card4" style="position: absolute; left: 19%; top:50%; width: 11%;height:11%; "> </a>
-      <a id="card2-question1" class="hiddenbutton" href="#question-list" style="position: absolute; left: 15%; top: 30%; width: 11%; height:12%; "> </a>
+      <a id="card2-question2" class="hiddenbutton" href="#question-list" style="position: absolute; left: 15%; top: 30%; width: 11%; height:12%; "> </a>
     </div>
     <div class="puzzlepiece " id="card3" data-scale="0" >
       <img src="img/game/p-03color.jpg"  class="image" />
@@ -390,23 +420,36 @@
       <img src="img/game/p-07color.jpg" class="image" />
     </div>
     <div id="question-list" class="puzzlepiece" data-targeter="menu8">
+      <img src="img/game/empty_blue.jpg" class="image" />
       <div class="question" id="question1" style="position: absolute; left: 5%; top: 5%; width: 25%; height: 25%; ">&nbsp;
-        <div class="card">
           <div class="flip-card-inner">
             <div class="flip-card-front">
-              <img src="img/game/question1.jpg" alt="7th card" >
+              <img src="img/game/question1.jpg" alt="Quest ce qui a causé l'accident du kidz à vélo ?" />
             </div>
             <div class="flip-card-back">
-              <img src="img/game/card-background.jpg" alt="7th card" >
+              <img src="img/game/card-background.jpg" alt="background " />
             </div>
+          </div>
+      </div>
+      <div class="question" id="question2" style="position: absolute; left: 35%; top: 40%; width: 25%; height: 25%; ">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="img/game/question2.jpg" alt="7th card" >
+          </div>
+          <div class="flip-card-back">
+            <img src="img/game/card-background.jpg" alt="7th card" >
           </div>
         </div>
       </div>
-      <div class="question" id="question2" style="position: absolute; left: 35%; top: 40%; width: 25%; height: 25%; ">
-        <div class="card">Question 2 ?</div>
-      </div>
       <div class="question" id="question3" style="position: absolute; left: 70%; top: 70%; width: 25%; height: 25%; ">
-        <div class="card">Question 3 ?</div>
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="img/game/question3.jpg" alt="7th card" >
+          </div>
+          <div class="flip-card-back">
+            <img src="img/game/card-background.jpg" alt="7th card" >
+          </div>
+        </div>
       </div>
       <button onclick="$('splash-2').classList.remove('fadded');" style="position: absolute; left: 45%; top: 87%; width: 16%; height: 10%; ">
         Fin du jeu!
@@ -492,6 +535,11 @@
           });
         }
 
+        // question activation
+        $('card1-question1').addEventListener('click',function(e){ activateQuestion($('question1'),0);} );
+        $('card2-question2').addEventListener('click',function(e){ activateQuestion($('question2'),0);});
+        $('card6-question3').addEventListener('click',function(e){ activateQuestion($('question3'),0);});
+
         // tuto positionning
         magnify($('hint-doghead-anchor'));
         $('hint-doghead-clickable').addEventListener('click',function (e){
@@ -515,9 +563,6 @@
 
 
         function magnify(hintTarget, attempt) {
-          console.log(hintTarget);
-          console.log(attempt);
-
           let linkpos = hintTarget.getBoundingClientRect();
           if(linkpos.height==0 && attempt < 10 ){
             attempt++;
@@ -536,6 +581,15 @@
           $tutohintMagnifier.style.height = linkpos.width + 'px'; // square to get a circle
         }
 
+      function activateQuestion(questionTarget, attempt) {
+        let linkpos = questionTarget.getBoundingClientRect();
+        if(linkpos.height==0 && attempt < 10 ){
+          attempt++;
+          setTimeout( activateQuestion , 100, questionTarget, attempt);
+          return;
+        }
+        questionTarget.classList.add('active');
+      }
 
 
   </script>
