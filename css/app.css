@@ -1,0 +1,306 @@
+@font-face {
+    font-family: rajdhani-bold;
+    src: url(fonts/Rajdhani-Bold.ttf);
+}
+
+@font-face {
+    font-family: rajdhani-light;
+    src: url(fonts/Rajdhani-Light.ttf);
+}
+
+@font-face {
+    font-family: rajdhani-medium;
+    src: url(fonts/Rajdhani-Medium.ttf);
+}
+
+@font-face {
+    font-family: rajdhani;
+    src: url(fonts/Rajdhani-Regular.ttf);
+}
+
+@font-face {
+    font-family: rajdhani-semibold;
+    src: url(fonts/Rajdhani-SemiBold.ttf);
+}
+
+body{
+    height:100%;
+    font-family: rajdhani;
+}
+
+button{
+    color: #b855a0;
+    background-color: #ffdb55;
+    font-family: rajdhani-bold;
+    border: none;
+    padding: 10px;
+    -webkit-transform: skewX(-15deg);
+    transform: skewX(-15deg);
+    border: 2px solid #ffffff;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+#container{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.card-menu{
+    background: rgba( 0,0,0,0.6);
+    line-height: 15px;
+    width: 100%;
+
+    box-sizing: border-box;
+
+    white-space: nowrap;
+    text-align: center;
+    z-index: 5;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+.card-menu .menu-item{
+    background: #3e2564;
+    border: 2px solid #3e2564;
+    border-radius: 7px;
+    margin: 7px 10px;
+    display: inline-block;
+    overflow: hidden;
+    text-align: center;
+    width: 60px;
+    height: 40px;
+
+    pointer-events: none;
+    perspective: 1000px;
+}
+.card-menu .menu-item.selected{
+    border-color: #ffdb55;
+}
+.card-menu .menu-item .flip-card-inner {     /* This container is needed to position the front and back side */
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.card-menu .menu-item.active .flip-card-inner{
+    transform: rotateY(180deg);
+    pointer-events: all;
+}
+
+.card-menu .menu-item .flip-card-front,
+.card-menu .menu-item .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden; /* Safari */
+    backface-visibility: hidden;
+}
+
+/* Style the front side (fallback if image is missing) */
+.card-menu .menu-item .flip-card-back {
+    background-color: #bbb;
+    color: black;
+}
+
+/* Style the back side */
+.card-menu .menu-item .flip-card-front{
+    background-color: dodgerblue;
+    color: white;
+    transform: rotateY(180deg);
+}
+
+.card-menu .menu-item img{
+    height: 40px;
+}
+
+#canvas{
+    text-align: center;
+    box-sizing: border-box;
+    border-radius: 20px;
+    margin: 20px auto;
+}
+
+#canvas .puzzlepiece{
+    height: 100%;
+    width: auto;
+    margin: auto;
+    border: 10px solid #b655a0;
+    border-radius: 15px;
+    display: inline-block;
+
+    position: relative;
+    top:0;
+    left:0;
+
+}
+
+@media (max-aspect-ratio: 4/3) {
+    #canvas{
+        width: 85%;
+        height: auto;
+
+    }
+    #canvas .puzzlepiece .image{
+        top:0;
+        left:0;
+        width: 100%;
+        display: inline-block;
+    }
+}
+@media (min-aspect-ratio: 4/3) {
+    #canvas{
+        height: 80%;
+        width: auto;
+        margin-top: 7px;
+    }
+    #canvas .puzzlepiece .image{
+        height: 100%;
+        width: auto;
+    }
+    .card-menu .menu-item{
+        margin: 2px 20px;
+    }
+}
+
+#canvas .puzzlepiece{
+    display: none;
+}
+#canvas .puzzlepiece:target,
+#canvas .puzzlepiece.first-selected
+{
+    opacity: 1;
+    z-index: 1;
+    display: inline-block;
+}
+
+#canvas .puzzlepiece .hiddenbutton{
+    cursor: default;
+    background: none;
+    opacity: 0.3;
+}
+#canvas .puzzlepiece .hiddenanchor{
+    cursor: default;
+    background: none;
+    opacity: 0.3;
+}
+
+/* questions */
+#canvas #question-list .question{
+    border: 2px solid #ffdb55;
+    border-radius: 3px;
+    overflow: hidden;
+    perspective: 1000px;
+}
+#canvas #question-list .question img{
+    width: 100%;
+}
+#canvas #question-list .question .flip-card-inner {     /* This container is needed to position the front and back side */
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+#canvas #question-list .question.active .flip-card-inner{
+    transform: rotateY(180deg);
+}
+#canvas #question-list .question .flip-card-front,
+#canvas #question-list .question .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden; /* Safari */
+    backface-visibility: hidden;
+}
+
+/* Style the front side (fallback if image is missing) */
+#canvas #question-list .question .flip-card-back {
+    background-color: #bbb;
+    color: black;
+}
+
+/* Style the back side */
+#canvas #question-list .flip-card-front{
+    color: white;
+    transform: rotateY(180deg);
+}
+
+
+/* Style for tuto */
+#first-overlay{
+    position: fixed;
+    background: rgba(0,0,0,.5);
+    width: 100%;
+    height: 100%;
+    top:0;
+    left:0;
+    z-index: 11;
+}
+#first-overlay.fadded{
+    opacity: 0;
+    visibility: hidden;
+    transition: visibility 0s 1s, opacity 1s linear;
+}
+
+#hint-magnifier{
+    position: fixed;
+    border: 1px solid rgba(0,0,0,.5);
+    border-radius: 50%;
+    z-index:11;
+    overflow: visible;
+
+    width: 500px; /* set in js */
+    height: 500px; /* set in js */
+    top:-70%; /* set in js */
+    left:-70%; /* set in js */
+
+    transition-property: width, height, top, left;
+    transition-duration: 500ms;
+    transition-timing-function: linear;
+
+}
+
+#hint-magnifier .magnifying-glass{
+    width: 110%;
+    position:absolute;
+    left: -5%;
+    top: -5%;
+}
+
+#hint-magnifier .hiddenbutton{
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    position: absolute;
+}
+
+/**/
+.tuto-text{
+    display: block;
+    position:relative;
+    width: 400px;
+    color: #3f007f;
+    background: #ffdb55;
+    text-align: center;
+    border-radius: 7px;
+    padding: 10px;
+    font-weight: bold;
+
+    display: none;
+    z-index:12;
+}
+
+.tuto-text p{
+    margin: 0.2em;
+}
