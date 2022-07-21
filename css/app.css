@@ -1,26 +1,26 @@
 @font-face {
     font-family: rajdhani-bold;
-    src: url(fonts/Rajdhani-Bold.ttf);
+    src: url(../fonts/Rajdhani-Bold.ttf);
 }
 
 @font-face {
     font-family: rajdhani-light;
-    src: url(fonts/Rajdhani-Light.ttf);
+    src: url(../fonts/Rajdhani-Light.ttf);
 }
 
 @font-face {
     font-family: rajdhani-medium;
-    src: url(fonts/Rajdhani-Medium.ttf);
+    src: url(../fonts/Rajdhani-Medium.ttf);
 }
 
 @font-face {
     font-family: rajdhani;
-    src: url(fonts/Rajdhani-Regular.ttf);
+    src: url(../fonts/Rajdhani-Regular.ttf);
 }
 
 @font-face {
     font-family: rajdhani-semibold;
-    src: url(fonts/Rajdhani-SemiBold.ttf);
+    src: url(../fonts/Rajdhani-SemiBold.ttf);
 }
 
 body{
@@ -294,15 +294,14 @@ button{
     z-index:12;
 }
 .tuto-text{
-
-
     width: 70%;
     color: #3f007f;
     background: #ffdb55;
     text-align: center;
     border-radius: 7px;
-    padding: 10px;
+    padding: 30px;
     font-weight: bold;
+    font-size: large;
     margin: 30px auto;
     display: none;
 }
