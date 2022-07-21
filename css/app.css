@@ -309,3 +309,8 @@ button{
 .tuto-text p{
     margin: 0.2em;
 }
+
+
+/* game end button */
+#game-end{ display: none; }
+#game-end.active{ display: block;}

@@ -196,7 +196,7 @@
                     </div>
                 </div>
             </div>
-            <button onclick="$('splash-2').classList.remove('fadded');" style="position: absolute; left: 45%; top: 87%; width: 16%; height: 10%; ">
+            <button id="game-end" onclick="$('splash-2').classList.remove('fadded');" style="position: absolute; left: 45%; top: 87%; width: 16%; height: 10%;">
                 Fin du jeu!
             </button>
         </div>
@@ -433,6 +433,13 @@
             return;
         }
         questionTarget.classList.add('active');
+        let show = 0;
+        for(let i=0;i<$questionCards.length;i++) {
+            show += ($questionCards[i].classList.contains('active'))?1:0;
+        }
+        if(show>=3) {
+            $('game-end').classList.add('active');
+        }
     }
 
     function activatePiece( pieceId ){
@@ -462,6 +469,7 @@
         for (let i = 0; i < $menupieces.length; i++) {
             $menupieces[i].classList.remove('selected');
         }
+        $('game-end').classList.remove = 'active';
         $('menu1').classList.add('selected');
         $('menu1').classList.add('active');
         window.location.hash = 'card1';
