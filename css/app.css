@@ -286,19 +286,25 @@ button{
 }
 
 /**/
-.tuto-text{
+#texts-tuto{
     display: block;
-    position:relative;
-    width: 400px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    z-index:12;
+}
+.tuto-text{
+
+
+    width: 70%;
     color: #3f007f;
     background: #ffdb55;
     text-align: center;
     border-radius: 7px;
     padding: 10px;
     font-weight: bold;
-
+    margin: 30px auto;
     display: none;
-    z-index:12;
 }
 
 .tuto-text p{

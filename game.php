@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/flashback.css">
-    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="css/app.css?<?php echo rand();?>">
 
     <!-- preload images -->
     <link rel="preload" href="bg-image-narrow.png" as="image" >
@@ -126,10 +126,6 @@
             <a id="hint-doghead-anchor" class="hiddenanchor" style=" position: absolute; left:28%; top:48%; width:18%;height:18%;"> </a>
             <a id="hint-question1-anchor" class="hiddenbutton" style=" position: absolute; left: 68%; top: 62%; width: 14%; height:12%;"> </a>
 
-            <a id="tuto-text-1-anchor" class="hiddenanchor" style=" position: absolute; left:5%; top: 1%; width:10%;height:10%;"> </a>
-            <a id="tuto-text-2-anchor" class="hiddenanchor" style=" position: absolute; left:5%; top: 1%; width:10%;height:10%;"> </a>
-            <a id="tuto-text-4-anchor" class="hiddenanchor" style=" position: absolute; left:10%; top: 10%; width:10%;height:10%;"> </a>
-
             <a id="card1-doghead" class="hiddenbutton" href="#card2" style="position: absolute; left:28%; top:51%; width:15%;height:18%;"> </a>
             <a id="card1-retro" class="hiddenbutton" href="#card3" style=" position: absolute; left: 68%; top: 9%; width: 31%; height:24%;  transform: rotate(-30deg)"> </a>
             <a id="card1-question1" class="hiddenbutton" href="#question-list" style=" position: absolute; left: 70%; top: 66%; width: 12%; height:12%;"> </a>
@@ -138,7 +134,6 @@
             <img src="img/game/p-02color.jpg" class="image" />
             <a id="hint-boyhead-anchor" class="hiddenbutton" href="#card1" style="position: absolute; left: 47%; top: 2%; width: 16%; height: 20%; "> </a>
 
-            <a id="tuto-text-3-anchor" class="hiddenanchor" style=" position: absolute; left:10%; top: 70%; width:10%;height:10%;"> </a>
             <a id="card2-boy" class="hiddenbutton" href="#card1" style="position: absolute; left: 49%; top: 3%; width: 13%; height: 20%; "> </a>
             <a id="card2-zombie" class="hiddenbutton" href="#card4" style="position: absolute; left: 19%; top:50%; width: 11%;height:11%; "> </a>
             <a id="card2-question2" class="hiddenbutton" href="#question-list" style="position: absolute; left: 15%; top: 30%; width: 11%; height:12%; "> </a>
@@ -165,7 +160,6 @@
         </div>
         <div id="question-list" class="puzzlepiece" data-targeter="menu8">
             <img src="img/game/Cards_BG_S02.png" class="image" />
-            <div class="hiddenanchor" id="tuto-text-5-anchor"  style="position: absolute; left: 40%; top: 5%; width: 25%; height: 25%; "></div>
             <div class="question" id="question1" style="position: absolute; left: 5%; top: 5%; width: 25%; height: 25%; ">
                 <div class="flip-card-inner">
                     <div class="flip-card-front">
@@ -290,6 +284,7 @@
         $tutoTexts = $_s('.tuto-text');
         $canvas = $('canvas');
         $tutohintMagnifier = $('hint-magnifier');
+        $questionCards = $_('#question-list .question');
 
         // redirect to card 1 if current #card is not active
         let hash = window.location.hash;
@@ -324,17 +319,17 @@
 
         // tuto positionning
         // tuto step 1
-        positionText($('tuto-text-1-anchor'),$('text-tuto-1'),0);
+        showTutotext($('text-tuto-1'));
 
         // tuto step 2
         $('tuto-next-step1').addEventListener('click',function(){
             magnify($('hint-doghead-anchor'),0);
-            positionText($('tuto-text-2-anchor'),$('text-tuto-2'),0);
+            showTutotext($('text-tuto-2'));
         });
 
         // tuto step 3
         $('tuto-next-step2').addEventListener('click',function(){
-            positionText($('tuto-text-3-anchor'),$('text-tuto-3'),0);
+            showTutotext($('text-tuto-3'));
             activatePiece('card2');
             $firstpuzzlepiece.classList.remove('first-selected'); //remove first selected
 
@@ -347,20 +342,20 @@
 
         // tuto step 4
         $('tuto-next-step3').addEventListener('click',function(){
-            positionText($('tuto-text-4-anchor'),$('text-tuto-4'),0);
+            showTutotext($('text-tuto-4'));
             rotoMagnify($('menu2'),$('menu1'));
         });
 
         // tuto step 5
         $('tuto-next-step4').addEventListener('click',function(){
-            positionText($('tuto-text-5-anchor'),$('text-tuto-5'),0);
+            showTutotext($('text-tuto-5'));
             magnify($('hint-question1-anchor'),0);
         });
 
         // tuto step 6
         $('tuto-next-step5').addEventListener('click',function(){
             activateQuestion($('question1'),0);
-            positionText($('tuto-text-6-anchor'),$('text-tuto-6'),0);
+            showTutotext($('text-tuto-6'));
             $('hint-magnifier').style.display='none';
             $('first-overlay').style.display='block';
 
@@ -373,16 +368,11 @@
             $('texts-tuto').remove();
 
             // go to first piece
-            for (let i = 0; i < $menupieces.length; i++) {
-                $menupieces[i].classList.remove('selected');
-            }
-            $('menu1').classList.add('selected');
-            window.location.hash = 'card1';
+            resetGame();
             this.remove();
         });
 
     });
-
 
     function magnify(hintTarget, attempt) {
         let linkpos = hintTarget.getBoundingClientRect();
@@ -414,15 +404,7 @@
         setTimeout( magnify, 2000, target2,0 );
     }
 
-    function positionText(textTarget, textTuto, attempt){
-        let linkpos = textTarget.getBoundingClientRect();
-        if(linkpos.height==0 && attempt < 10 ){
-            attempt++;
-            setTimeout( positionText , 100, textTarget, textTuto, attempt);
-            return;
-        }
-        textTuto.style.top = linkpos.top+'px';
-        textTuto.style.left = linkpos.left+'px';
+    function showTutotext( textTuto ){
         for(let i =0; i< $tutoTexts.length; i++){
             $tutoTexts[i].style.display='none';
         }
@@ -441,6 +423,8 @@
 
     function activatePiece( pieceId ){
         for (let i = 0; i < $menupieces.length; i++) {
+            console.log(pieceId);
+            console.log($menupieces[i].getAttribute('href'));
             if (pieceId == $menupieces[i].getAttribute('href')) {
                 $menupieces[i].classList.add('active');
                 for (let j = 0; j < $menupieces.length; j++) {
@@ -451,6 +435,24 @@
         }
     }
 
+    // remove all active menus, questions and go back to card 1
+    function resetGame(){
+        for (let j = 0; j < $menupieces.length; j++) {
+            $menupieces[j].classList.remove('active');
+        }
+        for (let j = 0; j < $puzzlepieces.length; j++) {
+            $puzzlepieces[j].classList.remove('active');
+        }
+        for (let j = 0; j < $questionCards.length; j++) {
+            $questionCards[j].classList.remove('active');
+        }
+        for (let i = 0; i < $menupieces.length; i++) {
+            $menupieces[i].classList.remove('selected');
+        }
+        $('menu1').classList.add('selected');
+        $('menu1').classList.add('active');
+        window.location.hash = 'card1';
+    }
 
 </script>
 </body>

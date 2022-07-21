@@ -48,7 +48,7 @@
 
     </p>
     <button>
-    <a href="game.html">
+    <a href="game.php">
 
             Commencer
 
