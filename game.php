@@ -22,7 +22,13 @@
     <link rel="stylesheet" href="css/app.css?<?php echo rand();?>">
 
     <!-- preload images -->
-    <link rel="preload" href="bg-image-narrow.png" as="image" >
+    <link rel="preload" href="img/game/p-01color.jpg" as="image" >
+    <link rel="preload" href="img/game/p-02color.jpg" as="image" >
+    <link rel="preload" href="img/game/p-03color.jpg" as="image" >
+    <link rel="preload" href="img/game/p-04color.jpg" as="image" >
+    <link rel="preload" href="img/game/p-05color.jpg" as="image" >
+    <link rel="preload" href="img/game/p-06color.jpg" as="image" >
+    <link rel="preload" href="img/game/p-07color.jpg" as="image" >
 
     <meta name="theme-color" content="#fafafa">
 
@@ -215,7 +221,11 @@
 <div id="texts-tuto">
 
     <div id="text-tuto-1" class="tuto-text">
-        <p>Dans Flashback, tu voyages dans un souvenir. Chaque souvenir est une seconde précise figée dans le temps. Tout ce que tu y vois appartient au passé. Voici la première carte du premier souvenir.</p>
+        <p>Dans Flashback, tu voyages dans un souvenir. </p>
+<p>            Chaque souvenir est une seconde précise figée dans le temps.
+</p>
+        <p>
+            Tout ce que tu y vois appartient au passé. Voici la première carte du premier souvenir.</p>
         <button id="tuto-next-step1">Suivant</button>
     </div>
     <div id="text-tuto-2" class="tuto-text">
@@ -244,8 +254,8 @@
     <div id="text-tuto-6" class="tuto-text">
         <p>
             A toi de jouer maintenant.
-            <button id="tuto-next-step6"><a href="#card1">Go !</a></button>
         </p>
+        <button id="tuto-next-step6"><a href="#card1">Go !</a></button>
     </div>
 </div>
 
@@ -284,7 +294,7 @@
         $tutoTexts = $_s('.tuto-text');
         $canvas = $('canvas');
         $tutohintMagnifier = $('hint-magnifier');
-        $questionCards = $_('#question-list .question');
+        $questionCards = $_s('#question-list .question');
 
         // redirect to card 1 if current #card is not active
         let hash = window.location.hash;
@@ -308,7 +318,7 @@
         for (let i = 0; i < $hiddenbuttons.length; i++) {
             $hiddenbuttons[i].addEventListener('click', function (e) {
                 $firstpuzzlepiece.classList.remove('first-selected'); //remove first selected
-                activatePiece(this.href);
+                activatePiece(this.getAttribute('href'));
             });
         }
 
@@ -343,7 +353,7 @@
         // tuto step 4
         $('tuto-next-step3').addEventListener('click',function(){
             showTutotext($('text-tuto-4'));
-            rotoMagnify($('menu2'),$('menu1'));
+            rotoMagnify($('menu5'),$('menu1'));
         });
 
         // tuto step 5
@@ -397,11 +407,15 @@
     }
 
     var target;
+    var rotoanim = [];
     function rotoMagnify(target1, target2){
         magnify(target1);
-        setTimeout( magnify, 500, target2,0 );
-        setTimeout( magnify, 1200, target1,0 );
-        setTimeout( magnify, 2000, target2,0 );
+        rotoanim[0] = setTimeout( magnify, 700, target2,0 );
+    }
+    function resetRotoMagnify(){
+        for(let i=0; i<3;i++){
+            clearTimeout( rotoanim[i] );
+        }
     }
 
     function showTutotext( textTuto ){
@@ -423,8 +437,7 @@
 
     function activatePiece( pieceId ){
         for (let i = 0; i < $menupieces.length; i++) {
-            console.log(pieceId);
-            console.log($menupieces[i].getAttribute('href'));
+
             if (pieceId == $menupieces[i].getAttribute('href')) {
                 $menupieces[i].classList.add('active');
                 for (let j = 0; j < $menupieces.length; j++) {
