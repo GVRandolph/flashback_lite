@@ -33,6 +33,7 @@ button{
     font-family: rajdhani-bold;
     border: none;
     padding: 10px;
+    margin: 10px;
     -webkit-transform: skewX(-15deg);
     transform: skewX(-15deg);
     border: 2px solid #ffffff;

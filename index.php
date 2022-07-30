@@ -21,11 +21,14 @@
   <!-- Place favicon.ico in the root directory -->
 
   <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/flashback.css?3">
-  <link rel="stylesheet" href="css/splash.css?2">
+  <link rel="stylesheet" href="css/splash.css?<?php echo rand();?>">
 
   <meta name="theme-color" content="#fafafa">
+
+    <script src="js/bootstrap.bundle.min.js" ></script>
 
 
 </head>
@@ -33,6 +36,22 @@
 <body>
 <!-- ----------------------------------------------------------splash screen ------------------------------ -->
 <div class="splash">
+    <nav class="row">
+        <div class="container-fluid">
+            <div class="justify-content-end">
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Language
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">FR</a></li>
+                        <li><a class="dropdown-item" href="#">EN</a></li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </nav>
     <img class="logo" src="img/game/FB_logo.png" alt="logo FlashBack Zombie kidz"/>
     <p>
       Bienvenue dans le tutoriel jouable de FlashBack Zombie kidz.
