@@ -52,28 +52,66 @@
 
         </div>
     </nav>
-    <img class="logo" src="img/game/FB_logo.png" alt="logo FlashBack Zombie kidz"/>
+    <p>Bienvenue dans l’univers étendu de Zombie Kidz.</p>
+    <img class="logo" src="img/game/FB_logo.png" alt="logo FlashBack Zombie kidz" style="width:50%"/>
     <p>
-      Bienvenue dans le tutoriel jouable de FlashBack Zombie kidz.
+        <button>
+            <a href="game.php">
+                MINI JEU
+            </a>
+        </button>
+        <br/>
+        <button>
+            <a href="https://www.scorpionmasque.com/fr/zombie-kidz-%C3%A9volution">
+                EN SAVOIR PLUS
+            </a>
+        </button>
+
     </p>
+    <h2>FLASHBACK EST UN JEU D&#39;ENQUÊTE COOPÉRATIF DANS L’UNIVERS DE ZOMBIE KIDZ</h2>
     <p>
-
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vel magna at orci convallis placerat. Cras hendrerit ullamcorper turpis at hendrerit. Morbi vitae nisi id tellus euismod feugiat. Donec diam nibh, pulvinar a ex vitae, euismod pharetra urna. Curabitur iaculis egestas consectetur. Vestibulum bibendum massa urna, ut mollis turpis varius at. Phasellus nec odio ut urna ultrices efficitur at a velit. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nam in vehicula nulla. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vel magna at orci convallis placerat. Cras hendrerit ullamcorper turpis at hendrerit. Morbi vitae nisi id tellus euismod feugiat. Donec diam nibh, pulvinar a ex vitae, euismod pharetra urna. Curabitur iaculis egestas consectetur. Vestibulum bibendum massa urna, ut mollis turpis varius at. Phasellus nec odio ut urna ultrices efficitur at a velit. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nam in vehicula nulla. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vel magna at orci convallis placerat. Cras hendrerit ullamcorper turpis at hendrerit. Morbi vitae nisi id tellus euismod feugiat. Donec diam nibh, pulvinar a ex vitae, euismod pharetra urna. Curabitur iaculis egestas consectetur. Vestibulum bibendum massa urna, ut mollis turpis varius at. Phasellus nec odio ut urna ultrices efficitur at a velit. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nam in vehicula nulla. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae
-      Lorem ipsum dolor it amet, consectetur adipiscing elit. Cras vel magna at orci convallis placerat. Cras hendrerit ullamcorper turpis at hendrerit. Morbi vitae nisi id tellus euismod feugiat. Donec diam nibh, pulvinar a ex vitae, euismod pharetra urna. Curabitur iaculis egestas consectetur. Vestibulum bibendum massa urna, ut mollis turpis varius at. Phasellus nec odio ut urna ultrices efficitur at a velit. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nam in vehicula nulla. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vel magna at orci convallis placerat. Cras hendrerit ullamcorper turpis at hendrerit. Morbi vitae nisi id tellus euismod feugiat. Donec diam nibh, pulvinar a ex vitae, euismod pharetra urna. Curabitur iaculis egestas consectetur. Vestibulum bibendum massa urna, ut mollis turpis varius at. Phasellus nec odio ut urna ultrices efficitur at a velit. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nam in vehicula nulla. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae
-
-
+        Il ne reste que quelques instants avant que les zombies ne causent la fin du monde !
+        Heureusement, tu disposes d’une machine permettant de visiter un souvenir.
     </p>
+
+    <img class="" src="img/materiel.jpg" alt="Materiel de jeu" style="width:50%"/>
+
+    <h2>ÉLUCIDER DES MYSTÈRES</h2>
+    <p>
+        C’EST LA PANIQUE! Il ne reste que quelques minutes avant la fin du monde... Les zombies ont
+        pris le contrôle de l’école et leur plan de conquête de la Terre est sur le point d’aboutir! Tous les
+        habitants de la planète risquent de se transformer en mangeurs de choucroute à la cervelle! Il ne
+        reste qu’un seul espoir: un bidule développé par les Kidz qui permet de voyager dans un
+        souvenir. Comprendre le passé te permettra peut-être de changer l’avenir et de sauver le monde.
+        Nous avons besoin de toi pour mener l’enquête !
+    </p>
+    <img class="" src="img/cards_fr.png" alt="Cartes" style="width:50%"/>
+    <p>
+        Saute d’un point de vue à l’autre, découvre des indices…
+        élucide les mystères et déjoue le plan des zombies !<br/>
+        Dès novembre, découvre de vais gadgets qui modifient le jeu et rejoue chacun des 3 scenarios
+        d’une toute nouvelle façon!
+    </p>
+    <h2>FAIS ÉQUIPE AVEC TES AMIS OU TA FAMILLE</h2>
+    <p>
+        Flashback : Zombie Kidz est un jeu d&#39;enquête coopératif. Rassemble ton équipe autour de la
+        table et ensemble, découvrez des indices, élucidez des mystères et arrêtez le plan machiavélique
+        des zombies !
+    </p>
+    <img class="" src="img/cards_fr.png" alt="Cartes" style="width:50%"/>
+    <h2>PRÉ-COMMANDE FLASHBACK : ZOMBIE KIDZ DANS TA BOUTIQUE LUDIQUE
+        PRÉFÉRÉE.</h2>
     <button>
-    <a href="game.php">
-
-            Commencer
-
-    </a>
+        <a href="game.php">
+            MINI JEU
+        </a>
     </button>
-
+    <br/>
+    <button>
+        <a href="https://www.scorpionmasque.com/fr/zombie-kidz-%C3%A9volution">
+            EN SAVOIR PLUS
+        </a>
+    </button>
 </div>
 </body>
 
