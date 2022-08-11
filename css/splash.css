@@ -1,20 +1,129 @@
-
+body {
+    font-family: rajdhani-bold;
+    color: #ffffff;
+    padding: 20px;
+    padding-bottom: 200px;
+}
 .splash{
-    width: 80%;
-    min-width: 600px;
     margin: auto;
     text-align: center;
-    background-image: url("../img/game/Couv_BG.jpg");
-    background-size: cover;
-    background-position: top center;
-    background-repeat: no-repeat;
-    background-color: #3f007f;
-    padding: 0 20px 100px 20px;
+    padding: 0;
+    max-width: 1500px;
 }
+
+.splash .lang-switch{
+    width: 30px;
+    margin-top: 40px;
+}
+
+.splash .explosion{
+    position: absolute;
+    left: 60px;
+    top: 0;
+    width: 30%;
+}
+
 .splash .logo{
     width: 100%;
 }
 .splash p{
     color: white;
     padding: 0 40px;
+}
+.splash p.yellow{
+    color: #ffdb55;
+}
+
+.splash .logo{
+    width: 60%;
+}
+.splash .materiel{
+    width: 80%;
+    margin: 40px auto 5px;
+ }
+.splash .tools{
+    width: 27%;
+    margin: 15px auto 20px;
+}
+
+.splash .cards{
+    width:65%;
+    margin: 20px auto 5px;
+}
+
+.splash .planet{
+    width: 50%;
+}
+
+.splash .box-ending{
+    width: 80%;
+    margin: auto;
+}
+
+.splash .box{
+    float: left;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.splash .announce{
+    color: #ffdb55;
+    background: rgba(0,0,0,.2);
+    padding: 20px;
+    border: 5px solid #ffdb55;
+    border-radius: 20px;
+    margin: 60px 0 20px 0;
+    font-size: 1.5em;
+    line-height: 1em;
+}
+
+.splash .logo_SM{
+    display: block;
+    width: 200px;
+    margin: 60px auto 0;
+}
+
+.splash .social{
+    display: block;
+    margin: 40px auto 0;
+    white-space: nowrap;
+}
+.splash .social a{
+    width: 60px;
+    height: 60px;
+    background: red;
+    color: transparent;
+    display: inline-block;
+    background: url("../img/index/social.png");
+    background-size: auto 40px;
+    background-repeat: no-repeat;
+    margin: 15px 10px;
+}
+.splash .social a.insta{ background-position: 10px 10px;}
+.splash .social a.twitter{ background-position: -60px 10px;}
+.splash .social a.facebook{ background-position: -150px 10px;}
+.splash .social a.youtube{ background-position: -225px 10px;}
+
+.splash .copyright{
+    display: block;
+    width: 330px;
+    margin: 40px auto 0;
+}
+
+/* Mobile version */
+@media (max-width: 768px) {
+
+    .splash .lang-switch{
+        width: 15px;
+        margin-top: 5px;
+    }
+    .splash .cards,
+    .splash .materiel
+    {
+        width: 100%;
+    }
+    .splash .tools{
+        width: 60%;
+    }
+
 }
