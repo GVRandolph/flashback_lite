@@ -129,10 +129,10 @@
     <div class="clearfix"></div>
     <img class="logo_SM" src="img/index/logo_sm.png" alt="Scorpion masqué"/>
     <div class="social">
-        <a href="insta" class=" insta" >Instagram</a>
-        <a href="insta" class=" twitter">Twitter</a>
-        <a href="insta" class=" facebook">Facebook</a>
-        <a href="insta" class=" youtube">Youtube</a>
+        <a href="https://www.instagram.com/scorpionmasque/" target="_blank" class=" insta"      >Instagram</a>
+        <a href="https://twitter.com/Scorpionmasque"        target="_blank" class=" twitter"    >Twitter</a>
+        <a href="https://www.facebook.com/scorpionmasque"   target="_blank" class=" facebook"   >Facebook</a>
+        <a href="https://www.youtube.com/scorpionmasque"    target="_blank" class=" youtube"    >Youtube</a>
     </div>
 
     <img class="copyright" src="img/index/copyright.png" alt="Copyright &copy; 2022 - Le Scorpion Masqué"/>
