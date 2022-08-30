@@ -1,41 +1,35 @@
 body {
     font-family: rajdhani-bold;
     color: #ffffff;
-    padding: 20px;
-    padding-bottom: 200px;
+    padding: 0 20px 200px 20px;
 }
 .splash{
     margin: auto;
     text-align: center;
     padding: 0;
     max-width: 1500px;
+    position: relative;
 }
 
 .splash .lang-switch{
     width: 30px;
     margin-top: 40px;
-}
-
-.splash .explosion{
     position: absolute;
-    left: 60px;
-    top: 0;
-    width: 30%;
+    top:0;
+    right: 20%;
 }
 
-.splash .logo{
-    width: 100%;
-}
+
 .splash p{
     color: white;
-    padding: 0 40px;
+
 }
 .splash p.yellow{
     color: #ffdb55;
 }
 
 .splash .logo{
-    width: 60%;
+    width: 85%;
 }
 .splash .materiel{
     width: 80%;
@@ -60,6 +54,10 @@ body {
     margin: auto;
 }
 
+.splash .box-ending h2{
+    margin-top: 50px;
+    line-height: 1;
+}
 .splash .box{
     float: left;
     margin-top: 20px;
@@ -72,9 +70,15 @@ body {
     padding: 20px;
     border: 5px solid #ffdb55;
     border-radius: 20px;
-    margin: 60px 0 20px 0;
-    font-size: 1.5em;
+    margin: 50px 0 10px 0;
+    font-size: 2em;
     line-height: 1em;
+}
+
+.splash .sortie{
+    color: #ffdb55;
+    font-size: 1.5em;
+    white-space: nowrap;
 }
 
 .splash .logo_SM{
@@ -113,9 +117,18 @@ body {
 /* Mobile version */
 @media (max-width: 768px) {
 
+    body{
+        background-size: 200%;
+    }
+    .splash .logo {
+        width: 130%;
+        margin-left: -13%;
+    }
+
     .splash .lang-switch{
         width: 15px;
         margin-top: 5px;
+        left:2%;
     }
     .splash .cards,
     .splash .materiel
@@ -124,6 +137,16 @@ body {
     }
     .splash .tools{
         width: 60%;
+    }
+
+    .splash .announce{
+        margin-top:20px;
+        font-size: 1.7em;
+    }
+    button {
+        padding: 7px 25px;
+        margin:10px;
+        font-size: 0.8em;
     }
 
 }

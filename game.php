@@ -209,12 +209,9 @@
 
 <!-- ---------------------------------------------------------- TUTO --------------------------------------- -->
 
-<!-- full overlay without the magnifying glass -->
-<div id="first-overlay"></div>
-
 <!-- Magnifier -->
 <div id="hint-magnifier" class="hint">
-    <img class="magnifying-glass" src="img/game/loupe.png" />
+    <img class="magnifying-glass" src="img/game/FB_Loupe.png" />
 </div>
 
 <!-- texts -->
@@ -383,14 +380,12 @@
             activateQuestion($('question1'),0);
             showTutotext($('text-tuto-6'));
             $('hint-magnifier').style.display='none';
-            $('first-overlay').style.display='block';
 
         });
 
         // tuto step 6
         $('tuto-next-step6').addEventListener('click',function(){
             $('hint-magnifier').style.display='none';
-            $('first-overlay').classList.add('fadded');//style.display='none';
             $('texts-tuto').remove();
 
             // go to first piece
@@ -418,8 +413,6 @@
         $tutohintMagnifier.style.width = linkpos.width + 'px';
         $tutohintMagnifier.style.height = linkpos.width + 'px'; // square to get a circle
 
-        // remove default overlay
-        $('first-overlay').style.display='none';
     }
 
     var target;

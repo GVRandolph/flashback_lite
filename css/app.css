@@ -28,19 +28,6 @@ body{
     font-family: rajdhani;
 }
 
-button{
-    color: #b855a0;
-    background-color: #ffdb55;
-    font-family: rajdhani-bold;
-    border: none;
-    padding: 10px;
-    -webkit-transform: skewX(-15deg);
-    transform: skewX(-15deg);
-    border: 2px solid #ffffff;
-    cursor: pointer;
-    border-radius: 3px;
-}
-
 #container{
     height: 100%;
     width: 100%;
@@ -133,8 +120,9 @@ button{
     height: 100%;
     width: auto;
     margin: auto;
-    border: 10px solid #b655a0;
-    border-radius: 15px;
+
+    border-radius: 60px;
+    overflow: hidden;
     display: inline-block;
 
     position: relative;
@@ -255,7 +243,7 @@ button{
 
 #hint-magnifier{
     position: fixed;
-    border: 1px solid rgba(0,0,0,.5);
+    border: 1px solid rgba(0,0,0,0);
     border-radius: 50%;
     z-index:11;
     overflow: visible;
@@ -295,12 +283,13 @@ button{
     z-index:12;
 }
 .tuto-text{
-    width: 70%;
-    color: #3f007f;
-    background: #ffdb55;
+    width: 45%;
+    color: #ffffff;
+    border: 3px solid #ffdb55;
+    background: rgba(0,0,0,0.2);
     text-align: center;
-    border-radius: 7px;
-    padding: 30px;
+    border-radius: 30px;
+    padding: 20px;
     font-weight: bold;
     font-size: large;
     margin: 30px auto;

@@ -36,16 +36,13 @@
 <body>
 <!-- ----------------------------------------------------------splash screen ------------------------------ -->
 <div class="splash">
-<div class="row">
-    <div class="col-10 text-end">
-        <?php if($_GET['lang'] === 'en'):?>
-        <a href="?lang=fr"><img class="lang-switch" src="img/index/lang_fr.png" alt="FR"></a>
-        <?php else:?>
-        <a href="?lang=en"><img class="lang-switch" src="img/index/lang_en.png" alt="EN"></a>
-        <?php endif;?>
-    </div>
-</div>
-    <img class="explosion" src="img/index/explosion.png" alt="L'unives de zombie kidz s'étend" />
+
+    <?php if($_GET['lang'] === 'en'):?>
+    <a href="?lang=fr"><img class="lang-switch" src="img/index/lang_fr.png" alt="FR"></a>
+    <?php else:?>
+    <a href="?lang=en"><img class="lang-switch" src="img/index/lang_en.png" alt="EN"></a>
+    <?php endif;?>
+
     <img class="logo" src="img/index/logo.png" alt="logo FlashBack Zombie kidz" />
     <p>
         <button>
@@ -60,7 +57,7 @@
         </button>
 
     </p>
-    <h2>FLASHBACK EST UN JEU D&#39;ENQUÊTE COOPÉRATIF<br/> DANS L’UNIVERS DE ZOMBIE KIDZ</h2>
+    <h2><i>FLASHBACK</i> EST UN JEU D&#39;ENQUÊTE COOPÉRATIF<br/> DANS L’UNIVERS DE <i>ZOMBIE KIDZ</i></h2>
     <p>
         Il ne reste que quelques instants avant que les zombies ne causent la fin du monde !<br/>
         Heureusement, tu disposes d’une machine permettant de visiter un souvenir.
@@ -68,11 +65,11 @@
 
     <img class="materiel" src="img/index/game.png" alt="Materiel de jeu" style=""/>
 
-    <h2>ÉLUCIDER DES MYSTÈRES</h2>
+    <h2>ÉLUCIDE DES MYSTÈRES</h2>
     <p>
-        C’EST LA PANIQUE! Il ne reste que quelques minutes avant la fin du monde... <br/>
-        Les zombies ont pris le contrôle de l’école et leur plan de conquête de la Terre est sur le point d’aboutir! <br/>
-        Tous les habitants de la planète risquent de se transformer en mangeurs de choucroute à la cervelle! <br/>
+        C’EST LA PANIQUE ! Il ne reste que quelques minutes avant la fin du monde... <br/>
+        Les zombies ont pris le contrôle de l’école et leur plan de conquête de la Terre est sur le point d’aboutir ! <br/>
+        Tous les habitants de la planète risquent de se transformer en mangeurs de choucroute à la cervelle ! <br/>
         Il ne reste qu’un seul espoir: un bidule développé par les Kidz qui permet de voyager dans un souvenir.<br/>
         Comprendre le passé te permettra peut-être de changer l’avenir et de sauver le monde.<br/>
         Nous avons besoin de toi pour mener l’enquête !
@@ -82,7 +79,7 @@
         Saute d’un point de vue à l’autre, découvre des indices…
         élucide les mystères et déjoue le plan des zombies !<br/>
         Dès novembre, découvre de vais gadgets qui modifient le jeu et rejoue chacun des 3 scenarios
-        d’une toute nouvelle façon!
+        d’une toute nouvelle façon !
     </p>
     <img class="cards" src="img/index/cards.png" alt="Cartes"/>
     <img class="planet" src="img/index/planet.png" alt="planet logo"/>
@@ -95,7 +92,7 @@
             <div class="col-md-7">
                 <h2>FAIS ÉQUIPE AVEC TES AMIS <br/>OU TA FAMILLE</h2>
                 <p>
-                    Flashback : Zombie Kidz est un jeu d&#39;enquête coopératif. Rassemble ton équipe autour de la
+                    <i>Flashback : Zombie Kidz</i> est un jeu d&#39;enquête coopératif. Rassemble ton équipe autour de la
                     table et ensemble, découvrez des indices, élucidez des mystères et arrêtez le plan machiavélique
                     des zombies !
                 </p>
@@ -105,10 +102,10 @@
                 </div>
                 <div class="announce">
                     Précommande<br/>
-                    FLASHBACK : ZOMBIE KIDZ
+                    <i>FLASHBACK : ZOMBIE KIDZ</i>
                     <br/>dans ta boutique ludique préférée.
                 </div>
-                <p class="yellow">Sortie Novembre 2022</p>
+                <p class="sortie">Sortie Novembre 2022</p>
             </div>
         </div>
     </div>
@@ -127,7 +124,7 @@
     </button>
 
     <div class="clearfix"></div>
-    <img class="logo_SM" src="img/index/logo_sm.png" alt="Scorpion masqué"/>
+    <a href="https://www.scorpionmasque.com" target="_blank"><img class="logo_SM" src="img/index/logo_sm.png" alt="Scorpion masqué"/></a>
     <div class="social">
         <a href="https://www.instagram.com/scorpionmasque/" target="_blank" class=" insta"      >Instagram</a>
         <a href="https://twitter.com/Scorpionmasque"        target="_blank" class=" twitter"    >Twitter</a>
