@@ -113,7 +113,7 @@
         <a class="menu-item" id="menu8" href="#question-list">
             <div class="flip-card-inner">
                 <div class="flip-card-front">
-                    <img src="img/game/questions.jpg" alt="7th card" >
+                    <img src="img/game/card-background.jpg" alt="7th card" >
                 </div>
                 <div class="flip-card-back">
                     <img src="img/game/card-background.jpg" alt="7th card" >
@@ -166,37 +166,57 @@
             <img src="img/game/p-07color.jpg" class="image" />
         </div>
         <div id="question-list" class="puzzlepiece" data-targeter="menu8">
-            <img src="img/game/Cards_BG_S02.png" class="image" />
+            <img src="img/game/nocard.png" class="image" />
             <div class="question" id="question1" style="position: absolute; left: 5%; top: 5%; width: 25%; height: 25%; ">
                 <div class="flip-card-inner">
                     <div class="flip-card-front">
-                        <img src="img/game/question1.jpg" alt="Quest ce qui a causé l'accident du kidz à vélo ?" />
+                        <img src="img/game/question1_fr.jpg" alt="Quest ce qui a causé l'accident du kidz à vélo ?" />
                     </div>
                     <div class="flip-card-back">
-                        <img src="img/game/card-background.jpg" alt="background " />
+                        <img src="img/game/question1_bg.jpg" alt="background " />
                     </div>
                 </div>
             </div>
-            <div class="question" id="question2" style="position: absolute; left: 35%; top: 40%; width: 25%; height: 25%; ">
+
+            <button id="button-answer1" style="position: absolute; left: 40%; top: 10%; ">Es-tu prêt à voir la réponse ?</button>
+
+            <div class="tuto-text yellow" id="text-answer1" style="position: absolute; left: 40%; top: 4%; width: 55%; height: 10%; ">
+                Les zombies ont soulevé une bouche d'égout ce qui a projeté le vélo dans les airs.
+            </div>
+
+            <div class="question" id="question2" style="position: absolute; left: 5%; top: 35%; width: 25%; height: 25%; ">
                 <div class="flip-card-inner">
                     <div class="flip-card-front">
-                        <img src="img/game/question2.jpg" alt="7th card" >
+                        <img src="img/game/question2_fr.jpg" alt="7th card" >
                     </div>
                     <div class="flip-card-back">
-                        <img src="img/game/card-background.jpg" alt="7th card" >
+                        <img src="img/game/question2_bg.jpg" alt="7th card" >
                     </div>
                 </div>
             </div>
-            <div class="question" id="question3" style="position: absolute; left: 70%; top: 70%; width: 25%; height: 25%; ">
+            <button id="button-answer2" style="position: absolute; left: 40%; top: 40%; ">Es-tu prêt à voir la réponse ?</button>
+
+            <div class="tuto-text" id="text-answer2" style="position: absolute; left: 40%; top: 34%; width: 55%; height: 10%;">
+                    Les zombies ont soulevé une bouche d'égout ce qui a projeté le vélo dans les airs.
+            </div>
+
+            <div class="question" id="question3" style="position: absolute; left: 5%; top: 65%; width: 25%; height: 25%; ">
                 <div class="flip-card-inner">
                     <div class="flip-card-front">
-                        <img src="img/game/question3.jpg" alt="7th card" >
+                        <img src="img/game/question3_fr.jpg" alt="7th card" >
                     </div>
                     <div class="flip-card-back">
-                        <img src="img/game/card-background.jpg" alt="7th card" >
+                        <img src="img/game/question3_bg.jpg" alt="7th card" >
                     </div>
                 </div>
             </div>
+
+            <button id="button-answer3" style="position: absolute; left: 40%; top: 70%; ">Es-tu prêt à voir la réponse ?</button>
+
+            <div class="tuto-text" id="text-answer3" style="position: absolute; left: 40%; top: 64%; width: 55%; height: 10%;">
+                Les zombies ont soulevé une bouche d'égout ce qui a projeté le vélo dans les airs.
+            </div>
+
             <button id="game-end" onclick="$('splash-2').classList.remove('fadded');" style="position: absolute; left: 45%; top: 87%; width: 16%; height: 10%;">
                 Fin du jeu!
             </button>
@@ -316,6 +336,11 @@
                 window.location = window.location.href.replace(window.location.hash, "");
             }
         }
+
+        // question buttons
+        $('button-answer1').addEventListener('click',function(){$('text-answer1').style.display='block';this.style.display='none';});
+        $('button-answer2').addEventListener('click',function(){$('text-answer2').style.display='block';this.style.display='none';});
+        $('button-answer3').addEventListener('click',function(){$('text-answer3').style.display='block';this.style.display='none';});
 
         // menu selection
         for (let i = 0; i < $menupieces.length; i++) {
