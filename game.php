@@ -123,10 +123,14 @@
     </div>
 
     <!-- ----------------------------------------------------------CANVAS --------------------------------------- -->
-
+    <div class="first-overlay"></div>
     <div id="canvas">
+        <div class="puzzlepiece first-selected" id="introcard"  >
+            <img src="img/game/intro_fr.jpg" class="image" />
+            <a id="intro-play" class="hiddenbutton" href="#card1" style="position: absolute; left:20%; top:77%; width:27%; height:18%;"> </a>
+        </div>
 
-        <div class="puzzlepiece first-selected" id="card1" data-scale="0" >
+        <div class="puzzlepiece" id="card1"  >
             <img src="img/game/p-01color.jpg" class="image" />
 
             <a id="hint-0-anchor" class="hiddenanchor" style=" position: absolute; left:50%; top:50%; width:0%;height:0%;"> </a>
@@ -137,7 +141,7 @@
             <a id="card1-retro" class="hiddenbutton" href="#card3" style=" position: absolute; left: 68%; top: 9%; width: 31%; height:24%;  transform: rotate(-30deg)"> </a>
             <a id="card1-question1" class="hiddenbutton" href="#question-list" style=" position: absolute; left: 70%; top: 66%; width: 12%; height:12%;"> </a>
         </div>
-        <div class="puzzlepiece " id="card2" data-scale="0" >
+        <div class="puzzlepiece " id="card2"  >
             <img src="img/game/p-02color.jpg" class="image" />
             <a id="hint-boyhead-anchor" class="hiddenbutton" href="#card1" style="position: absolute; left: 47%; top: 2%; width: 16%; height: 20%; "> </a>
 
@@ -145,24 +149,24 @@
             <a id="card2-zombie" class="hiddenbutton" href="#card4" style="position: absolute; left: 19%; top:50%; width: 11%;height:11%; "> </a>
             <a id="card2-question2" class="hiddenbutton" href="#question-list" style="position: absolute; left: 15%; top: 30%; width: 11%; height:12%; "> </a>
         </div>
-        <div class="puzzlepiece " id="card3" data-scale="0" >
+        <div class="puzzlepiece " id="card3"  >
             <img src="img/game/p-03color.jpg"  class="image" />
             <a id="card3-visiere" class="hiddenbutton" href="#card5" style="position: absolute; left: 41%; top: 58%; width: 15%; height: 9%; "> </a>
         </div>
-        <div class="puzzlepiece " id="card4" data-scale="0" >
+        <div class="puzzlepiece " id="card4"  >
             <img src="img/game/p-04color.jpg" class="image" />
             <a id="card4-dog" class="hiddenbutton" href="#card2" style="position: absolute; left: 63%; top: 11%; width: 9%; height: 12%; "> </a>
         </div>
-        <div class="puzzlepiece " id="card5" data-scale="0" >
+        <div class="puzzlepiece " id="card5"  >
             <img src="img/game/p-05color.jpg" class="image" />
             <a id="card5-head" class="hiddenbutton" href="#card6" style="position: absolute; left: 31%; top: 43%; width: 10%; height: 15%; "> </a>
         </div>
-        <div class="puzzlepiece " id="card6" data-scale="0" >
+        <div class="puzzlepiece " id="card6"  >
             <img src="img/game/p-06color.jpg" class="image" />
             <a id="card6-clown" class="hiddenbutton" href="#card7" style="position: absolute; left: 45%; top: 87%; width: 16%; height: 13%; "> </a>
             <a id="card6-question3" class="hiddenbutton" href="#question-list" style="position: absolute; left: 74%; top: 30%; width: 11%; height:11%; "> </a>
         </div>
-        <div class="puzzlepiece " id="card7" data-scale="0" >
+        <div class="puzzlepiece " id="card7"  >
             <img src="img/game/p-07color.jpg" class="image" />
         </div>
         <div id="question-list" class="puzzlepiece" data-targeter="menu8">
@@ -239,8 +243,9 @@
 
     <div id="text-tuto-1" class="tuto-text">
         <p>Dans Flashback, tu voyages dans un souvenir. </p>
-<p>            Chaque souvenir est une seconde précise figée dans le temps.
-</p>
+        <p>
+            Chaque souvenir est une seconde précise figée dans le temps.
+        </p>
         <p>
             Tout ce que tu y vois appartient au passé.</p>
         <p>Voici la première carte Histoire qui te permet de visiter le mini souvenir qui précède la grande
@@ -367,7 +372,11 @@
 
         // tuto positionning
         // tuto step 1
-        showTutotext($('text-tuto-1'));
+
+        $('intro-play').addEventListener('click',function(){
+            activatePiece('card1');
+            showTutotext($('text-tuto-1'));
+        });
 
         // tuto step 2
         $('tuto-next-step1').addEventListener('click',function(){

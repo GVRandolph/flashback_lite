@@ -171,7 +171,7 @@ body{
 }
 
 #canvas .puzzlepiece .hiddenbutton{
-    cursor: default;
+    cursor: pointer;
     background: none;
     opacity: 0.3;
 }
@@ -247,10 +247,10 @@ body{
     z-index:11;
     overflow: visible;
 
-    width: 500px; /* set in js */
-    height: 500px; /* set in js */
-    top:-70%; /* set in js */
-    left:-70%; /* set in js */
+    width: 0; /* set in js */
+    height: 0; /* set in js */
+    top:-100px; /* set in js */
+    left:-100px; /* set in js */
 
     transition-property: width, height, top, left;
     transition-duration: 500ms;
