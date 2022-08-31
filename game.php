@@ -123,7 +123,7 @@
     </div>
 
     <!-- ----------------------------------------------------------CANVAS --------------------------------------- -->
-    <div class="first-overlay"></div>
+    <div id="first-overlay"></div>
     <div id="canvas">
         <div class="puzzlepiece first-selected" id="introcard"  >
             <img src="img/game/intro_fr.jpg" class="image" />
@@ -169,9 +169,9 @@
         <div class="puzzlepiece " id="card7"  >
             <img src="img/game/p-07color.jpg" class="image" />
         </div>
-        <div id="question-list" class="puzzlepiece" data-targeter="menu8">
+        <div id="question-list" class="puzzlepiece" >
             <img src="img/game/nocard.png" class="image" />
-            <div class="question" id="question1" style="position: absolute; left: 5%; top: 5%; width: 25%; height: 25%; ">
+            <div class="question" id="question1" data-id="1" style="position: absolute; left: 5%; top: 5%; width: 25%; height: 25%; ">
                 <div class="flip-card-inner">
                     <div class="flip-card-front">
                         <img src="img/game/question1_fr.jpg" alt="Quest ce qui a causé l'accident du kidz à vélo ?" />
@@ -182,13 +182,16 @@
                 </div>
             </div>
 
-            <button id="button-answer1" style="position: absolute; left: 40%; top: 10%; ">Es-tu prêt à voir la réponse ?</button>
+            <button id="button-answer1" data-id="1" style="position: absolute; left: 40%; top: 10%; ">Es-tu prêt à voir la réponse ?</button>
 
             <div class="tuto-text yellow" id="text-answer1" style="position: absolute; left: 40%; top: 4%; width: 55%; height: 10%; ">
-                Les zombies ont soulevé une bouche d'égout ce qui a projeté le vélo dans les airs.
+                <br/>
+                <span class="yellow">
+                    Les zombies ont soulevé une bouche d'égout ce qui a projeté le vélo dans les airs.
+                </span>
             </div>
 
-            <div class="question" id="question2" style="position: absolute; left: 5%; top: 35%; width: 25%; height: 25%; ">
+            <div class="question" id="question2" data-id="2" style="position: absolute; left: 5%; top: 35%; width: 25%; height: 25%; ">
                 <div class="flip-card-inner">
                     <div class="flip-card-front">
                         <img src="img/game/question2_fr.jpg" alt="7th card" >
@@ -198,13 +201,18 @@
                     </div>
                 </div>
             </div>
-            <button id="button-answer2" style="position: absolute; left: 40%; top: 40%; ">Es-tu prêt à voir la réponse ?</button>
+            <button id="button-answer2" data-id="2" style="position: absolute; left: 40%; top: 40%; ">Es-tu prêt à voir la réponse ?</button>
 
-            <div class="tuto-text" id="text-answer2" style="position: absolute; left: 40%; top: 34%; width: 55%; height: 10%;">
-                    Les zombies ont soulevé une bouche d'égout ce qui a projeté le vélo dans les airs.
+            <div class="tuto-text yellow" id="text-answer2" style="position: absolute; left: 40%; top: 34%; width: 55%; height: 10%;">
+                <br/>
+                <span class="yellow">
+                    Le zombie était occupé à peindre le bâtiment à sa façon lorsque l'échelle a été bousculée par la poursuite entre le T-rex et le Kidz.
+                </span>
+
+
             </div>
 
-            <div class="question" id="question3" style="position: absolute; left: 5%; top: 65%; width: 25%; height: 25%; ">
+            <div class="question" id="question3" data-id="3" style="position: absolute; left: 5%; top: 65%; width: 25%; height: 25%; ">
                 <div class="flip-card-inner">
                     <div class="flip-card-front">
                         <img src="img/game/question3_fr.jpg" alt="7th card" >
@@ -215,17 +223,27 @@
                 </div>
             </div>
 
-            <button id="button-answer3" style="position: absolute; left: 40%; top: 70%; ">Es-tu prêt à voir la réponse ?</button>
+            <button id="button-answer3" data-id="3" style="position: absolute; left: 40%; top: 70%; ">Es-tu prêt à voir la réponse ?</button>
 
             <div class="tuto-text" id="text-answer3" style="position: absolute; left: 40%; top: 64%; width: 55%; height: 10%;">
-                Les zombies ont soulevé une bouche d'égout ce qui a projeté le vélo dans les airs.
+                <span class="yellow">
+                    Les Kidz ont emprunté une pince à la quincaillerie et l'ont utilisée pour couper la chaine sur la
+                    porte.
+                    Ils ont pris un casque de réalité virtuelle.
+                    Ce dernier a été éjecté du chariot et va retomber sur le toit de la quincaillerie.
+                </span>
             </div>
 
-            <button id="game-end" onclick="$('splash-2').classList.remove('fadded');" style="position: absolute; left: 45%; top: 87%; width: 16%; height: 10%;">
+            <button id="game-end" style="position: absolute; right: 2%; top: 90%; width: 16%; height: 5%;">
                 Fin du jeu!
             </button>
         </div>
-
+        <div class="puzzlepiece" id="endcard"  >
+            <img src="img/game/endgame_fr.png" class="image" />
+            <a id="close" class="hiddenbutton" href="#question-list" style="position: absolute; right: 0; top: 0; width: 15%; height:15%;"> </a>
+            <a id="replay" class="hiddenbutton" style="position: absolute; left:49%; top:75%; width: 19%; height:10%;"> </a>
+            <a id="go" class="hiddenbutton" target="_blank" href="https://www.scorpionmasque.com/fr/zombie-kidz-%C3%A9volution" style="position: absolute; left:69%; top:75%; width: 19%; height:10%;"> </a>
+        </div>
 
     </div>
 
@@ -342,11 +360,6 @@
             }
         }
 
-        // question buttons
-        $('button-answer1').addEventListener('click',function(){$('text-answer1').style.display='block';this.style.display='none';});
-        $('button-answer2').addEventListener('click',function(){$('text-answer2').style.display='block';this.style.display='none';});
-        $('button-answer3').addEventListener('click',function(){$('text-answer3').style.display='block';this.style.display='none';});
-
         // menu selection
         for (let i = 0; i < $menupieces.length; i++) {
             $menupieces[i].addEventListener('click', function (e) {
@@ -370,11 +383,27 @@
         $('card2-question2').addEventListener('click',function(e){ activateQuestion($('question2'),0);});
         $('card6-question3').addEventListener('click',function(e){ activateQuestion($('question3'),0);});
 
+        //end game activation
+        $('game-end').addEventListener('click',function(e){
+            window.location.hash = 'endcard';
+            $('first-overlay').style.display = 'block';
+        });
+
+        // replay action
+        $('replay').addEventListener('click',resetGame);
+
+        // close end card
+        $('close').addEventListener('click',function(){
+            window.location.hash = 'question-list';
+            $('first-overlay').style.display = 'none';
+        });
+
         // tuto positionning
         // tuto step 1
 
         $('intro-play').addEventListener('click',function(){
             activatePiece('card1');
+            $('first-overlay').style.display = 'none';
             showTutotext($('text-tuto-1'));
         });
 
@@ -476,6 +505,9 @@
             return;
         }
         questionTarget.classList.add('active');
+        let id = questionTarget.getAttribute('data-id');
+        $('button-answer'+id).addEventListener('click', showAnswer ); // activate the button
+
         let show = 0;
         for(let i=0;i<$questionCards.length;i++) {
             show += ($questionCards[i].classList.contains('active'))?1:0;
@@ -483,6 +515,12 @@
         if(show>=3) {
             $('game-end').classList.add('active');
         }
+    }
+
+    function showAnswer(){
+        let id = this.getAttribute('data-id');
+        $('text-answer'+id).style.display='block';
+        this.style.display='none';
     }
 
     function activatePiece( pieceId ){
@@ -512,6 +550,12 @@
         for (let i = 0; i < $menupieces.length; i++) {
             $menupieces[i].classList.remove('selected');
         }
+        for (let id = 1; id < 4; id++) {
+            $('button-answer'+id).style.display='block';
+            $('button-answer'+id).removeEventListener('click',showAnswer);
+            $('text-answer'+id).style.display='none';
+        }
+
         $('game-end').classList.remove = 'active';
         $('menu1').classList.add('selected');
         $('menu1').classList.add('active');

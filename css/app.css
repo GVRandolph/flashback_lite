@@ -148,7 +148,7 @@ body{
     #canvas{
         height: 80%;
         width: auto;
-        margin-top: 7px;
+        margin-top: 15px;
     }
     #canvas .puzzlepiece .image{
         height: 100%;
@@ -232,7 +232,7 @@ body{
     height: 100%;
     top:0;
     left:0;
-    z-index: 11;
+    z-index: 1;
 }
 #first-overlay.fadded{
     opacity: 0;
@@ -287,7 +287,7 @@ body{
     border: 3px solid #ffdb55;
     background: rgba(0,0,0,0.6);
     text-align: center;
-    border-radius: 30px;
+    border-radius: 7px;
     padding: 20px;
     font-weight: bold;
     font-size: large;
