@@ -556,6 +556,7 @@
             $('text-answer'+id).style.display='none';
         }
 
+        $('first-overlay').style.display = 'none';
         $('game-end').classList.remove = 'active';
         $('menu1').classList.add('selected');
         $('menu1').classList.add('active');
