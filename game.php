@@ -550,6 +550,7 @@
         for (let i = 0; i < $menupieces.length; i++) {
             $menupieces[i].classList.remove('selected');
         }
+
         for (let id = 1; id < 4; id++) {
             $('button-answer'+id).style.display='block';
             $('button-answer'+id).removeEventListener('click',showAnswer);
