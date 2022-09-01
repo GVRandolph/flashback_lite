@@ -258,71 +258,71 @@
 </div>
 
 <!-- ---------------------------------------------------------- TUTO --------------------------------------- -->
-
-<!-- Magnifier -->
-<div id="hint-magnifier" class="hint">
-    <img class="magnifying-glass" src="img/game/FB_Loupe.png" />
-</div>
-
-<!-- texts -->
-<div id="texts-tuto">
-
-    <div id="text-tuto-1" class="tuto-text">
-        <p>Dans Flashback, tu voyages dans un souvenir. </p>
-        <p>
-            Chaque souvenir est une seconde précise figée dans le temps.
-        </p>
-        <p>
-            Tout ce que tu y vois appartient au passé.</p>
-        <p>Voici la première carte Histoire qui te permet de visiter le mini souvenir qui précède la grande
-
-            histoire.</p>
-        <button id="tuto-next-step1">Suivant</button>
+<div id="tuto">
+    <!-- Magnifier -->
+    <div id="hint-magnifier" class="hint">
+        <img class="magnifying-glass" src="img/game/FB_Loupe.png" />
     </div>
-    <div id="text-tuto-2" class="tuto-text">
-        <p>Tu peux voir à travers les yeux d’un personnage, d’un zombie, d’un animal et même de certains objets!
+
+    <!-- texts -->
+    <div id="texts-tuto">
+
+        <div id="text-tuto-1" class="tuto-text">
+            <p>Dans Flashback, tu voyages dans un souvenir. </p>
+            <p>
+                Chaque souvenir est une seconde précise figée dans le temps.
             </p>
-        <button id="tuto-next-step2"><a href="#card2">Suivant</a></button>
+            <p>
+                Tout ce que tu y vois appartient au passé.</p>
+            <p>Voici la première carte Histoire qui te permet de visiter le mini souvenir qui précède la grande
 
-    </div>
-    <div id="text-tuto-3" class="tuto-text">
-        <p>
-            Un point de vue correspond à un numéro de carte.</p>
-        <p>
-            Voyage d’un point de vue à un autre, parmi tous ceux que tu aperçois sur la carte.
-            Prends le temps de bien observer et de comprendre, sinon tu vas manquer des détails importants.
-        </p>
-        <button id="tuto-next-step3"><a href="#card1">Suivant</a></button>
-    </div>
-    <div id="text-tuto-4" class="tuto-text">
-        <p>
-            Tu peux voyager parmi les cartes que tu as déjà retournées.
-        </p>
-        <button id="tuto-next-step4">Suivant</button>
-    </div>
-    <div id="text-tuto-5" class="tuto-text">
-        <p>
-            Débloque les mystères en repérant ces symboles sur les cartes Histoire.
-        </p>
-        <button id="tuto-next-step5"><a href="#question-list">Suivant</a></button>
-    </div>
-    <div id="text-tuto-6" class="tuto-text">
-        <p>
-            Une fois les 3 cartes Spéciales débloquées, tu auras toutes les informations nécessaires pour
-            élucider le mystère! Tu peux néanmoins discuter et commencer à formuler des hypothèses avec
-            ton équipe si vous avez des idées.
-        </p>
-        <p>
+                histoire.</p>
+            <button id="tuto-next-step1">Suivant</button>
+        </div>
+        <div id="text-tuto-2" class="tuto-text">
+            <p>Tu peux voir à travers les yeux d’un personnage, d’un zombie, d’un animal et même de certains objets!
+                </p>
+            <button id="tuto-next-step2"><a href="#card2">Suivant</a></button>
 
-        Les cartes Spéciales sont disponibles à tout moment de la partie.
-        </p>
-        <p>
-            Tu as maintenant tout en main pour mener ta première enquête, alors, à toi de jouer ! .
-        </p>
-        <button id="tuto-next-step6"><a href="#card1">Go !</a></button>
+        </div>
+        <div id="text-tuto-3" class="tuto-text">
+            <p>
+                Un point de vue correspond à un numéro de carte.</p>
+            <p>
+                Voyage d’un point de vue à un autre, parmi tous ceux que tu aperçois sur la carte.
+                Prends le temps de bien observer et de comprendre, sinon tu vas manquer des détails importants.
+            </p>
+            <button id="tuto-next-step3"><a href="#card1">Suivant</a></button>
+        </div>
+        <div id="text-tuto-4" class="tuto-text">
+            <p>
+                Tu peux voyager parmi les cartes que tu as déjà retournées.
+            </p>
+            <button id="tuto-next-step4">Suivant</button>
+        </div>
+        <div id="text-tuto-5" class="tuto-text">
+            <p>
+                Débloque les mystères en repérant ces symboles sur les cartes Histoire.
+            </p>
+            <button id="tuto-next-step5"><a href="#question-list">Suivant</a></button>
+        </div>
+        <div id="text-tuto-6" class="tuto-text">
+            <p>
+                Une fois les 3 cartes Spéciales débloquées, tu auras toutes les informations nécessaires pour
+                élucider le mystère! Tu peux néanmoins discuter et commencer à formuler des hypothèses avec
+                ton équipe si vous avez des idées.
+            </p>
+            <p>
+
+            Les cartes Spéciales sont disponibles à tout moment de la partie.
+            </p>
+            <p>
+                Tu as maintenant tout en main pour mener ta première enquête, alors, à toi de jouer ! .
+            </p>
+            <button id="tuto-next-step6"><a href="#card1">Go !</a></button>
+        </div>
     </div>
 </div>
-
 
 <!-- -->
 <script src="js/vendor/modernizr-3.11.2.min.js"></script>
@@ -366,6 +366,8 @@
             if (!$_(hash).classList.contains('active')) {
                 window.location = window.location.href.replace(window.location.hash, "");
             }
+        }else{ // no hash go to intro card
+            window.location = window.location.href + "#introcard";
         }
 
         // menu selection
