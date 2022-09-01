@@ -121,9 +121,13 @@
             </div>
         </a>
     </div>
+    <a id="homelink" href="index.php" class="home">
+        <img src="img/game/logo.png" alt="home"/>
+    </a>
 
     <!-- ----------------------------------------------------------CANVAS --------------------------------------- -->
-    <div id="first-overlay"></div>
+    <div id="grey-overlay"></div>
+    <div id="transparent-overlay"></div>
     <div id="canvas">
         <div class="puzzlepiece first-selected" id="introcard"  >
             <img src="img/game/intro_fr.jpg" class="image" />
@@ -171,6 +175,7 @@
         </div>
         <div id="question-list" class="puzzlepiece" >
             <img src="img/game/nocard.png" class="image" />
+
             <div class="question" id="question1" data-id="1" style="position: absolute; left: 5%; top: 5%; width: 25%; height: 25%; ">
                 <div class="flip-card-inner">
                     <div class="flip-card-front">
@@ -233,6 +238,9 @@
                     Ce dernier a été éjecté du chariot et va retomber sur le toit de la quincaillerie.
                 </span>
             </div>
+            <button id="back" style="position: absolute; left: 2%; top: 90%; width: 16%; height: 5%;" onclick="window.history.back()">
+                &larr; Retour
+            </button>
 
             <button id="game-end" style="position: absolute; right: 2%; top: 90%; width: 16%; height: 5%;">
                 Fin du jeu!
@@ -386,7 +394,7 @@
         //end game activation
         $('game-end').addEventListener('click',function(e){
             window.location.hash = 'endcard';
-            $('first-overlay').style.display = 'block';
+            $('grey-overlay').style.display = 'block';
         });
 
         // replay action
@@ -395,7 +403,7 @@
         // close end card
         $('close').addEventListener('click',function(){
             window.location.hash = 'question-list';
-            $('first-overlay').style.display = 'none';
+            $('grey-overlay').style.display = 'none';
         });
 
         // tuto positionning
@@ -403,7 +411,8 @@
 
         $('intro-play').addEventListener('click',function(){
             activatePiece('card1');
-            $('first-overlay').style.display = 'none';
+            $('grey-overlay').style.display = 'none';
+            $('transparent-overlay').style.display = 'block';
             showTutotext($('text-tuto-1'));
         });
 
@@ -557,7 +566,8 @@
             $('text-answer'+id).style.display='none';
         }
 
-        $('first-overlay').style.display = 'none';
+        $('grey-overlay').style.display = 'none';
+        $('transparent-overlay').style.display = 'none';
         $('game-end').classList.remove = 'active';
         $('menu1').classList.add('selected');
         $('menu1').classList.add('active');
