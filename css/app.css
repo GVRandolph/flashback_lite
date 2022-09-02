@@ -111,15 +111,14 @@ body{
 }
 
 #homelink{
-    height: 40px;
     position: absolute;
     right: 20px;
-    top: 10px;
+    top: -5px;
     z-index: 5;
 }
 
 #homelink img{
-    height: 40px;
+    height: 70px;
 }
 #canvas{
     text-align: center;
