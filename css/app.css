@@ -142,7 +142,7 @@ body{
 
 }
 
-@media (max-aspect-ratio: 4/3) {
+@media (max-aspect-ratio: 4/3) { /* vertical device */
     #canvas{
         width: 85%;
         height: auto;
@@ -157,7 +157,7 @@ body{
 }
 @media (min-aspect-ratio: 4/3) {
     #canvas{
-        height: 80%;
+        height: 75%;
         width: auto;
         margin-top: 15px;
     }
@@ -234,6 +234,20 @@ body{
     transform: rotateY(180deg);
 }
 
+#canvas #question-list .text-answer{
+    width: 45%;
+    color: #ffffff;
+    border: 3px solid #ffdb55;
+    color: #ffdb55;
+    background: rgba(0,0,0,0.6);
+    text-align: center;
+    border-radius: 7px;
+    padding: 20px;
+    font-weight: bold;
+    font-size: large;
+    margin: 30px auto;
+    display: none;
+}
 
 /* Style for tuto */
 #grey-overlay, #transparent-overlay{
