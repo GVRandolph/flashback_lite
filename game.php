@@ -191,8 +191,8 @@
     <div id="question-list" class="puzzlepiece" >
 
         <div class="row question-row">
-            <div class="col-2"></div>
-            <div class="col-4">
+            <div class="col-0 col-md-2"></div>
+            <div class="col-12 col-md-4">
                 <div class="question" id="question1" data-id="1" >
                     <div class="flip-card-inner">
                         <div class="flip-card-front">
@@ -204,18 +204,18 @@
                     </div>
                 </div>
             </div>
-            <div class="col-4">
+            <div class="col-12 col-md-4">
                 <button id="button-answer1" data-id="1">Es-tu prêt à voir la réponse ?</button>
                 <div class="text-answer" id="text-answer1">
                     Les zombies ont soulevé une bouche d'égout ce qui a projeté le vélo dans les airs.
                 </div>
             </div>
-            <div class="col-2"></div>
+            <div class="col-md-2"></div>
         </div>
 
         <div class="row question-row">
-            <div class="col-2"></div>
-            <div class="col-4">
+            <div class="col-0 col-md-2"></div>
+            <div class="col-12 col-md-4">
                 <div class="question" id="question2" data-id="2">
                     <div class="flip-card-inner">
                         <div class="flip-card-front">
@@ -227,18 +227,18 @@
                     </div>
                 </div>
             </div>
-            <div class="col-4">
+            <div class="col-12 col-md-4">
                 <button id="button-answer2" data-id="2">Es-tu prêt à voir la réponse ?</button>
                 <div class="text-answer" id="text-answer2">
                     Le zombie était occupé à peindre le bâtiment à sa façon lorsque l'échelle a été bousculée par la poursuite entre le T-rex et le Kidz.
                 </div>
             </div>
-            <div class="col-2"></div>
+            <div class="col-md-2"></div>
         </div>
 
         <div class="row question-row">
-            <div class="col-2"></div>
-            <div class="col-4">
+            <div class="col-0 col-md-2"></div>
+            <div class="col-12 col-md-4">
                 <div class="question" id="question3" data-id="3">
                     <div class="flip-card-inner">
                         <div class="flip-card-front">
@@ -250,7 +250,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-4">
+            <div class="col-12 col-md-4">
 
                 <button id="button-answer3" data-id="3">Es-tu prêt à voir la réponse ?</button>
 
@@ -261,10 +261,10 @@
                     Ce dernier a été éjecté du chariot et va retomber sur le toit de la quincaillerie.
                 </div>
             </div>
-            <div class="col-2"></div>
+            <div class="col-md-2"></div>
         </div>
 
-        <div class="row">
+        <div class="row question-bottom">
             <div class="col-6">
                 <button id="back" onclick="window.history.back()">
                     &larr; Retour

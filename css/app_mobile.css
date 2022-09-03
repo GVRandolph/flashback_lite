@@ -16,6 +16,9 @@
     #homelink img{
         height: 50px;
     }
+    #canvas .puzzlepiece{
+        border-radius: 25px;
+    }
     .tuto-text{
         box-sizing: border-box;
 
@@ -30,6 +33,24 @@
         overflow: auto;
     }
 
+    #question-list .question{
+        border-radius: 15px;
+        width:150px;
+        height: 100px;
+        margin:15px;
+    }
 
+    #question-list .question-row button{
+        margin: 0 auto;
+        display: block;
+        float: none;
+    }
 
+    #question-list .question-row .text-answer{
+        margin: 0;
+    }
+
+    #question-list .question-bottom{
+        margin-top: 20px;
+    }
 }
