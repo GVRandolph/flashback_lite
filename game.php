@@ -138,9 +138,12 @@
     <!-- ----------------------------------------------------------CANVAS --------------------------------------- -->
     <div id="grey-overlay"></div>
     <div id="transparent-overlay"></div>
-    <div id="canvas">
+    <button class="zoomin" onclick="$('canvas').style.zoom='1';$('canvas').style.MozTransform = 'scale(1)';$('canvas').style.WebkitTransform = 'scale(1)';" style="position:fixed;top:25%;z-index:300">.</button>
+    <button class="zoomin" onclick="$('canvas').style.zoom='1.5';$('canvas').style.MozTransform = 'scale(1.5)';$('canvas').style.WebkitTransform = 'scale(1.5)';" style="position: fixed;top:50%;z-index:400">o</button>
+    <button class="zoomin" onclick="$('canvas').style.zoom='2';$('canvas').style.MozTransform = 'scale(2)';$('canvas').style.WebkitTransform = 'scale(2)';" style="position: fixed;top:75%;z-index:400">O</button>
+    <div id="canvas" style="transform-origin: 0 0;">
         <div class="puzzlepiece first-selected" id="introcard"  >
-            <img src="img/game/intro_fr.jpg" class="image" />
+            <img id="introcard-img" src="img/game/intro_fr.jpg" class="image" />
             <a id="intro-play" class="hiddenbutton" href="#card1" style="position: absolute; left:20%; top:77%; width:27%; height:18%;"> </a>
         </div>
 
