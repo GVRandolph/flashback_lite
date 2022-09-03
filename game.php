@@ -142,8 +142,8 @@
             <img src="img/game/p-01color.jpg" class="image" />
 
             <a id="hint-0-anchor" class="hiddenanchor" style=" position: absolute; left:50%; top:50%; width:0%;height:0%;"> </a>
-            <a id="hint-doghead-anchor" class="hiddenanchor" style=" position: absolute; left:28%; top:48%; width:18%;height:18%;"> </a>
-            <a id="hint-question1-anchor" class="hiddenbutton" style=" position: absolute; left: 68%; top: 62%; width: 14%; height:12%;"> </a>
+            <a id="hint-doghead-anchor" class="hiddenanchor" style=" position: absolute; left:28%; top:48%; width:15%;height:18%;"> </a>
+            <a id="hint-question1-anchor" class="hiddenbutton" style=" position: absolute; left: 69%; top: 61%; width: 14%; height:12%;"> </a>
 
             <a id="card1-doghead" class="hiddenbutton" href="#card2" style="position: absolute; left:28%; top:51%; width:15%;height:18%;"> </a>
             <a id="card1-retro" class="hiddenbutton" href="#card3" style=" position: absolute; left: 68%; top: 9%; width: 31%; height:24%;  transform: rotate(-30deg)"> </a>
@@ -190,8 +190,9 @@
     <!-- ------------------------------------- QUESTION page --------------------------------------------------------->
     <div id="question-list" class="puzzlepiece" >
 
-        <div class="row">
-            <div class="col-3">
+        <div class="row question-row">
+            <div class="col-2"></div>
+            <div class="col-4">
                 <div class="question" id="question1" data-id="1" >
                     <div class="flip-card-inner">
                         <div class="flip-card-front">
@@ -203,58 +204,79 @@
                     </div>
                 </div>
             </div>
-            <div class="col-3">
+            <div class="col-4">
                 <button id="button-answer1" data-id="1">Es-tu prêt à voir la réponse ?</button>
                 <div class="text-answer" id="text-answer1">
                     Les zombies ont soulevé une bouche d'égout ce qui a projeté le vélo dans les airs.
                 </div>
             </div>
-
+            <div class="col-2"></div>
         </div>
 
-
-        <div class="question" id="question2" data-id="2">
-            <div class="flip-card-inner">
-                <div class="flip-card-front">
-                    <img src="img/game/question2_fr.jpg" alt="7th card" >
-                </div>
-                <div class="flip-card-back">
-                    <img src="img/game/question2_bg.jpg" alt="7th card" >
-                </div>
-            </div>
-        </div>
-        <button id="button-answer2" data-id="2">Es-tu prêt à voir la réponse ?</button>
-
-        <div class="text-answer" id="text-answer2">
-            Le zombie était occupé à peindre le bâtiment à sa façon lorsque l'échelle a été bousculée par la poursuite entre le T-rex et le Kidz.
-        </div>
-
-        <div class="question" id="question3" data-id="3">
-            <div class="flip-card-inner">
-                <div class="flip-card-front">
-                    <img src="img/game/question3_fr.jpg" alt="7th card" >
-                </div>
-                <div class="flip-card-back">
-                    <img src="img/game/question3_bg.jpg" alt="7th card" >
+        <div class="row question-row">
+            <div class="col-2"></div>
+            <div class="col-4">
+                <div class="question" id="question2" data-id="2">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="img/game/question2_fr.jpg" alt="7th card" >
+                        </div>
+                        <div class="flip-card-back">
+                            <img src="img/game/question2_bg.jpg" alt="7th card" >
+                        </div>
+                    </div>
                 </div>
             </div>
+            <div class="col-4">
+                <button id="button-answer2" data-id="2">Es-tu prêt à voir la réponse ?</button>
+                <div class="text-answer" id="text-answer2">
+                    Le zombie était occupé à peindre le bâtiment à sa façon lorsque l'échelle a été bousculée par la poursuite entre le T-rex et le Kidz.
+                </div>
+            </div>
+            <div class="col-2"></div>
         </div>
 
-        <button id="button-answer3" data-id="3">Es-tu prêt à voir la réponse ?</button>
+        <div class="row question-row">
+            <div class="col-2"></div>
+            <div class="col-4">
+                <div class="question" id="question3" data-id="3">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="img/game/question3_fr.jpg" alt="7th card" >
+                        </div>
+                        <div class="flip-card-back">
+                            <img src="img/game/question3_bg.jpg" alt="7th card" >
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4">
 
-        <div class="text-answer" id="text-answer3">
-            Les Kidz ont emprunté une pince à la quincaillerie et l'ont utilisée pour couper la chaine sur la
-            porte.
-            Ils ont pris un casque de réalité virtuelle.
-            Ce dernier a été éjecté du chariot et va retomber sur le toit de la quincaillerie.
+                <button id="button-answer3" data-id="3">Es-tu prêt à voir la réponse ?</button>
+
+                <div class="text-answer" id="text-answer3">
+                    Les Kidz ont emprunté une pince à la quincaillerie et l'ont utilisée pour couper la chaine sur la
+                    porte.
+                    Ils ont pris un casque de réalité virtuelle.
+                    Ce dernier a été éjecté du chariot et va retomber sur le toit de la quincaillerie.
+                </div>
+            </div>
+            <div class="col-2"></div>
         </div>
-        <button id="back" onclick="window.history.back()">
-            &larr; Retour
-        </button>
 
-        <button id="game-end" style="display:block;">
-            Fin du jeu!
-        </button>
+        <div class="row">
+            <div class="col-6">
+                <button id="back" onclick="window.history.back()">
+                    &larr; Retour
+                </button>
+            </div>
+            <div class="col-6">
+                <button id="game-end" >
+                    Fin du jeu!
+                </button>
+            </div>
+        </div>
+
     </div>
     <!-- ---------------------------------------end quesetion page---------------------------------------------------->
 
@@ -475,22 +497,20 @@
 
     function magnify(hintTarget, attempt) {
         let linkpos = hintTarget.getBoundingClientRect();
+
         if(linkpos.height==0 && attempt < 10 ){
             attempt++;
+            console.log(attempt);
             setTimeout( magnify , 100, hintTarget, attempt);
             return;
         }
-        let radius = Math.max( window.innerWidth,window.innerHeight);
-        radius += 1000; // to be sure to be out of the window
-        $tutohintMagnifier.style.borderWidth = radius+'px';
 
-        let topPos = Math.ceil( radius - linkpos.top ) ;
-        let leftPos = Math.ceil( radius - linkpos.left ) ;
-        $tutohintMagnifier.style.top = '-'+topPos+'px';
-        $tutohintMagnifier.style.left = '-'+leftPos+'px';
-        $tutohintMagnifier.style.width = linkpos.width + 'px';
-        $tutohintMagnifier.style.height = linkpos.width + 'px'; // square to get a circle
-
+        let topPos = linkpos.top - 30 ;
+        let leftPos = linkpos.left -30 ;
+        let widthPos = linkpos.width + 50;
+        $tutohintMagnifier.style.top = topPos+'px';
+        $tutohintMagnifier.style.left = leftPos+'px';
+        $tutohintMagnifier.style.width = widthPos + 'px';
     }
 
     var target;

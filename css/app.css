@@ -60,8 +60,8 @@ body{
     display: inline-block;
     overflow: hidden;
     text-align: center;
-    width: 60px;
-    height: 40px;
+    width: 64px;
+    height: 44px;
 
     pointer-events: none;
     perspective: 1000px;
@@ -193,15 +193,29 @@ body{
 }
 
 /* questions */
-#canvas #question-list .question{
+#question-list:target{display: block;}
+#question-list{display: none;}
+
+#question-list{
+    position: absolute;
+    top: 80px;
+    width: 100%;
+    text-align: center;
+    padding: 30px 0;
+}
+#question-list .question{
     border-radius: 15px;
     overflow: hidden;
     perspective: 1000px;
+    width:225px;
+    height: 150px;
+    display: inline-block;
+    margin:15px;
 }
-#canvas #question-list .question img{
+#question-list .question img{
     height: 100%;
 }
-#canvas #question-list .question .flip-card-inner {     /* This container is needed to position the front and back side */
+#question-list .question .flip-card-inner {     /* This container is needed to position the front and back side */
     position: relative;
     width: 100%;
     height: 100%;
@@ -210,11 +224,11 @@ body{
     transform-style: preserve-3d;
 }
 
-#canvas #question-list .question.active .flip-card-inner{
+#question-list .question.active .flip-card-inner{
     transform: rotateY(180deg);
 }
-#canvas #question-list .question .flip-card-front,
-#canvas #question-list .question .flip-card-back {
+#question-list .question .flip-card-front,
+#question-list .question .flip-card-back {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -223,19 +237,24 @@ body{
 }
 
 /* Style the front side (fallback if image is missing) */
-#canvas #question-list .question .flip-card-back {
+#question-list .question .flip-card-back {
     background-color: #bbb;
     color: black;
 }
 
 /* Style the back side */
-#canvas #question-list .flip-card-front{
+#question-list .flip-card-front{
     color: white;
     transform: rotateY(180deg);
 }
+#question-list .question-row button{
+    margin: 60px 0;
+    white-space: nowrap;
+    float:left;
+}
 
-#canvas #question-list .text-answer{
-    width: 45%;
+#question-list .text-answer{
+    width: 100%;
     color: #ffffff;
     border: 3px solid #ffdb55;
     color: #ffdb55;
@@ -245,7 +264,7 @@ body{
     padding: 20px;
     font-weight: bold;
     font-size: large;
-    margin: 30px auto;
+    margin: 15px;
     display: none;
 }
 
@@ -272,15 +291,14 @@ body{
 
 #hint-magnifier{
     position: fixed;
-    border: 1px solid rgba(0,0,0,0);
-    border-radius: 50%;
+
     z-index:11;
     overflow: visible;
 
     width: 0; /* set in js */
     height: 0; /* set in js */
     top:-100px; /* set in js */
-    left:-100px; /* set in js */
+    left: -100px; /* set in js */
 
     transition-property: width, height, top, left;
     transition-duration: 500ms;
@@ -289,10 +307,10 @@ body{
 }
 
 #hint-magnifier .magnifying-glass{
-    width: 110%;
+    width: 100%;
     position:absolute;
-    left: -5%;
-    top: -5%;
+    left: 0;
+    top: 0;
 }
 
 #hint-magnifier .hiddenbutton{
@@ -332,4 +350,4 @@ body{
 
 /* game end button */
 #game-end{ display: none; }
-#game-end.active{ display: block;}
+#game-end.active{ display: inline;}
