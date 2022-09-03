@@ -128,6 +128,12 @@
     <a id="homelink" href="index.php" class="home">
         <img src="img/game/logo.png" alt="home"/>
     </a>
+    <div id="mb-fullscreen">
+        <img src="img/game/mb_fullscreen.png" alt="home"/>
+        <span class="yellow" style="display: none;">Full screen mode</span>
+
+    </div>
+
 
     <!-- ----------------------------------------------------------CANVAS --------------------------------------- -->
     <div id="grey-overlay"></div>
@@ -204,13 +210,13 @@
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-md-4">
+            <div class="col-12 col-md-5">
                 <button id="button-answer1" data-id="1">Es-tu prêt à voir la réponse ?</button>
                 <div class="text-answer" id="text-answer1">
                     Les zombies ont soulevé une bouche d'égout ce qui a projeté le vélo dans les airs.
                 </div>
             </div>
-            <div class="col-md-2"></div>
+            <div class="col-md-1"></div>
         </div>
 
         <div class="row question-row">
@@ -227,13 +233,13 @@
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-md-4">
+            <div class="col-12 col-md-5">
                 <button id="button-answer2" data-id="2">Es-tu prêt à voir la réponse ?</button>
                 <div class="text-answer" id="text-answer2">
                     Le zombie était occupé à peindre le bâtiment à sa façon lorsque l'échelle a été bousculée par la poursuite entre le T-rex et le Kidz.
                 </div>
             </div>
-            <div class="col-md-2"></div>
+            <div class="col-md-1"></div>
         </div>
 
         <div class="row question-row">
@@ -250,7 +256,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-12 col-md-4">
+            <div class="col-12 col-md-5">
 
                 <button id="button-answer3" data-id="3">Es-tu prêt à voir la réponse ?</button>
 
@@ -261,7 +267,7 @@
                     Ce dernier a été éjecté du chariot et va retomber sur le toit de la quincaillerie.
                 </div>
             </div>
-            <div class="col-md-2"></div>
+            <div class="col-md-1"></div>
         </div>
 
         <div class="row question-bottom">
@@ -395,6 +401,12 @@
             window.location = window.location.href + "#introcard";
 
         }
+
+        // full screen mode
+        $('mb-fullscreen').addEventListener('click',function(){
+            document.documentElement.requestFullscreen();
+            this.style.display='none';
+        });
 
         // menu selection
         for (let i = 0; i < $menupieces.length; i++) {
