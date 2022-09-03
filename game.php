@@ -18,6 +18,8 @@
 
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/main.css">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css" >
     <link rel="stylesheet" href="css/flashback.css?<?php echo rand();?>">
 
     <link rel="stylesheet" href="css/app.css?<?php echo rand();?>">
@@ -175,70 +177,7 @@
         <div class="puzzlepiece " id="card7"  >
             <img src="img/game/p-07color.jpg" class="image" />
         </div>
-        <div id="question-list" class="puzzlepiece" >
-            <img src="img/game/nocard_vertical.png" class="image" />
 
-            <div class="question" id="question1" data-id="1" style="position: absolute; left: 2%; top: 2%; width: 38%; height: 25%; ">
-                <div class="flip-card-inner">
-                    <div class="flip-card-front">
-                        <img src="img/game/question1_fr.jpg" alt="Quest ce qui a causé l'accident du kidz à vélo ?" />
-                    </div>
-                    <div class="flip-card-back">
-                        <img src="img/game/question1_bg.jpg" alt="background " />
-                    </div>
-                </div>
-            </div>
-
-            <button id="button-answer1" data-id="1" style="position: absolute; left: 40%; top: 10%; ">Es-tu prêt à voir la réponse ?</button>
-
-            <div class="text-answer" id="text-answer1" style="position: absolute; left: 40%; top: 4%; width: 55%;  ">
-
-                    Les zombies ont soulevé une bouche d'égout ce qui a projeté le vélo dans les airs.
-            </div>
-
-            <div class="question" id="question2" data-id="2" style="position: absolute; left: 2%; top: 32%; width: 38%; height: 25%; ">
-                <div class="flip-card-inner">
-                    <div class="flip-card-front">
-                        <img src="img/game/question2_fr.jpg" alt="7th card" >
-                    </div>
-                    <div class="flip-card-back">
-                        <img src="img/game/question2_bg.jpg" alt="7th card" >
-                    </div>
-                </div>
-            </div>
-            <button id="button-answer2" data-id="2" style="position: absolute; left: 40%; top: 40%; ">Es-tu prêt à voir la réponse ?</button>
-
-            <div class="text-answer" id="text-answer2" style="position: absolute; left: 40%; top: 34%; width: 55%;">
-                    Le zombie était occupé à peindre le bâtiment à sa façon lorsque l'échelle a été bousculée par la poursuite entre le T-rex et le Kidz.
-            </div>
-
-            <div class="question" id="question3" data-id="3" style="position: absolute; left: 2%; top: 62%; width: 38%; height: 25%; ">
-                <div class="flip-card-inner">
-                    <div class="flip-card-front">
-                        <img src="img/game/question3_fr.jpg" alt="7th card" >
-                    </div>
-                    <div class="flip-card-back">
-                        <img src="img/game/question3_bg.jpg" alt="7th card" >
-                    </div>
-                </div>
-            </div>
-
-            <button id="button-answer3" data-id="3" style="position: absolute; left: 40%; top: 70%; ">Es-tu prêt à voir la réponse ?</button>
-
-            <div class="text-answer" id="text-answer3" style="position: absolute; left: 40%; top: 64%; width: 55%;">
-                    Les Kidz ont emprunté une pince à la quincaillerie et l'ont utilisée pour couper la chaine sur la
-                    porte.
-                    Ils ont pris un casque de réalité virtuelle.
-                    Ce dernier a été éjecté du chariot et va retomber sur le toit de la quincaillerie.
-            </div>
-            <button id="back" style="position: absolute; left: 2%; top: 90%; width: 20%; height: 7%;" onclick="window.history.back()">
-                &larr; Retour
-            </button>
-
-            <button id="game-end" style="position: absolute; right: 2%; top: 90%; width: 16%; height: 7%;">
-                Fin du jeu!
-            </button>
-        </div>
         <div class="puzzlepiece" id="endcard"  >
             <img src="img/game/endgame_fr.png" class="image" />
             <a id="close" class="hiddenbutton" href="#question-list" style="position: absolute; right: 0; top: 0; width: 15%; height:15%;"> </a>
@@ -247,6 +186,77 @@
         </div>
 
     </div>
+
+    <!-- ------------------------------------- QUESTION page --------------------------------------------------------->
+    <div id="question-list" class="puzzlepiece" >
+
+        <div class="row">
+            <div class="col-3">
+                <div class="question" id="question1" data-id="1" >
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="img/game/question1_fr.jpg" alt="Quest ce qui a causé l'accident du kidz à vélo ?" />
+                        </div>
+                        <div class="flip-card-back">
+                            <img src="img/game/question1_bg.jpg" alt="background " />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3">
+                <button id="button-answer1" data-id="1">Es-tu prêt à voir la réponse ?</button>
+                <div class="text-answer" id="text-answer1">
+                    Les zombies ont soulevé une bouche d'égout ce qui a projeté le vélo dans les airs.
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="question" id="question2" data-id="2">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <img src="img/game/question2_fr.jpg" alt="7th card" >
+                </div>
+                <div class="flip-card-back">
+                    <img src="img/game/question2_bg.jpg" alt="7th card" >
+                </div>
+            </div>
+        </div>
+        <button id="button-answer2" data-id="2">Es-tu prêt à voir la réponse ?</button>
+
+        <div class="text-answer" id="text-answer2">
+            Le zombie était occupé à peindre le bâtiment à sa façon lorsque l'échelle a été bousculée par la poursuite entre le T-rex et le Kidz.
+        </div>
+
+        <div class="question" id="question3" data-id="3">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">
+                    <img src="img/game/question3_fr.jpg" alt="7th card" >
+                </div>
+                <div class="flip-card-back">
+                    <img src="img/game/question3_bg.jpg" alt="7th card" >
+                </div>
+            </div>
+        </div>
+
+        <button id="button-answer3" data-id="3">Es-tu prêt à voir la réponse ?</button>
+
+        <div class="text-answer" id="text-answer3">
+            Les Kidz ont emprunté une pince à la quincaillerie et l'ont utilisée pour couper la chaine sur la
+            porte.
+            Ils ont pris un casque de réalité virtuelle.
+            Ce dernier a été éjecté du chariot et va retomber sur le toit de la quincaillerie.
+        </div>
+        <button id="back" onclick="window.history.back()">
+            &larr; Retour
+        </button>
+
+        <button id="game-end" style="display:block;">
+            Fin du jeu!
+        </button>
+    </div>
+    <!-- ---------------------------------------end quesetion page---------------------------------------------------->
 
 </div>
 
@@ -361,6 +371,7 @@
             }
         }else{ // no hash go to intro card
             window.location = window.location.href + "#introcard";
+
         }
 
         // menu selection
