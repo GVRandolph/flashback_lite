@@ -152,9 +152,8 @@ body {
     }
 
     .splash .lang-switch{
-        width: 15px;
         margin-top: 5px;
-        left:2%;
+        right: 5px;
     }
     .splash .cards,
     .splash .materiel

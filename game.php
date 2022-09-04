@@ -131,11 +131,7 @@ include('i18n.php');
     <a id="homelink" href="index.php" class="home">
         <img src="img/game/logo.png" alt="home"/>
     </a>
-    <div id="mb-fullscreen">
-        <img src="img/game/mb_fullscreen.png" alt="home"/>
-        <span class="yellow" style="display: none;">Full screen mode</span>
 
-    </div>
 
 
     <!-- ----------------------------------------------------------CANVAS --------------------------------------- -->
@@ -145,6 +141,9 @@ include('i18n.php');
         <div class="puzzlepiece first-selected" id="introcard"  >
             <img src="img/game/intro_<?php echo $lang;?>.jpg" class="image" />
             <a id="intro-play" class="hiddenbutton" href="#card1" style="position: absolute; left:20%; top:77%; width:27%; height:18%;"> </a>
+            <div id="mb-fullscreen">
+                <span class="yellow" style="display: -none;"><?php echo $i18n[$lang]['text12'];?></span>
+            </div>
         </div>
 
         <div class="puzzlepiece" id="card1"  >
@@ -380,9 +379,9 @@ include('i18n.php');
         }
 
         // full screen mode
-        $('mb-fullscreen').addEventListener('click',function(){
+        $('btn-fullscreen').addEventListener('click',function(){
             document.documentElement.requestFullscreen();
-            this.style.display='none';
+            //this.style.display='none';
         });
 
         // menu selection

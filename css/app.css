@@ -122,13 +122,13 @@ body{
 #mb-fullscreen{
     display: block;
     position: fixed;
-    top: 75px;
+    top: 66px;
     left: 2px;
-    width: 30px;
+
     z-index: 11;
 }
 #mb-fullscreen img{
-    width:100%;
+    height: 18px;
 }
 
 #canvas{

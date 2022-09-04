@@ -38,7 +38,7 @@ Dès novembre, découvre de vais gadgets qui modifient le jeu et rejoue chacun d
 "text10","This prologue allows you to visit a mini memory.","Ce prologue te permet de visiter un mini souvenir. "
 "text11","The Kidz have launched an expedition to retrieve a valuable gizmo, and getting back into the barricaded school was no easy task! Using the Flashback technology, reconstruct the day’s events.","Les Kidz ont lancé une expédition pour récupérer un bidule précieux. Le retour dans l’école barricadée fut très mouvementé! Grâce à la technologie Flashback, reconstitue les événements de la journée.  "
 ,,
-"text12","For a better play experience, hold your phone sideways (+ icon) and activate full screen mode.","Pour une meilleure expérience de jeu, tourne ton téléphone (+ icône) et active le mode plein écran (+ icône)."
+"text12","For a better play experience, hold your phone sideways <img src=""img/game/mb_turn.png""/> and activate full screen mode. <img id='btn-fullscreen' src=""img/game/mb_fullscreen.png""/>","Pour une meilleure expérience de jeu, tourne ton téléphone <img src=""img/game/mb_turn.png""/> et active le mode plein écran <img id='btn-fullscreen' src=""img/game/mb_fullscreen.png""/>."
 ,,
 "text13","
 <p>In Flashback, you will be travelling into a Memory.</p> 
