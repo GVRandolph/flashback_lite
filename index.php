@@ -1,19 +1,9 @@
 <?php
+    session_start();
+
     $debug = true;
     $v = '1.0';
     include('i18n.php');
-
-    if(empty($_GET['lang'])){
-        $lang = 'en';
-    }else{
-        switch ($_GET['lang']){
-            case 'fr':
-                $lang = 'fr';
-                break;
-            default:
-                $lang = 'en';
-        }
-    }
 
 ?><!doctype html>
 <html class="no-js" lang="">

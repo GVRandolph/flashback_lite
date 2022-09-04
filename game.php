@@ -1,4 +1,7 @@
-<!doctype html>
+<?php
+session_start();
+include('i18n.php');
+?><!doctype html>
 <html class="no-js" lang="">
 
 <head>
@@ -140,7 +143,7 @@
     <div id="transparent-overlay"></div>
     <div id="canvas">
         <div class="puzzlepiece first-selected" id="introcard"  >
-            <img src="img/game/intro_fr.jpg" class="image" />
+            <img src="img/game/intro_<?php echo $lang;?>.jpg" class="image" />
             <a id="intro-play" class="hiddenbutton" href="#card1" style="position: absolute; left:20%; top:77%; width:27%; height:18%;"> </a>
         </div>
 
