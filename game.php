@@ -188,7 +188,7 @@ include('i18n.php');
         </div>
 
         <div class="puzzlepiece" id="endcard"  >
-            <img src="img/game/endgame_fr.png" class="image" />
+            <img src="img/game/endgame_<?php echo $lang;?>.png" class="image" />
             <a id="close" class="hiddenbutton" href="#question-list" style="position: absolute; right: 0; top: 0; width: 15%; height:15%;"> </a>
             <a id="replay" class="hiddenbutton" style="position: absolute; left:49%; top:75%; width: 19%; height:10%;"> </a>
             <a id="go" class="hiddenbutton" target="_blank" href="https://www.scorpionmasque.com/fr/zombie-kidz-%C3%A9volution" style="position: absolute; left:69%; top:75%; width: 19%; height:10%;"> </a>
@@ -205,7 +205,7 @@ include('i18n.php');
                 <div class="question" id="question1" data-id="1" >
                     <div class="flip-card-inner">
                         <div class="flip-card-front">
-                            <img src="img/game/question1_fr.jpg" alt="Quest ce qui a causé l'accident du kidz à vélo ?" />
+                            <img src="img/game/question1_<?php echo $lang;?>.jpg" alt="Quest ce qui a causé l'accident du kidz à vélo ?" />
                         </div>
                         <div class="flip-card-back">
                             <img src="img/game/question1_bg.jpg" alt="background " />
@@ -214,9 +214,9 @@ include('i18n.php');
                 </div>
             </div>
             <div class="col-12 col-md-5">
-                <button id="button-answer1" data-id="1">Es-tu prêt à voir la réponse ?</button>
+                <button id="button-answer1" data-id="1"><?php echo $i18n[$lang]['areyousure'];?></button>
                 <div class="text-answer" id="text-answer1">
-                    Les zombies ont soulevé une bouche d'égout ce qui a projeté le vélo dans les airs.
+                    <?php echo $i18n[$lang]['answer1'];?>
                 </div>
             </div>
             <div class="col-md-1"></div>
@@ -228,7 +228,7 @@ include('i18n.php');
                 <div class="question" id="question2" data-id="2">
                     <div class="flip-card-inner">
                         <div class="flip-card-front">
-                            <img src="img/game/question2_fr.jpg" alt="7th card" >
+                            <img src="img/game/question2_<?php echo $lang;?>.jpg" alt="7th card" >
                         </div>
                         <div class="flip-card-back">
                             <img src="img/game/question2_bg.jpg" alt="7th card" >
@@ -237,9 +237,9 @@ include('i18n.php');
                 </div>
             </div>
             <div class="col-12 col-md-5">
-                <button id="button-answer2" data-id="2">Es-tu prêt à voir la réponse ?</button>
+                <button id="button-answer2" data-id="2"><?php echo $i18n[$lang]['areyousure'];?></button>
                 <div class="text-answer" id="text-answer2">
-                    Le zombie était occupé à peindre le bâtiment à sa façon lorsque l'échelle a été bousculée par la poursuite entre le T-rex et le Kidz.
+                    <?php echo $i18n[$lang]['answer2'];?>
                 </div>
             </div>
             <div class="col-md-1"></div>
@@ -251,7 +251,7 @@ include('i18n.php');
                 <div class="question" id="question3" data-id="3">
                     <div class="flip-card-inner">
                         <div class="flip-card-front">
-                            <img src="img/game/question3_fr.jpg" alt="7th card" >
+                            <img src="img/game/question3_<?php echo $lang;?>.jpg" alt="7th card" >
                         </div>
                         <div class="flip-card-back">
                             <img src="img/game/question3_bg.jpg" alt="7th card" >
@@ -261,13 +261,10 @@ include('i18n.php');
             </div>
             <div class="col-12 col-md-5">
 
-                <button id="button-answer3" data-id="3">Es-tu prêt à voir la réponse ?</button>
+                <button id="button-answer3" data-id="3"><?php echo $i18n[$lang]['areyousure'];?></button>
 
                 <div class="text-answer" id="text-answer3">
-                    Les Kidz ont emprunté une pince à la quincaillerie et l'ont utilisée pour couper la chaine sur la
-                    porte.
-                    Ils ont pris un casque de réalité virtuelle.
-                    Ce dernier a été éjecté du chariot et va retomber sur le toit de la quincaillerie.
+                    <?php echo $i18n[$lang]['answer3'];?>
                 </div>
             </div>
             <div class="col-md-1"></div>
@@ -276,12 +273,12 @@ include('i18n.php');
         <div class="row question-bottom">
             <div class="col-6">
                 <button id="back" onclick="window.history.back()">
-                    &larr; Retour
+                    &larr; <?php echo $i18n[$lang]['back'];?>
                 </button>
             </div>
             <div class="col-6">
                 <button id="game-end" >
-                    Fin du jeu!
+                    <?php echo $i18n[$lang]['endofgame'];?>
                 </button>
             </div>
         </div>
@@ -302,57 +299,34 @@ include('i18n.php');
     <div id="texts-tuto">
 
         <div id="text-tuto-1" class="tuto-text">
-            <p>Dans Flashback, tu voyages dans un souvenir. </p>
-            <p>
-                Chaque souvenir est une seconde précise figée dans le temps.
-            </p>
-            <p>
-                Tout ce que tu y vois appartient au passé.</p>
-            <p>Voici la première carte Histoire qui te permet de visiter le mini souvenir qui précède la grande
+            <?php echo $i18n[$lang]['text13'];?>
+            <?php echo $i18n[$lang]['text14'];?>
 
-                histoire.</p>
-            <button id="tuto-next-step1">Suivant</button>
+            <button id="tuto-next-step1"><?php echo $i18n[$lang]['next'];?></button>
         </div>
         <div id="text-tuto-2" class="tuto-text">
-            <p>Tu peux voir à travers les yeux d’un personnage, d’un zombie, d’un animal et même de certains objets!
-                </p>
-            <button id="tuto-next-step2"><a href="#card2">Suivant</a></button>
+            <?php echo $i18n[$lang]['text15'];?>
+            <button id="tuto-next-step2"><a href="#card2"><?php echo $i18n[$lang]['next'];?></a></button>
 
         </div>
         <div id="text-tuto-3" class="tuto-text">
-            <p>
-                Un point de vue correspond à un numéro de carte.</p>
-            <p>
-                Voyage d’un point de vue à un autre, parmi tous ceux que tu aperçois sur la carte.
-                Prends le temps de bien observer et de comprendre, sinon tu vas manquer des détails importants.
+            <?php echo $i18n[$lang]['text16'];?>
+            <?php echo $i18n[$lang]['text17'];?>
             </p>
-            <button id="tuto-next-step3"><a href="#card1">Suivant</a></button>
+            <button id="tuto-next-step3"><a href="#card1"><?php echo $i18n[$lang]['next'];?></a></button>
         </div>
         <div id="text-tuto-4" class="tuto-text">
-            <p>
-                Tu peux voyager parmi les cartes que tu as déjà retournées.
-            </p>
-            <button id="tuto-next-step4">Suivant</button>
+            <?php echo $i18n[$lang]['text18'];?>
+            <button id="tuto-next-step4"><?php echo $i18n[$lang]['next'];?></button>
         </div>
         <div id="text-tuto-5" class="tuto-text">
-            <p>
-                Débloque les mystères en repérant ces symboles sur les cartes Histoire.
-            </p>
-            <button id="tuto-next-step5"><a href="#question-list">Suivant</a></button>
+            <?php echo $i18n[$lang]['text19'];?>
+            <button id="tuto-next-step5"><a href="#question-list"><?php echo $i18n[$lang]['next'];?></a></button>
         </div>
         <div id="text-tuto-6" class="tuto-text">
-            <p>
-                Une fois les 3 cartes Spéciales débloquées, tu auras toutes les informations nécessaires pour
-                élucider le mystère! Tu peux néanmoins discuter et commencer à formuler des hypothèses avec
-                ton équipe si vous avez des idées.
-            </p>
-            <p>
-
-            Les cartes Spéciales sont disponibles à tout moment de la partie.
-            </p>
-            <p>
-                Tu as maintenant tout en main pour mener ta première enquête, alors, à toi de jouer ! .
-            </p>
+                <?php echo $i18n[$lang]['text20'];?>
+                <?php echo $i18n[$lang]['text21'];?>
+                <?php echo $i18n[$lang]['text22'];?>
             <button id="tuto-next-step6"><a href="#card1">Go !</a></button>
         </div>
     </div>
