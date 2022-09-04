@@ -41,20 +41,29 @@
 
   <meta name="theme-color" content="#fafafa">
 
-    <script src="js/bootstrap.bundle.min.js" ></script>
-
-
+    <script>
+        function togglelanguage(){
+            let elt = document.getElementById('lang-list');
+            elt.style.display= (elt.style.display == 'block')?'none':'block';
+        }
+    </script>
 </head>
 
 <body>
 <!-- ----------------------------------------------------------splash screen ------------------------------ -->
 <div class="splash">
+    <div class="lang-switch" >
+        <a  id="imageDropdown" onclick="togglelanguage()">
+            Language
+        </a>
+        <div id="lang-list" class="lang-list">
+            <a href="?lang=fr">fr</a>
+            <br/>
+            <a href="?lang=en">en</a>
+        </div>
 
-    <?php if( $lang === 'en'):?>
-    <a href="?lang=fr"><img class="lang-switch" src="img/index/lang_fr.png" alt="FR"></a>
-    <?php else:?>
-    <a href="?lang=en"><img class="lang-switch" src="img/index/lang_en.png" alt="EN"></a>
-    <?php endif;?>
+
+    </div>
 
     <img class="logo" src="img/index/logo_<?php echo $lang;?>.png" alt="logo FlashBack Zombie kidz" />
     <p>
@@ -133,6 +142,8 @@
 
     <img class="copyright" src="img/index/copyright.png" alt="Copyright &copy; 2022 - Le Scorpion Masqué"/>
 </div>
+
+
 </body>
 
 </html>

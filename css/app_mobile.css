@@ -47,7 +47,8 @@
     }
 
     #question-list .question-row .text-answer{
-        margin: 0;
+        margin: 0 auto;
+        width:85%;
     }
 
     #question-list .question-bottom{
