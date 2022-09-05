@@ -44,15 +44,13 @@
 <div class="splash">
     <div class="lang-switch" >
         <a  id="imageDropdown" onclick="togglelanguage()">
-            Language
+            <?php echo $lang;?>
         </a>
         <div id="lang-list" class="lang-list">
             <a href="?lang=fr">fr</a>
             <br/>
             <a href="?lang=en">en</a>
         </div>
-
-
     </div>
 
     <img class="logo" src="img/index/logo_<?php echo $lang;?>.png" alt="logo FlashBack Zombie kidz" />
