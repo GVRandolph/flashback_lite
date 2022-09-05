@@ -51,7 +51,7 @@ Dès novembre, découvre de vais gadgets qui modifient le jeu et rejoue chacun d
 "text15","<p>You can see what another character sees, whether it's
 a zombie, animal, or even some objects!</p>","<p>Tu peux voir à travers les yeux d’un personnage, d’un zombie, d’un animal et même de certains objets !</p>"
 ,,
-"text16","<p>A point of view <img src='./img/game/icon_pointofview'/> corresponds to a card number <img src='./img/game/icon_card_number'/>.</p>","<p>Un point de vue <img src='./img/game/icon_pointofview'/> correspond à un numéro de carte <img src='./img/game/icon_pointofview'/>.</p>"
+"text16","<p>A point of view <img src='./img/game/icon_pointofview.png'/> corresponds to a card number <img src='./img/game/icon_card_number.png'/>.</p>","<p>Un point de vue <img src='./img/game/icon_pointofview.png'/> correspond à un numéro de carte <img src='./img/game/icon_card_number.png'/>.</p>"
 "text17","<p>Travel from one point of view to another from all those you can see on the card.
 </p><p>Don't go too fast! Before
 flipping over a new card, take the time to observe and understand the scene, otherwise you may miss important details.</p>","<p>Voyage d’un point de vue à un autre, parmi tous ceux que tu aperçois sur la carte.</p><p>
@@ -59,7 +59,7 @@ Prends le temps de bien observer et de comprendre, sinon tu vas manquer des dét
 ,,
 "text18","<p>You can revisit cards you have already flipped over.</p>","<p>Tu peux voyager parmi les cartes que tu as déjà retournées.<p>"
 ,,
-"text19","<p>Unlock the Mysteries by finding these symbols <img src='./img/game/icon_mystery'/> on Story cards.</p>","<p>Débloque les Mystères en repérant ces symboles <img src='./img/game/icon_mystery'/>  sur les cartes Histoire. </p>"
+"text19","<p>Unlock the Mysteries by finding these symbols <img src='./img/game/icon_mystery.png'/> on Story cards.</p>","<p>Débloque les Mystères en repérant ces symboles <img src='./img/game/icon_mystery.png'/>  sur les cartes Histoire. </p>"
 "text20","<p>Once you have unlocked the 3 Special cards, you will have all the information you need to solve the mystery!
 However, you can still discuss and begin to formulate hypotheses with your team if you have any ideas. </p>","<p>Une fois les 3 cartes Spéciales débloquées, tu auras toutes les informations nécessaires pour élucider le mystère!
 Tu peux néanmoins discuter et commencer à formuler des hypothèses avec ton équipe si vous avez des idées. </p>"
