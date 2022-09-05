@@ -43,7 +43,12 @@ include('i18n.php');
 </head>
 
 <body>
+<div id="loader">
+    <div class="cube">
+        <div class="cursor"></div>
+    </div>
 
+</div>
 <div id="container">
 
     <!-- ----------------------------------------------------------MENU --------------------------------------- -->
@@ -588,6 +593,11 @@ include('i18n.php');
         window.location.hash = 'card1';
     }
 
+    /* -- loader */
+    var loader = $('loader');
+    window.addEventListener('load', function (){
+        loader.style.display = 'none';
+    })
 </script>
 </body>
 
