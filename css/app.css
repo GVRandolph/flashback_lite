@@ -27,6 +27,41 @@ body{
     height:100%;
     font-family: rajdhani;
 }
+#loader{
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    z-index: 20;
+    background: #aa21b3;
+    text-align: center;
+}
+#loader .cube{
+    transform: skewX(-10deg);
+    border: none;
+    display: inline-block;
+    position: relative;
+    top:45%;
+    width: 20%;
+    height: 30px;
+    border: 1px solid #ffdb55;
+    margin:2px;
+    overflow: hidden;
+}
+#loader .cube .cursor{
+    background-color: #ffdb55;
+    width:30px;
+    height:30px;
+    position:relative;
+    animation-name: cursormove;
+    animation-duration: 800ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+@keyframes cursormove {
+    0%{ left: 0; }
+    50%{ left: 100%; }
+    100%{left: 0;}
+}
 
 #container{
     height: 100%;
