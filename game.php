@@ -43,7 +43,7 @@ include('i18n.php');
 </head>
 
 <body>
-<div id="loader-">
+<div id="loader">
     <div class="cube">
         <div class="cursor"></div>
     </div>
