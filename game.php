@@ -225,12 +225,14 @@ include('i18n.php');
             <div class="col-0 col-md-2"></div>
             <div class="col-12 col-md-4">
                 <div class="question" id="question1" data-id="1" >
-                    <div class="flip-card-inner">
-                        <div class="flip-card-front">
-                            <img src="img/game/question1_<?php echo $lang;?>.jpg" alt="Quest ce qui a causé l'accident du kidz à vélo ?" />
-                        </div>
-                        <div class="flip-card-back">
-                            <img src="img/game/question1_bg.jpg" alt="background " />
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <img src="img/game/question1_bg.jpg" alt="background " />
+                            </div>
+                            <div class="flip-card-back">
+                                <img src="img/game/question1_<?php echo $lang;?>.jpg" alt="Quest ce qui a causé l'accident du kidz à vélo ?" />
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -248,12 +250,14 @@ include('i18n.php');
             <div class="col-0 col-md-2"></div>
             <div class="col-12 col-md-4">
                 <div class="question" id="question2" data-id="2">
-                    <div class="flip-card-inner">
-                        <div class="flip-card-front">
-                            <img src="img/game/question2_<?php echo $lang;?>.jpg" alt="7th card" >
-                        </div>
-                        <div class="flip-card-back">
-                            <img src="img/game/question2_bg.jpg" alt="7th card" >
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <img src="img/game/question2_bg.jpg" alt="background" >
+                            </div>
+                            <div class="flip-card-back">
+                                <img src="img/game/question2_<?php echo $lang;?>.jpg" alt="7th card" >
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -271,12 +275,14 @@ include('i18n.php');
             <div class="col-0 col-md-2"></div>
             <div class="col-12 col-md-4">
                 <div class="question" id="question3" data-id="3">
-                    <div class="flip-card-inner">
-                        <div class="flip-card-front">
-                            <img src="img/game/question3_<?php echo $lang;?>.jpg" alt="7th card" >
-                        </div>
-                        <div class="flip-card-back">
-                            <img src="img/game/question3_bg.jpg" alt="7th card" >
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <img src="img/game/question3_bg.jpg" alt="7th card" >
+                            </div>
+                            <div class="flip-card-back">
+                                <img src="img/game/question3_<?php echo $lang;?>.jpg" alt="7th card" >
+                            </div>
                         </div>
                     </div>
                 </div>
