@@ -43,7 +43,7 @@ include('i18n.php');
 </head>
 
 <body>
-<div id="loader">
+<div id="loader-">
     <div class="cube">
         <div class="cursor"></div>
     </div>
@@ -54,81 +54,99 @@ include('i18n.php');
     <!-- ----------------------------------------------------------MENU --------------------------------------- -->
     <div class="card-menu" id="left-menu">
         <a class="menu-item active selected" id="menu1" href="#card1">
-            <div class="flip-card-inner">
-                <div class="flip-card-front">
-                    <img src="img/game/p-01color.jpg" alt="First card" >
-                </div>
-                <div class="flip-card-back">
-                    <img src="img/game/card-background-1.jpg" alt="First card" >
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="img/game/card-background-1.jpg" alt="First card" >
+                    </div>
+                    <div class="flip-card-back">
+                        <img src="img/game/p-01color.jpg" alt="First card" >
+                    </div>
                 </div>
             </div>
         </a>
         <a class="menu-item" id="menu2" href="#card2" >
-            <div class="flip-card-inner">
-                <div class="flip-card-front">
-                    <img src="img/game/p-02color.jpg" alt="2nd card" >
-                </div>
-                <div class="flip-card-back">
-                    <img src="img/game/card-background-2.jpg" alt="2nd card" >
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="img/game/card-background-2.jpg" alt="2nd card" >
+                    </div>
+                    <div class="flip-card-back">
+                        <img src="img/game/p-02color.jpg" alt="2nd card" >
+                    </div>
                 </div>
             </div>
         </a>
         <a class="menu-item" id="menu3" href="#card3">
-            <div class="flip-card-inner">
-                <div class="flip-card-front">
-                    <img src="img/game/p-03color.jpg" alt="3rd card" >
-                </div>
-                <div class="flip-card-back">
-                    <img src="img/game/card-background-3.jpg" alt="3rd card" >
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="img/game/card-background-3.jpg" alt="3rd card" >
+                    </div>
+                    <div class="flip-card-back">
+                        <img src="img/game/p-03color.jpg" alt="3rd card" >
+                    </div>
                 </div>
             </div>
         </a>
         <a class="menu-item"  id="menu4" href="#card4">
-            <div class="flip-card-inner">
-                <div class="flip-card-front">
-                    <img src="img/game/p-04color.jpg" alt="4th card" >
-                </div>
-                <div class="flip-card-back">
-                    <img src="img/game/card-background-4.jpg" alt="4th card" >
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="img/game/card-background-4.jpg" alt="4th card" >
+                    </div>
+                    <div class="flip-card-back">
+                        <img src="img/game/p-04color.jpg" alt="4th card" >
+                    </div>
                 </div>
             </div>
         </a>
         <a class="menu-item" id="menu5" href="#card5">
-            <div class="flip-card-inner">
-                <div class="flip-card-front">
-                    <img src="img/game/p-05color.jpg" alt="5th card" >
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+
+                        <img src="img/game/card-background-5.jpg" alt="5th card" >
+                    </div>
+                    <div class="flip-card-back">
+                        <img src="img/game/p-05color.jpg" alt="5th card" >
+                    </div>
                 </div>
-                <div class="flip-card-back">
-                    <img src="img/game/card-background-5.jpg" alt="5th card" >
-                </div>
-            </div>    </a>
+            </div>
+        </a>
         <a class="menu-item" id="menu6" href="#card6">
-            <div class="flip-card-inner">
-                <div class="flip-card-front">
-                    <img src="img/game/p-06color.jpg" alt="6th card" >
-                </div>
-                <div class="flip-card-back">
-                    <img src="img/game/card-background-6.jpg" alt="6th card" >
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="img/game/card-background-6.jpg" alt="6th card" >
+                    </div>
+                    <div class="flip-card-back">
+                        <img src="img/game/p-06color.jpg" alt="6th card" >
+                    </div>
                 </div>
             </div>
         </a>
         <a class="menu-item" id="menu7" href="#card7">
-            <div class="flip-card-inner">
-                <div class="flip-card-front">
-                    <img src="img/game/p-07color.jpg" alt="7th card" >
-                </div>
-                <div class="flip-card-back">
-                    <img src="img/game/card-background-7.jpg" alt="7th card" >
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="img/game/card-background-7.jpg" alt="7th card" >
+                    </div>
+                    <div class="flip-card-back">
+                        <img src="img/game/p-07color.jpg" alt="7th card" >
+                    </div>
                 </div>
             </div>
         </a>
         <a class="menu-item" id="menu8" href="#question-list">
-            <div class="flip-card-inner">
-                <div class="flip-card-front">
-                    <img src="img/game/card-background.jpg" alt="7th card" >
-                </div>
-                <div class="flip-card-back">
-                    <img src="img/game/card-background.jpg" alt="7th card" >
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="img/game/card-background.jpg" alt="7th card" >
+                    </div>
+                    <div class="flip-card-back">
+                        <img src="img/game/card-background.jpg" alt="7th card" >
+                    </div>
                 </div>
             </div>
         </a>
