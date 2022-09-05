@@ -397,7 +397,11 @@ body{
     margin: 0.2em;
 }
 
+.tuto-text img{
+    height: 35px;
+    margin: 3px;
+}
 
-/* game end button */
+    /* game end button */
 #game-end{ display: none; }
 #game-end.active{ display: inline;}
