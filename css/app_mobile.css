@@ -34,8 +34,18 @@
         overflow: auto;
     }
 
+    #question-list .flip-card {
+        width: 150px;
+        height: 100px;
+    }
+
     #question-list .question{
         border-radius: 15px;
+        width:150px;
+        height: 100px;
+    }
+
+    #question-list .question img{
         width:150px;
         height: 100px;
     }
