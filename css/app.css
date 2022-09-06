@@ -99,6 +99,10 @@ body{
 
 }
 
+.card-menu .menu-item.selected{
+    border: 2px solid #ffdb55;
+}
+
 .card-menu .menu-item.active{
     pointer-events: all;
 }
@@ -160,12 +164,7 @@ body{
 }
 
 #mb-fullscreen{
-    display: block;
-    position: fixed;
-    top: 66px;
-    left: 2px;
-
-    z-index: 11;
+    display: none; /* display only for vertical devices*/
 }
 #mb-fullscreen img{
     height: 18px;
@@ -204,6 +203,14 @@ body{
         left:0;
         width: 100%;
         display: inline-block;
+    }
+
+    #mb-fullscreen{
+        display: block;
+        position: fixed;
+        top: 500px;
+        left: 2px;
+        z-index: 11;
     }
 }
 @media (min-aspect-ratio: 4/3) {
