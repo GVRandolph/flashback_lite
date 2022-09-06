@@ -582,13 +582,7 @@ include('i18n.php');
         let id = questionTarget.getAttribute('data-id');
         $('button-answer'+id).addEventListener('click', showAnswer ); // activate the button
 
-        let show = 0;
-        for(let i=0;i<$questionCards.length;i++) {
-            show += ($questionCards[i].classList.contains('active'))?1:0;
-        }
-        if(show>=3) {
-            $('game-end').classList.add('active');
-        }
+        checkEndGame();
     }
 
     function showAnswer(){
@@ -608,6 +602,20 @@ include('i18n.php');
             }
         }
         window.location.hash = pieceId;
+        checkEndGame();
+    }
+
+    function checkEndGame(){
+        let show = 0;
+        for(let i=0;i<$questionCards.length;i++) {
+            show += ($questionCards[i].classList.contains('active'))?1:0;
+        }
+        for(let i=0;i<$menupieces.length;i++) {
+            show += ($menupieces[i].classList.contains('active'))?1:0;
+        }
+        if(show>=11) {
+            $('game-end').classList.add('active');
+        }
     }
 
     // remove all active menus, questions and go back to card 1
