@@ -33,7 +33,9 @@
         max-height: 30%;
         overflow: auto;
     }
-
+    .tuto-text img{
+        height: 20px;
+    }
     #question-list .flip-card {
         width: 150px;
         height: 100px;
