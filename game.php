@@ -165,7 +165,7 @@ include('i18n.php');
             <img src="img/game/intro_<?php echo $lang;?>.jpg" class="image" />
             <a id="intro-play" class="hiddenbutton" href="#card1" style="position: absolute; left:20%; top:77%; width:27%; height:18%;"> </a>
             <div id="mb-fullscreen">
-                <span class="yellow" style="display: -none;"><?php echo $i18n[$lang]['text12'];?></span>
+                <span class="yellow" ><?php echo $i18n[$lang]['text12'];?></span>
             </div>
         </div>
 
