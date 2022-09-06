@@ -328,34 +328,43 @@ include('i18n.php');
 
         <div id="text-tuto-1" class="tuto-text">
             <?php echo $i18n[$lang]['text13'];?>
-            <?php echo $i18n[$lang]['text14'];?>
-
             <button id="tuto-next-step1"><?php echo $i18n[$lang]['next'];?></button>
         </div>
         <div id="text-tuto-2" class="tuto-text">
-            <?php echo $i18n[$lang]['text15'];?>
-            <button id="tuto-next-step2"><a href="#card2"><?php echo $i18n[$lang]['next'];?></a></button>
-
+            <?php echo $i18n[$lang]['text14'];?>
+            <button id="tuto-next-step2"><?php echo $i18n[$lang]['next'];?></button>
         </div>
         <div id="text-tuto-3" class="tuto-text">
-            <?php echo $i18n[$lang]['text16'];?>
-            <?php echo $i18n[$lang]['text17'];?>
-            </p>
-            <button id="tuto-next-step3"><a href="#card1"><?php echo $i18n[$lang]['next'];?></a></button>
+            <?php echo $i18n[$lang]['text15'];?>
+            <button id="tuto-next-step3"><?php echo $i18n[$lang]['next'];?></button>
         </div>
         <div id="text-tuto-4" class="tuto-text">
-            <?php echo $i18n[$lang]['text18'];?>
+            <?php echo $i18n[$lang]['text16'];?>
             <button id="tuto-next-step4"><?php echo $i18n[$lang]['next'];?></button>
         </div>
         <div id="text-tuto-5" class="tuto-text">
-            <?php echo $i18n[$lang]['text19'];?>
-            <button id="tuto-next-step5"><a href="#question-list"><?php echo $i18n[$lang]['next'];?></a></button>
+            <?php echo $i18n[$lang]['text17'];?>
+            <button id="tuto-next-step5"><?php echo $i18n[$lang]['next'];?></button>
         </div>
         <div id="text-tuto-6" class="tuto-text">
-                <?php echo $i18n[$lang]['text20'];?>
-                <?php echo $i18n[$lang]['text21'];?>
-                <?php echo $i18n[$lang]['text22'];?>
-            <button id="tuto-next-step6"><a href="#card1">Go !</a></button>
+            <?php echo $i18n[$lang]['text18'];?>
+            <button id="tuto-next-step6"><?php echo $i18n[$lang]['next'];?></button>
+        </div>
+        <div id="text-tuto-7" class="tuto-text">
+            <?php echo $i18n[$lang]['text19'];?>
+            <button id="tuto-next-step7"><?php echo $i18n[$lang]['next'];?></button>
+        </div>
+        <div id="text-tuto-8" class="tuto-text">
+            <?php echo $i18n[$lang]['text20'];?>
+            <button id="tuto-next-step8"><?php echo $i18n[$lang]['next'];?></button>
+        </div>
+        <div id="text-tuto-9" class="tuto-text">
+            <?php echo $i18n[$lang]['text21'];?>
+            <button id="tuto-next-step9"><?php echo $i18n[$lang]['next'];?></button>
+        </div>
+        <div id="text-tuto-10" class="tuto-text">
+            <?php echo $i18n[$lang]['text22'];?>
+            <button id="tuto-next-step10"><a href="#card1">Go !</a></button>
         </div>
     </div>
 </div>
@@ -453,7 +462,6 @@ include('i18n.php');
 
         // tuto positionning
         // tuto step 1
-
         $('intro-play').addEventListener('click',function(){
             activatePiece('card1');
             $('grey-overlay').style.display = 'none';
@@ -461,53 +469,68 @@ include('i18n.php');
             showTutotext($('text-tuto-1'));
         });
 
-        // tuto step 2
+        // tuto step 1
         $('tuto-next-step1').addEventListener('click',function(){
-            magnify($('hint-doghead-anchor'),0);
             showTutotext($('text-tuto-2'));
         });
 
-        // tuto step 3
+        // tuto step 2
         $('tuto-next-step2').addEventListener('click',function(){
+            magnify($('hint-doghead-anchor'),0);
             showTutotext($('text-tuto-3'));
-            activatePiece('card2');
-            $firstpuzzlepiece.classList.remove('first-selected'); //remove first selected
+        });
 
+        // tuto step 3
+        $('tuto-next-step3').addEventListener('click',function(){
+            showTutotext($('text-tuto-4'));
+            activatePiece('card2');
             $('card2').classList.add('active');
             $('menu2').classList.add('active');
             $('card2').classList.add('selected');
             magnify($('hint-boyhead-anchor'),0);
-
         });
 
         // tuto step 4
-        $('tuto-next-step3').addEventListener('click',function(){
-            showTutotext($('text-tuto-4'));
-            rotoMagnify($('menu5'),$('menu1'));
+        $('tuto-next-step4').addEventListener('click',function(){
+            showTutotext($('text-tuto-5'));
         });
 
         // tuto step 5
-        $('tuto-next-step4').addEventListener('click',function(){
-            showTutotext($('text-tuto-5'));
-            magnify($('hint-question1-anchor'),0);
-        });
-
-        // tuto step 6
         $('tuto-next-step5').addEventListener('click',function(){
-            activateQuestion($('question1'),0);
             showTutotext($('text-tuto-6'));
-            $('hint-magnifier').style.display='none';
-
+            rotoMagnify($('menu5'),$('menu1'));
         });
 
         // tuto step 6
         $('tuto-next-step6').addEventListener('click',function(){
+            showTutotext($('text-tuto-7'));
+            activatePiece('card1');
+            magnify($('hint-question1-anchor'),0);
+        });
+
+        // tuto step 7
+        $('tuto-next-step7').addEventListener('click',function(){
+            activatePiece('question-list');
+            activateQuestion($('question1'),0);
+            showTutotext($('text-tuto-8'));
+            $('hint-magnifier').style.display='none';
+        });
+        // tuto step 8
+        $('tuto-next-step8').addEventListener('click',function(){
+            showTutotext($('text-tuto-9'));
+        });
+        // tuto step 9
+        $('tuto-next-step9').addEventListener('click',function(){
+            showTutotext($('text-tuto-10'));
+        });
+
+        // tuto step 10
+        $('tuto-next-step10').addEventListener('click',function(){
             $('hint-magnifier').style.display='none';
             $('texts-tuto').remove();
 
             // go to first piece
             resetGame();
-            this.remove();
         });
 
     });
@@ -517,7 +540,6 @@ include('i18n.php');
 
         if(linkpos.height==0 && attempt < 10 ){
             attempt++;
-            console.log(attempt);
             setTimeout( magnify , 100, hintTarget, attempt);
             return;
         }
@@ -577,7 +599,6 @@ include('i18n.php');
 
     function activatePiece( pieceId ){
         for (let i = 0; i < $menupieces.length; i++) {
-
             if (pieceId == $menupieces[i].getAttribute('href')) {
                 $menupieces[i].classList.add('active');
                 for (let j = 0; j < $menupieces.length; j++) {
@@ -586,6 +607,7 @@ include('i18n.php');
                 $menupieces[i].classList.add('selected');
             }
         }
+        window.location.hash = pieceId;
     }
 
     // remove all active menus, questions and go back to card 1
