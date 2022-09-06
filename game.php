@@ -213,7 +213,7 @@ include('i18n.php');
             <img src="img/game/endgame_<?php echo $lang;?>.png" class="image" />
             <a id="close" class="hiddenbutton" href="#question-list" style="position: absolute; right: 0; top: 0; width: 15%; height:15%;"> </a>
             <a id="replay" class="hiddenbutton" style="position: absolute; left:49%; top:75%; width: 19%; height:10%;"> </a>
-            <a id="go" class="hiddenbutton" target="_blank" href="https://www.scorpionmasque.com/fr/zombie-kidz-%C3%A9volution" style="position: absolute; left:69%; top:75%; width: 19%; height:10%;"> </a>
+            <a id="learnmore" class="hiddenbutton" href="https://www.scorpionmasque.com/FlashbackZK" style="position: absolute; left:69%; top:75%; width: 19%; height:10%;"> </a>
         </div>
 
     </div>

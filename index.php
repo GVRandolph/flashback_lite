@@ -61,7 +61,7 @@
             </a>
         </button>
         <button>
-            <a href="https://www.scorpionmasque.com/fr/zombie-kidz-%C3%A9volution">
+            <a href="https://www.scorpionmasque.com/FlashbackZK">
                 <?php echo $i18n[$lang]['learnmore'];?>
             </a>
         </button>
@@ -114,7 +114,7 @@
         </a>
     </button>
     <button>
-        <a href="https://www.scorpionmasque.com/fr/zombie-kidz-%C3%A9volution">
+        <a href="https://www.scorpionmasque.com/FlashbackZK">
             <?php echo $i18n[$lang]['learnmore'];?>
         </a>
     </button>
