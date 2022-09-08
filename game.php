@@ -486,6 +486,8 @@ include('i18n.php');
             activatePiece('card2');
             $('card2').classList.add('active');
             $('menu2').classList.add('active');
+            $('menu1').classList.remove('selected');
+            $('menu2').classList.add('selected');
             $('card2').classList.add('selected');
             magnify($('hint-boyhead-anchor'),0);
         });
@@ -505,12 +507,16 @@ include('i18n.php');
         $('tuto-next-step6').addEventListener('click',function(){
             showTutotext($('text-tuto-7'));
             activatePiece('card1');
+            $('menu1').classList.add('selected');
+            $('menu2').classList.remove('selected');
             magnify($('hint-question1-anchor'),0);
         });
 
         // tuto step 7
         $('tuto-next-step7').addEventListener('click',function(){
             activatePiece('question-list');
+            $('menu1').classList.remove('selected');
+            $('menu8').classList.add('selected');
             activateQuestion($('question1'),0);
             showTutotext($('text-tuto-8'));
             $('hint-magnifier').style.display='none';
