@@ -107,6 +107,25 @@ body{
     pointer-events: all;
 }
 
+#menu8{
+    position:relative;
+}
+
+#menu8.endgame::after{
+    content: 'i';
+    width: 20px;
+    border-radius: 10px;
+
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    font-weight: bolder;
+    background: red;
+    color:white;
+    line-height: 20px;
+
+}
+
 .flip-card {
     background-color: transparent;
     width: 64px;

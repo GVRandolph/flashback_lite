@@ -621,6 +621,7 @@ include('i18n.php');
         }
         if(show>=11) {
             $('game-end').classList.add('active');
+            $('menu8').classList.add('endgame');
         }
     }
 
@@ -650,6 +651,8 @@ include('i18n.php');
         $('game-end').classList.remove = 'active';
         $('menu1').classList.add('selected');
         $('menu1').classList.add('active');
+        $('menu8').classList.remove('endgame');
+
         window.location.hash = 'card1';
     }
 
