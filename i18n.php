@@ -13,10 +13,22 @@ for($i=0;$i<100;$i++){
     }
 }
 
+//set default current language
+$lang = 'en';
+
+// set current language via $_SERVER accept language
+if(!empty($_SERVER['HTTP_ACCEPT_LANGUAGE'])){
+    switch (substr($_SERVER['HTTP_ACCEPT_LANGUAGE'],0,2)){
+        case 'fr':
+            $lang = 'fr';
+            break;
+        default:
+            $lang = 'en';
+    }
+}
+
 // set current language via $_SESSION
-if(empty($_SESSION['lang'])){
-    $lang = 'en';
-}else{
+if(!empty($_SESSION['lang'])){
     switch ($_SESSION['lang']){
         case 'fr':
             $lang = 'fr';
