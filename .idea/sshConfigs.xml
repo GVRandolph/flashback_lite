@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SshConfigs">
+    <configs>
+      <sshConfig host="mack.vincentdemers.info" id="08d3da79-7f82-4807-b569-582669256249" keyPath="D:\documents\randolph\scorpionmasque.ppk" port="22333" nameFormat="DESCRIPTIVE" username="scorpionmasque" />
+    </configs>
+  </component>
+</project>

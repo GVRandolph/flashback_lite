@@ -52,7 +52,7 @@ include('i18n.php');
 <div id="container">
 
     <!-- ----------------------------------------------------------MENU --------------------------------------- -->
-    <div class="card-menu" id="left-menu">
+    <div class="card-menu" id="card-menu">
         <a class="menu-item active selected" id="menu1" href="#card1">
             <div class="flip-card">
                 <div class="flip-card-inner">
@@ -220,7 +220,18 @@ include('i18n.php');
 
     <!-- ------------------------------------- QUESTION page --------------------------------------------------------->
     <div id="question-list" class="puzzlepiece" >
-
+        <div class="row question-bottom">
+            <div class="col-6">
+                <button id="back" onclick="window.history.back()">
+                    &larr; <?php echo $i18n[$lang]['back'];?>
+                </button>
+            </div>
+            <div class="col-6">
+                <button id="game-end" >
+                    <?php echo $i18n[$lang]['endofgame'];?>
+                </button>
+            </div>
+        </div>
         <div class="row question-row">
             <div class="col-0 col-md-2"></div>
             <div class="col-12 col-md-4">
@@ -298,18 +309,7 @@ include('i18n.php');
             <div class="col-md-1"></div>
         </div>
 
-        <div class="row question-bottom">
-            <div class="col-6">
-                <button id="back" onclick="window.history.back()">
-                    &larr; <?php echo $i18n[$lang]['back'];?>
-                </button>
-            </div>
-            <div class="col-6">
-                <button id="game-end" >
-                    <?php echo $i18n[$lang]['endofgame'];?>
-                </button>
-            </div>
-        </div>
+
 
     </div>
     <!-- ---------------------------------------end quesetion page---------------------------------------------------->
@@ -396,7 +396,7 @@ include('i18n.php');
     document.addEventListener("DOMContentLoaded", function() {
 
         // initiate dom elements
-        $menupieces = $_s('#left-menu .menu-item');
+        $menupieces = $_s('#card-menu .menu-item');
         $puzzlepieces = $_s('#canvas .puzzlepiece');
         $firstpuzzlepiece = $_('#canvas .puzzlepiece.first-selected');
         $hiddenbuttons = $_s('.hiddenbutton');
@@ -429,6 +429,7 @@ include('i18n.php');
                     $menupieces[i].classList.remove('selected');
                 }
                 this.classList.add('selected');
+                this.classList.add('active');
             });
         }
 

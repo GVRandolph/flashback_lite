@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="df04ac6c-b750-47cb-a706-92d9c01d5a93" name="elyoukey" url="http://ftp.phpnet.org">
+        <fileTransfer rootFolder="/www/randolph/flashback_lite" host="ftp.phpnet.org" port="21">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+      <webServer id="7e0024bd-e8a8-41e5-a428-4eb2157d4c4c" name="Scorpion masqué">
+        <fileTransfer rootFolder="/home/scorpionmasque/public_html/Flashback" accessType="SFTP" host="mack.vincentdemers.info" port="22333" sshConfigId="08d3da79-7f82-4807-b569-582669256249" sshConfig="scorpionmasque@mack.vincentdemers.info:22333 key" keyPair="true">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
