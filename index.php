@@ -125,7 +125,7 @@
         <a href="https://www.instagram.com/scorpionmasque/" target="_blank" class=" insta"      >Instagram</a>
         <a href="https://twitter.com/Scorpionmasque"        target="_blank" class=" twitter"    >Twitter</a>
         <a href="https://www.facebook.com/scorpionmasque"   target="_blank" class=" facebook"   >Facebook</a>
-        <a href="https://www.youtube.com/scorpionmasque"    target="_blank" class=" youtube"    >Youtube</a>
+        <a href="https://www.youtube.com/user/LeScorpionmasque"    target="_blank" class=" youtube"    >Youtube</a>
     </div>
 
     <img class="copyright" src="img/index/copyright.png" alt="Copyright &copy; 2022 - Le Scorpion Masqué"/>
