@@ -50,6 +50,8 @@
             <a href="?lang=fr">fr</a>
             <br/>
             <a href="?lang=en">en</a>
+            <br/>
+            <a href="?lang=de">de</a>
         </div>
     </div>
 

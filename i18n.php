@@ -22,6 +22,9 @@ if(!empty($_SERVER['HTTP_ACCEPT_LANGUAGE'])){
         case 'fr':
             $lang = 'fr';
             break;
+        case 'de':
+            $lang = 'de';
+            break;
         default:
             $lang = 'en';
     }
@@ -33,6 +36,9 @@ if(!empty($_SESSION['lang'])){
         case 'fr':
             $lang = 'fr';
             break;
+        case 'de':
+            $lang = 'de';
+            break;
         default:
             $lang = 'en';
     }
@@ -43,6 +49,9 @@ if(!empty($_GET['lang'])){
     switch ($_GET['lang']){
         case 'fr':
             $lang = 'fr';
+            break;
+        case 'de':
+            $lang = 'de';
             break;
         default:
             $lang = 'en';
