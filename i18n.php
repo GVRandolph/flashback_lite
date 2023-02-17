@@ -2,7 +2,7 @@
 $t = fopen('./Flashback_ZK_app_loc_sheet.csv','r');
 
 // langcode
-$row = fgetcsv($t);
+/*$row = fgetcsv($t);
 foreach ($row as $code){
         $langs[] = $code;
 }
@@ -10,6 +10,23 @@ for($i=0;$i<100;$i++){
     $row = fgetcsv($t);
     foreach( $langs as $j => $code){
         $i18n[$code][$row[0]] = $row[$j];
+    }
+}*/
+$row = fgetcsv($t);
+foreach ($row as $code) {
+    $langs[] = $code;
+}
+for ($i = 0; $i < 100; $i++) {
+    $row = fgetcsv($t);
+    if ($row !== false) {
+        // check if the array key exists before accessing it
+        foreach ($langs as $j => $code) {
+            if (isset($row[$j]) && isset($row[0])) {
+                $i18n[$code][$row[0]] = $row[$j];
+            }
+        }
+    } else {
+        // handle end of file or other error
     }
 }
 
