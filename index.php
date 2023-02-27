@@ -63,7 +63,7 @@
             </a>
         </button>
         <button>
-            <a href="https://www.scorpionmasque.com/FlashbackZK">
+            <a <?php echo $i18n[$lang]['urllearnmore'];?>>
                 <?php echo $i18n[$lang]['learnmore'];?>
             </a>
         </button>
