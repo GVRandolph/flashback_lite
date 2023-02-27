@@ -190,7 +190,7 @@ include('i18n.php');
         </div>
         <div class="puzzlepiece " id="card3"  >
             <img src="img/game/p-03color.jpg"  class="image" />
-            <a id="card3-visiere" class="hiddenbutton" href="#card5" style="position: absolute; left: 41%; top: 58%; width: 15%; height: 9%; "> </a>
+            <a id="card3-visiere" class="hiddenbutton" href="#card5" style="position: absolute; left: 49%; top: 49%; width: 16%; height: 9%; "> </a>
         </div>
         <div class="puzzlepiece " id="card4"  >
             <img src="img/game/p-04color.jpg" class="image" />
